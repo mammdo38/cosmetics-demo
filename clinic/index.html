@@ -1,68 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Medical Clinic Demo Showcase | Under Construction</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>دموی کلینیک و مراکز درمانی | در حال آماده‌سازی</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
+    @font-face {
+      font-family: 'IRANYekan';
+      src: url('../fonts/iranyekan/iranyekanwebregular.woff') format('woff');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'IRANYekan';
+      src: url('../fonts/iranyekan/iranyekanwebbold.woff') format('woff');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
     :root {
       --bg-dark: #070b14;
-      --card-bg: rgba(15, 23, 42, 0.7);
-      --border-color: rgba(56, 189, 248, 0.15);
+      --card-bg: rgba(15, 23, 42, 0.75);
+      --border-color: rgba(56, 189, 248, 0.2);
       --accent-cyan: #38bdf8;
       --accent-teal: #14b8a6;
       --text-main: #f1f5f9;
       --text-muted: #94a3b8;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       background-color: var(--bg-dark);
       background-image: 
-        radial-gradient(at 15% 15%, rgba(56, 189, 248, 0.12) 0px, transparent 50%),
-        radial-gradient(at 85% 85%, rgba(20, 184, 166, 0.12) 0px, transparent 50%),
-        radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.8) 0%, transparent 100%);
+        radial-gradient(at 15% 15%, rgba(56, 189, 248, 0.15) 0px, transparent 50%),
+        radial-gradient(at 85% 85%, rgba(20, 184, 166, 0.12) 0px, transparent 50%);
       color: var(--text-main);
-      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      font-family: 'IRANYekan', 'Vazirmatn', system-ui, sans-serif;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       padding: 24px;
-      position: relative;
-      overflow-x: hidden;
+      direction: rtl;
+      text-align: center;
     }
 
     .container {
-      max-width: 600px;
+      max-width: 620px;
       width: 100%;
       background: var(--card-bg);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
       border: 1px solid var(--border-color);
-      border-radius: 24px;
+      border-radius: 26px;
       padding: 48px 36px;
-      text-align: center;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 40px rgba(56, 189, 248, 0.08);
-      position: relative;
-      z-index: 10;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6), 0 0 40px rgba(56, 189, 248, 0.1);
     }
 
     .icon-wrapper {
       width: 80px;
       height: 80px;
       margin: 0 auto 24px;
-      background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(20, 184, 166, 0.25));
-      border: 1px solid rgba(56, 189, 248, 0.3);
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.18), rgba(20, 184, 166, 0.25));
+      border: 1px solid rgba(56, 189, 248, 0.35);
       border-radius: 20px;
       display: flex;
       align-items: center;
@@ -70,22 +77,16 @@
       box-shadow: 0 0 25px rgba(56, 189, 248, 0.2);
     }
 
-    .icon-wrapper svg {
-      width: 40px;
-      height: 40px;
-      stroke: var(--accent-cyan);
-    }
+    .icon-wrapper svg { width: 40px; height: 40px; stroke: var(--accent-cyan); }
 
     .badge {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 6px 14px;
+      gap: 7px;
+      padding: 6px 16px;
       border-radius: 9999px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
+      font-size: 0.85rem;
+      font-weight: 700;
       background: rgba(56, 189, 248, 0.1);
       color: var(--accent-cyan);
       border: 1px solid rgba(56, 189, 248, 0.25);
@@ -93,8 +94,8 @@
     }
 
     .badge-dot {
-      width: 7px;
-      height: 7px;
+      width: 8px;
+      height: 8px;
       background-color: var(--accent-cyan);
       border-radius: 50%;
       box-shadow: 0 0 8px var(--accent-cyan);
@@ -107,21 +108,18 @@
     }
 
     h1 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 2rem;
-      font-weight: 700;
-      line-height: 1.25;
+      font-size: 1.85rem;
+      font-weight: 800;
+      line-height: 1.4;
       margin-bottom: 14px;
-      background: linear-gradient(to right, #ffffff, #cbd5e1);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: #fff;
     }
 
     p {
       color: var(--text-muted);
       font-size: 1rem;
-      line-height: 1.6;
-      margin-bottom: 32px;
+      line-height: 1.8;
+      margin-bottom: 30px;
     }
 
     .features-list {
@@ -133,8 +131,8 @@
     }
 
     .feature-tag {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.09);
       padding: 6px 14px;
       border-radius: 8px;
       font-size: 0.85rem;
@@ -148,29 +146,21 @@
       background: linear-gradient(135deg, #0284c7, #0d9488);
       color: #ffffff;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 700;
       font-size: 0.95rem;
-      padding: 12px 28px;
-      border-radius: 12px;
+      padding: 13px 30px;
+      border-radius: 14px;
       transition: all 0.25s ease;
-      box-shadow: 0 10px 25px -5px rgba(2, 132, 199, 0.35);
+      box-shadow: 0 10px 25px -5px rgba(2, 132, 199, 0.4);
     }
 
     .btn-back:hover {
       transform: translateY(-2px);
-      box-shadow: 0 15px 30px -5px rgba(2, 132, 199, 0.5);
-      background: linear-gradient(135deg, #0369a1, #0f766e);
+      box-shadow: 0 15px 30px -5px rgba(2, 132, 199, 0.55);
     }
 
-    .btn-back svg {
-      width: 18px;
-      height: 18px;
-      transition: transform 0.2s ease;
-    }
-
-    .btn-back:hover svg {
-      transform: translateX(-3px);
-    }
+    .btn-back svg { width: 18px; height: 18px; transition: transform 0.2s ease; }
+    .btn-back:hover svg { transform: translateX(3px); }
 
     footer {
       margin-top: 32px;
@@ -189,29 +179,29 @@
 
     <div class="badge">
       <span class="badge-dot"></span>
-      In Development
+      در حال توسعه و طراحی نهایی
     </div>
 
-    <h1>Clinic & Healthcare Demo</h1>
-    <p>We are architecting a specialized booking, patient portal, and medical services experience tailored for modern healthcare centers and dental clinics.</p>
+    <h1>دموی کلینیک و مراکز درمانی تخصصی</h1>
+    <p>در حال پیاده‌سازی سامانه یکپارچه رزرواسیون آنلاین نوبت، معرفی تیم پزشکان و جراحان، کاتالوگ خدمات درمانی و زیبایی همراه با ارتباط مستقیم با منشی کلینیک هستیم.</p>
 
     <div class="features-list">
-      <span class="feature-tag">✦ Automated Doctor Booking</span>
-      <span class="feature-tag">✦ Treatment Pricing Estimator</span>
-      <span class="feature-tag">✦ HIPAA Compliant Flow</span>
-      <span class="feature-tag">✦ Multi-doctor Rosters</span>
+      <span class="feature-tag">✦ سیستم نوبت‌دهی خودکار</span>
+      <span class="feature-tag">✦ محاسبه‌گر آنلاین تعرفه‌ها</span>
+      <span class="feature-tag">✦ پنل رزرو پزشکان</span>
+      <span class="feature-tag">✦ ثبت نوبت در واتساپ</span>
     </div>
 
     <a href="/" class="btn-back">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
       </svg>
-      Back to Portfolio Hub
+      بازگشت به صفحه اصلی پورتفولیو
     </a>
   </div>
 
   <footer>
-    &copy; Scail Studio. Next-Generation Industry Web Solutions.
+    &copy; استودیو اسکیل | راهکارهای نرم‌افزاری و وب تخصصی اصناف
   </footer>
 </body>
 </html>

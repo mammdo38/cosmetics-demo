@@ -1,32 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scail Studio | High-Performance Industry Client Showcases</title>
-  <meta name="description" content="Explore bespoke, high-conversion web solutions tailored for luxury cosmetics, medical clinics, automotive dealerships, and premium real estate.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>استودیو اسکیل | معماری و توسعه راهکارهای دیجیتال و وب‌سایت‌های صنفی</title>
+  <meta name="description" content="استودیو اسکیل (Scail Studio)؛ توسعه‌دهنده پلتفرم‌های مدرن وب، فروشگاه‌های نسل جدید و سیستم‌های نوبت‌دهی آنلاین با بالاترین نرخ تبدیل برای کسب‌وکارهای لوکس.">
   
+  <!-- فونت وزیرمتن و فونت‌های فارسی -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   
   <style>
+    /* فونت ایران‌یکان محلی */
+    @font-face {
+      font-family: 'IRANYekan';
+      src: url('./fonts/iranyekan/iranyekanwebregular.woff') format('woff');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'IRANYekan';
+      src: url('./fonts/iranyekan/iranyekanwebbold.woff') format('woff');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'IRANYekan';
+      src: url('./fonts/iranyekan/iranyekanwebextrabold.woff') format('woff');
+      font-weight: 800;
+      font-style: normal;
+      font-display: swap;
+    }
+
     :root {
-      --bg-base: #0b1020;
-      --bg-surface: #11182c;
-      --card-bg: rgba(17, 24, 44, 0.75);
-      --card-border: rgba(255, 255, 255, 0.09);
-      --card-hover-border: rgba(99, 102, 241, 0.4);
+      --bg-dark: #080d1a;
+      --bg-card: rgba(15, 23, 42, 0.72);
+      --bg-card-hover: rgba(22, 34, 62, 0.85);
+      --border-card: rgba(255, 255, 255, 0.08);
+      --border-card-hover: rgba(99, 102, 241, 0.45);
       --primary: #6366f1;
-      --primary-light: #818cf8;
-      --pink: #ec4899;
-      --cyan: #06b6d4;
-      --amber: #f59e0b;
-      --purple: #a855f7;
-      --emerald: #10b981;
+      --primary-glow: rgba(99, 102, 241, 0.3);
+      --accent-cosmetics: #f43f5e;
+      --accent-clinic: #06b6d4;
+      --accent-auto: #f59e0b;
+      --accent-realestate: #8b5cf6;
       --text-main: #f8fafc;
       --text-sub: #94a3b8;
       --text-muted: #64748b;
+      --font-stack: 'IRANYekan', 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
 
     * {
@@ -36,30 +60,34 @@
     }
 
     body {
-      background-color: var(--bg-base);
+      background-color: var(--bg-dark);
       color: var(--text-main);
-      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-      min-height: 100vh;
+      font-family: var(--font-stack);
+      line-height: 1.75;
+      direction: rtl;
+      text-align: right;
       overflow-x: hidden;
-      line-height: 1.6;
+      min-height: 100vh;
       background-image: 
-        radial-gradient(circle at 10% 10%, rgba(99, 102, 241, 0.12) 0px, transparent 40%),
-        radial-gradient(circle at 90% 20%, rgba(236, 72, 153, 0.1) 0px, transparent 40%),
-        radial-gradient(circle at 50% 90%, rgba(6, 182, 212, 0.08) 0px, transparent 40%);
+        radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.12) 0px, transparent 45%),
+        radial-gradient(circle at 85% 20%, rgba(244, 63, 94, 0.11) 0px, transparent 45%),
+        radial-gradient(circle at 50% 85%, rgba(6, 182, 212, 0.09) 0px, transparent 55%);
+      background-attachment: fixed;
     }
 
-    .glass-nav {
+    /* هدر و ناوبری شیشه‌ای */
+    header.header-nav {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(11, 16, 32, 0.82);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(8, 13, 26, 0.82);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
     }
 
-    .nav-inner {
-      max-width: 1200px;
+    .nav-container {
+      max-width: 1240px;
       margin: 0 auto;
       padding: 16px 24px;
       display: flex;
@@ -67,7 +95,7 @@
       justify-content: space-between;
     }
 
-    .brand {
+    .brand-wrap {
       display: flex;
       align-items: center;
       gap: 12px;
@@ -75,320 +103,374 @@
       color: #fff;
     }
 
-    .brand-logo {
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, var(--primary), var(--pink));
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #4f46e5, #ec4899);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+      box-shadow: 0 0 24px rgba(99, 102, 241, 0.45);
     }
 
-    .brand-logo svg {
-      width: 22px;
-      height: 22px;
+    .brand-icon svg {
+      width: 24px;
+      height: 24px;
       fill: none;
       stroke: #fff;
-      stroke-width: 2.2;
+      stroke-width: 2.3;
     }
 
-    .brand-name {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: 1.25rem;
+    .brand-title {
+      font-size: 1.35rem;
+      font-weight: 800;
       letter-spacing: -0.02em;
     }
 
-    .brand-name span {
+    .brand-title span {
       background: linear-gradient(135deg, #a5b4fc, #f472b6);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    .nav-badge {
-      display: inline-flex;
+    .nav-actions {
+      display: flex;
       align-items: center;
-      gap: 8px;
-      padding: 6px 14px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 9999px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: #cbd5e1;
+      gap: 14px;
     }
 
-    .live-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--emerald);
-      box-shadow: 0 0 10px var(--emerald);
-    }
-
-    .hero {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 80px 24px 60px;
-      text-align: center;
-      position: relative;
-    }
-
-    .hero-pill {
+    .status-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       padding: 6px 16px;
       border-radius: 9999px;
-      background: rgba(99, 102, 241, 0.1);
-      border: 1px solid rgba(99, 102, 241, 0.25);
-      color: var(--primary-light);
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 600;
-      letter-spacing: 0.04em;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      color: #34d399;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 10px #10b981;
+      animation: pulseAnim 2s infinite ease-in-out;
+    }
+
+    @keyframes pulseAnim {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    /* بخش اصلی Hero */
+    .hero {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 75px 24px 50px;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 18px;
+      border-radius: 9999px;
+      background: rgba(99, 102, 241, 0.12);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      color: #a5b4fc;
+      font-size: 0.88rem;
+      font-weight: 600;
       margin-bottom: 24px;
-      text-transform: uppercase;
     }
 
     .hero h1 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 800;
-      line-height: 1.15;
-      margin-bottom: 20px;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 900;
+      line-height: 1.35;
+      margin-bottom: 22px;
       letter-spacing: -0.03em;
     }
 
-    .hero h1 .gradient-text {
-      background: linear-gradient(135deg, #ffffff 30%, #94a3b8 100%);
+    .hero h1 .text-glow {
+      background: linear-gradient(135deg, #ffffff 40%, #cbd5e1 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    .hero h1 .highlight-text {
-      background: linear-gradient(135deg, #818cf8 0%, #f472b6 60%, #38bdf8 100%);
+    .hero h1 .text-highlight {
+      background: linear-gradient(135deg, #818cf8 10%, #f472b6 60%, #38bdf8 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
     .hero p {
-      max-width: 680px;
-      margin: 0 auto 36px;
+      max-width: 740px;
+      margin: 0 auto 38px;
       font-size: 1.15rem;
       color: var(--text-sub);
       font-weight: 400;
+      line-height: 1.85;
     }
 
-    .metrics-bar {
+    /* نوار آمار و ویژگی‌ها */
+    .stats-row {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
       gap: 16px;
-      max-width: 650px;
-      margin: 0 auto;
-      padding: 20px;
-      background: rgba(17, 24, 44, 0.5);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: 18px;
+      max-width: 900px;
+      margin: 0 auto 35px;
+      padding: 22px;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
     }
 
-    .metric-item {
+    .stat-item {
       text-align: center;
+      padding: 8px;
     }
 
-    .metric-val {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.5rem;
-      font-weight: 700;
+    .stat-num {
+      font-size: 1.7rem;
+      font-weight: 800;
       color: #fff;
+      direction: ltr;
+      display: inline-block;
+      margin-bottom: 4px;
     }
 
-    .metric-label {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+    .stat-num.gradient-cos {
+      background: linear-gradient(135deg, #f43f5e, #fda4af);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .section-title {
-      max-width: 1200px;
-      margin: 40px auto 30px;
+    .stat-desc {
+      font-size: 0.85rem;
+      color: var(--text-sub);
+    }
+
+    /* سرتیتر پروژه‌ها */
+    .showcase-header {
+      max-width: 1240px;
+      margin: 40px auto 28px;
       padding: 0 24px;
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
     }
 
-    .section-title h2 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.75rem;
-      font-weight: 700;
+    .showcase-header h2 {
+      font-size: 1.85rem;
+      font-weight: 800;
       color: #fff;
     }
 
-    .section-title p {
-      font-size: 0.95rem;
+    .showcase-header p {
+      font-size: 0.98rem;
       color: var(--text-sub);
     }
 
-    .grid-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px 90px;
+    /* شبکه کارت‌های دمو */
+    .showcase-grid {
+      max-width: 1240px;
+      margin: 0 auto 90px;
+      padding: 0 24px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
+      gap: 26px;
     }
 
-    .card {
-      background: var(--card-bg);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid var(--card-border);
-      border-radius: 20px;
+    .demo-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--border-card);
+      border-radius: 22px;
       padding: 28px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      position: relative;
-      overflow: hidden;
       text-decoration: none;
       color: inherit;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .card::before {
+    .demo-card::before {
       content: '';
       position: absolute;
       top: 0;
-      left: 0;
       right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, transparent, transparent);
+      left: 0;
+      height: 4px;
+      background: transparent;
       transition: background 0.3s ease;
     }
 
-    .card:hover {
-      transform: translateY(-6px);
-      border-color: var(--card-hover-border);
-      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6), 0 0 30px -5px rgba(99, 102, 241, 0.15);
+    .demo-card:hover {
+      background: var(--bg-card-hover);
+      transform: translateY(-8px);
+      border-color: var(--border-card-hover);
+      box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.7), 0 0 35px -5px rgba(99, 102, 241, 0.2);
     }
 
-    .card.active::before {
-      background: linear-gradient(90deg, var(--pink), var(--purple));
+    /* کارت لوازم آرایشی و زیبایی (فعال) */
+    .demo-card.cosmetics::before {
+      background: linear-gradient(90deg, #f43f5e, #ec4899, #d946ef);
+    }
+    .demo-card.cosmetics:hover {
+      border-color: rgba(244, 63, 94, 0.45);
+      box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.7), 0 0 35px -5px rgba(244, 63, 94, 0.25);
     }
 
-    .card.active:hover {
-      border-color: rgba(236, 72, 153, 0.4);
-      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6), 0 0 30px -5px rgba(236, 72, 153, 0.2);
+    /* کارت کلینیک */
+    .demo-card.clinic::before {
+      background: linear-gradient(90deg, #06b6d4, #0284c7);
+    }
+    .demo-card.clinic:hover {
+      border-color: rgba(6, 182, 212, 0.45);
+      box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.7), 0 0 35px -5px rgba(6, 182, 212, 0.25);
     }
 
-    .card-header {
+    /* کارت خودرو */
+    .demo-card.auto::before {
+      background: linear-gradient(90deg, #f59e0b, #ea580c);
+    }
+    .demo-card.auto:hover {
+      border-color: rgba(245, 158, 11, 0.45);
+      box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.7), 0 0 35px -5px rgba(245, 158, 11, 0.25);
+    }
+
+    /* کارت املاک */
+    .demo-card.realestate::before {
+      background: linear-gradient(90deg, #8b5cf6, #6366f1);
+    }
+    .demo-card.realestate:hover {
+      border-color: rgba(139, 92, 246, 0.45);
+      box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.7), 0 0 35px -5px rgba(139, 92, 246, 0.25);
+    }
+
+    .card-top {
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
     }
 
     .card-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
+      transition: transform 0.3s ease;
     }
 
-    .card-icon svg {
-      width: 26px;
-      height: 26px;
+    .demo-card:hover .card-icon {
+      transform: scale(1.08);
     }
 
-    .card.cosmetics .card-icon {
-      background: rgba(236, 72, 153, 0.12);
-      border-color: rgba(236, 72, 153, 0.25);
+    .demo-card.cosmetics .card-icon {
+      background: rgba(244, 63, 94, 0.12);
+      border-color: rgba(244, 63, 94, 0.28);
     }
-    .card.cosmetics .card-icon svg { stroke: var(--pink); }
+    .demo-card.cosmetics .card-icon svg { stroke: #fb7185; }
 
-    .card.clinic .card-icon {
+    .demo-card.clinic .card-icon {
       background: rgba(6, 182, 212, 0.12);
-      border-color: rgba(6, 182, 212, 0.25);
+      border-color: rgba(6, 182, 212, 0.28);
     }
-    .card.clinic .card-icon svg { stroke: var(--cyan); }
+    .demo-card.clinic .card-icon svg { stroke: #38bdf8; }
 
-    .card.auto .card-icon {
+    .demo-card.auto .card-icon {
       background: rgba(245, 158, 11, 0.12);
-      border-color: rgba(245, 158, 11, 0.25);
+      border-color: rgba(245, 158, 11, 0.28);
     }
-    .card.auto .card-icon svg { stroke: var(--amber); }
+    .demo-card.auto .card-icon svg { stroke: #fbbf24; }
 
-    .card.realestate .card-icon {
-      background: rgba(168, 85, 247, 0.12);
-      border-color: rgba(168, 85, 247, 0.25);
+    .demo-card.realestate .card-icon {
+      background: rgba(139, 92, 246, 0.12);
+      border-color: rgba(139, 92, 246, 0.28);
     }
-    .card.realestate .card-icon svg { stroke: var(--purple); }
+    .demo-card.realestate .card-icon svg { stroke: #a78bfa; }
 
-    .status-tag {
+    .card-badge {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 4px 10px;
+      padding: 5px 12px;
       border-radius: 9999px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
+      font-size: 0.78rem;
+      font-weight: 700;
     }
 
-    .status-tag.active {
-      background: rgba(16, 185, 129, 0.12);
+    .card-badge.live {
+      background: rgba(16, 185, 129, 0.14);
       color: #34d399;
-      border: 1px solid rgba(16, 185, 129, 0.25);
+      border: 1px solid rgba(16, 185, 129, 0.3);
     }
 
-    .status-tag.dev {
-      background: rgba(148, 163, 184, 0.08);
+    .card-badge.dev {
+      background: rgba(148, 163, 184, 0.1);
       color: #94a3b8;
-      border: 1px solid rgba(148, 163, 184, 0.15);
+      border: 1px solid rgba(148, 163, 184, 0.18);
+    }
+
+    .card-category {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #a5b4fc;
+      margin-bottom: 6px;
+      letter-spacing: 0.02em;
     }
 
     .card-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.35rem;
-      font-weight: 700;
+      font-size: 1.4rem;
+      font-weight: 800;
       color: #fff;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
+      line-height: 1.4;
     }
 
-    .card-desc {
-      font-size: 0.92rem;
+    .card-text {
+      font-size: 0.94rem;
       color: var(--text-sub);
-      margin-bottom: 20px;
-      line-height: 1.55;
+      line-height: 1.7;
+      margin-bottom: 22px;
     }
 
-    .card-highlights {
+    .card-features {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 24px;
+      gap: 7px;
+      margin-bottom: 26px;
     }
 
-    .card-tag {
-      font-size: 0.75rem;
+    .feature-chip {
+      font-size: 0.78rem;
       background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      padding: 3px 8px;
-      border-radius: 6px;
-      color: #cbd5e1;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 4px 10px;
+      border-radius: 8px;
+      color: #e2e8f0;
     }
 
-    .card-footer {
+    .card-action-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -396,240 +478,265 @@
       border-top: 1px solid rgba(255, 255, 255, 0.06);
     }
 
-    .launch-btn {
+    .action-link {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-size: 0.9rem;
-      font-weight: 600;
+      font-size: 0.93rem;
+      font-weight: 700;
       color: #fff;
-      transition: gap 0.2s ease;
+      transition: gap 0.25s ease, color 0.25s ease;
     }
 
-    .card:hover .launch-btn {
+    .demo-card:hover .action-link {
       gap: 12px;
-      color: var(--primary-light);
     }
 
-    .card.active:hover .launch-btn {
-      color: var(--pink);
+    .demo-card.cosmetics:hover .action-link { color: #fb7185; }
+    .demo-card.clinic:hover .action-link { color: #38bdf8; }
+    .demo-card.auto:hover .action-link { color: #fbbf24; }
+    .demo-card.realestate:hover .action-link { color: #a78bfa; }
+
+    .action-link svg {
+      width: 18px;
+      height: 18px;
+      transition: transform 0.25s ease;
     }
 
-    .launch-btn svg {
-      width: 16px;
-      height: 16px;
-      transition: transform 0.2s ease;
+    .demo-card:hover .action-link svg {
+      transform: translateX(-4px);
     }
 
-    .card:hover .launch-btn svg {
-      transform: translateX(3px);
-    }
-
-    footer.site-footer {
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-      background: rgba(7, 11, 20, 0.6);
-      padding: 36px 24px;
+    /* فوتر */
+    footer.page-footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      background: rgba(8, 13, 26, 0.85);
+      padding: 40px 24px;
       text-align: center;
-      font-size: 0.88rem;
-      color: var(--text-muted);
     }
 
-    footer.site-footer a {
+    .footer-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .footer-desc {
+      font-size: 0.92rem;
       color: var(--text-sub);
-      text-decoration: none;
-      transition: color 0.2s ease;
     }
 
-    footer.site-footer a:hover {
-      color: #fff;
+    .footer-copy {
+      font-size: 0.82rem;
+      color: var(--text-muted);
     }
   </style>
 </head>
 <body>
-  <header class="glass-nav">
-    <div class="nav-inner">
-      <a href="/" class="brand">
-        <div class="brand-logo">
+  <!-- نوار بالای صفحه -->
+  <header class="header-nav">
+    <div class="nav-container">
+      <a href="/" class="brand-wrap">
+        <div class="brand-icon">
           <svg viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
           </svg>
         </div>
-        <div class="brand-name">SCAIL <span>STUDIO</span></div>
+        <div class="brand-title">SCAIL <span>STUDIO</span></div>
       </a>
-      <div class="nav-badge">
-        <span class="live-dot"></span>
-        Multi-Client Engine Online
+      <div class="nav-actions">
+        <div class="status-badge">
+          <span class="pulse-dot"></span>
+          هسته چند شعبه‌ای فعال
+        </div>
       </div>
     </div>
   </header>
 
   <main>
+    <!-- بخش معرفی و عنوان -->
     <section class="hero">
-      <div class="hero-pill">Next-Gen Industry Solutions</div>
+      <div class="hero-badge">
+        ✨ استودیو طراحی و معماری پلتفرم‌های اختصاصی
+      </div>
       <h1>
-        <span class="gradient-text">Architected for Conversion.</span><br>
-        <span class="highlight-text">Crafted for Excellence.</span>
+        <span class="text-glow">تجربه دیجیتال لوکس و مدرن،</span><br>
+        <span class="text-highlight">طراحی‌شده برای بیشترین فروش و تعامل.</span>
       </h1>
       <p>
-        Explore our live client showcase instances engineered for specific industry verticals—featuring ultra-fast load times, seamless user flows, and localized e-commerce.
+        مجموعه دموهای اختصاصی استودیو اسکیل؛ توسعه داده‌شده متناسب با پروسه‌های کاری هر صنف، سرعت بارگذاری خارق‌العاده، رابط کاربری تمام فارسی و ادغام عمیق با شبکه‌های اجتماعی و پیام‌رسان‌ها.
       </p>
 
-      <div class="metrics-bar">
-        <div class="metric-item">
-          <div class="metric-val">100%</div>
-          <div class="metric-label">Autonomous & Static</div>
+      <!-- آمار عملکردی -->
+      <div class="stats-row">
+        <div class="stat-item">
+          <div class="stat-num gradient-cos">۱۰۰٪</div>
+          <div class="stat-desc">طراحی بومی و واکنش‌گرا (RTL)</div>
         </div>
-        <div class="metric-item">
-          <div class="metric-val">&lt; 0.6s</div>
-          <div class="metric-label">TTFB Load Speed</div>
+        <div class="stat-item">
+          <div class="stat-num">&lt; ۰.۵ ثانیه</div>
+          <div class="stat-desc">سرعت بارگذاری اولیه (TTFB)</div>
         </div>
-        <div class="metric-item">
-          <div class="metric-val">4 Verticals</div>
-          <div class="metric-label">Tailored Demos</div>
+        <div class="stat-item">
+          <div class="stat-num">۴ صنف تخصصی</div>
+          <div class="stat-desc">دموهای آماده استقرار و لانچ</div>
         </div>
       </div>
     </section>
 
-    <div class="section-title">
+    <!-- سرتیتر بخش دسته‌بندی دموها -->
+    <div class="showcase-header">
       <div>
-        <h2>Client Demonstration Directory</h2>
-        <p>Select a route to test the full client UX and configuration capabilities</p>
+        <h2>ویترین دموهای تخصصی اصناف</h2>
+        <p>برای مشاهده و تست امکانات هر حوزه، روی کارت مربوطه کلیک کنید</p>
       </div>
     </div>
 
-    <section class="grid-container">
-      <!-- 1. Cosmetics & Beauty (Active) -->
-      <a href="./cosmetics/" class="card cosmetics active">
+    <!-- گرید کارت‌های دمو -->
+    <section class="showcase-grid">
+      <!-- ۱. فروشگاه لوازم آرایشی و زیبایی (دموی فعال) -->
+      <a href="./cosmetics/" class="demo-card cosmetics">
         <div>
-          <div class="card-header">
+          <div class="card-top">
             <div class="card-icon">
+              <!-- آیکون زیبایی و آرایشی -->
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z" />
               </svg>
             </div>
-            <span class="status-tag active">Live Showcase</span>
+            <span class="card-badge live">● دموی فعال و کامل</span>
           </div>
 
-          <h3 class="card-title">Cosmetics & Beauty</h3>
-          <p class="card-desc">
-            Ultra-luxurious Persian e-commerce storefront with pure-white aesthetics, integrated Instagram stories, smart cart, and WhatsApp checkout.
+          <div class="card-category">فروشگاهی و زیبایی</div>
+          <h3 class="card-title">فروشگاه آنلاین لوازم آرایشی</h3>
+          <p class="card-text">
+            طراحی فوق‌العاده مینیمال بر پایه تم سفید خالص (Clean White Luxury)، استوری‌های تعاملی اینستاگرام، سبد خرید زنده، انتخابگر حرفه‌ای تناژ رنگ و ثبت سفارش مستقیم در واتساپ.
           </p>
 
-          <div class="card-highlights">
-            <span class="card-tag">RTL Native</span>
-            <span class="card-tag">IRANYekan Fonts</span>
-            <span class="card-tag">Live Cart & Wishlist</span>
-            <span class="card-tag">WhatsApp Orders</span>
+          <div class="card-features">
+            <span class="feature-chip">فونت ایران‌یکان اورجینال</span>
+            <span class="feature-chip">استوری تعاملی</span>
+            <span class="feature-chip">تسویه‌حساب واتساپ</span>
+            <span class="feature-chip">کانفیگ داینامیک</span>
           </div>
         </div>
 
-        <div class="card-footer">
-          <div class="launch-btn">
-            Explore Demo Store
+        <div class="card-action-bar">
+          <div class="action-link">
+            مشاهده و تست فروشگاه
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
             </svg>
           </div>
         </div>
       </a>
 
-      <!-- 2. Clinic (In development) -->
-      <a href="./clinic/" class="card clinic">
+      <!-- ۲. کلینیک و مراکز پزشکی -->
+      <a href="./clinic/" class="demo-card clinic">
         <div>
-          <div class="card-header">
+          <div class="card-top">
             <div class="card-icon">
+              <!-- آیکون پزشکی و کلینیک -->
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15M8.25 12h7.5M12 8.25v7.5" />
               </svg>
             </div>
-            <span class="status-tag dev">In Development</span>
+            <span class="card-badge dev">در حال آماده‌سازی</span>
           </div>
 
-          <h3 class="card-title">Medical & Dental Clinic</h3>
-          <p class="card-desc">
-            Modern patient experience platform featuring real-time appointment scheduling, physician profiles, and procedure estimations.
+          <div class="card-category">خدمات درمانی و سلامت</div>
+          <h3 class="card-title">کلینیک پزشکی و دندان‌پزشکی</h3>
+          <p class="card-text">
+            سامانه مدرن رزرواسیون آنلاین نوبت، معرفی کادر متخصص، کاتالوگ خدمات و تعرفه‌ها، پرونده اولیه بیمار و ارتباط آنلاین با منشی کلینیک.
           </p>
 
-          <div class="card-highlights">
-            <span class="card-tag">Smart Booking</span>
-            <span class="card-tag">Doctor Roster</span>
-            <span class="card-tag">Treatment Guides</span>
+          <div class="card-features">
+            <span class="feature-chip">نوبت‌دهی هوشمند</span>
+            <span class="feature-chip">لیست پزشکان</span>
+            <span class="feature-chip">کاتالوگ خدمات</span>
           </div>
         </div>
 
-        <div class="card-footer">
-          <div class="launch-btn">
-            View Overview
+        <div class="card-action-bar">
+          <div class="action-link">
+            مشاهده جزییات دمو
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
             </svg>
           </div>
         </div>
       </a>
 
-      <!-- 3. Auto (In development) -->
-      <a href="./auto/" class="card auto">
+      <!-- ۳. نمایشگاه خودرو و دیتیلینگ -->
+      <a href="./auto/" class="demo-card auto">
         <div>
-          <div class="card-header">
+          <div class="card-top">
             <div class="card-icon">
+              <!-- آیکون خودرو -->
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.129-1.125V14.25M3.75 9.75h16.5m-16.5 0l2.25-4.5h12l2.25 4.5m-16.5 0v4.5m16.5-4.5v4.5" />
               </svg>
             </div>
-            <span class="status-tag dev">In Development</span>
+            <span class="card-badge dev">در حال آماده‌سازی</span>
           </div>
 
-          <h3 class="card-title">Automotive & Detailing</h3>
-          <p class="card-desc">
-            Digital vehicle catalog with detailing package selector, ceramic coating configurators, and quick test-drive booking.
+          <div class="card-category">خودرو و خدمات لوکس</div>
+          <h3 class="card-title">نمایشگاه خودرو و دیتیلینگ VIP</h3>
+          <p class="card-text">
+            شوروم دیجیتال خودروها، فیلتر پیشرفته بر اساس برند و قیمت، پکیج‌های نانوسرامیک و احیای رنگ، و سیستم رزرو تست‌درایو و استعلام سریع.
           </p>
 
-          <div class="card-highlights">
-            <span class="card-tag">Inventory Filter</span>
-            <span class="card-tag">VIP Detailing</span>
-            <span class="card-tag">Instant Quote</span>
+          <div class="card-features">
+            <span class="feature-chip">فیلتر داینامیک موجودی</span>
+            <span class="feature-chip">رزرو دیتیلینگ و سرامیک</span>
+            <span class="feature-chip">استعلام آنی قیمت</span>
           </div>
         </div>
 
-        <div class="card-footer">
-          <div class="launch-btn">
-            View Overview
+        <div class="card-action-bar">
+          <div class="action-link">
+            مشاهده جزییات دمو
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
             </svg>
           </div>
         </div>
       </a>
 
-      <!-- 4. Real Estate (In development) -->
-      <a href="./realestate/" class="card realestate">
+      <!-- ۴. املاک و مستغلات لوکس -->
+      <a href="./realestate/" class="demo-card realestate">
         <div>
-          <div class="card-header">
+          <div class="card-top">
             <div class="card-icon">
+              <!-- آیکون املاک -->
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.75a.75.75 0 01.75-.75h2.25a.75.75 0 01.75.75V21m6-10.5h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75" />
               </svg>
             </div>
-            <span class="status-tag dev">In Development</span>
+            <span class="card-badge dev">در حال آماده‌سازی</span>
           </div>
 
-          <h3 class="card-title">Luxury Real Estate</h3>
-          <p class="card-desc">
-            High-converting property portfolio with interactive architectural tours, villa showcase galleries, and direct broker contact.
+          <div class="card-category">املاک و پروژه‌های ساختمانی</div>
+          <h3 class="card-title">املاک و ویلاهای لوکس</h3>
+          <p class="card-text">
+            ویترین اختصاصی پنت‌هاوس‌ها و ویلاها با گالری تصویر高清، تور سه‌بعدی تعاملی، محاسبه‌گر هوشمند اقساط و هماهنگی بازدید اختصاصی VIP.
           </p>
 
-          <div class="card-highlights">
-            <span class="card-tag">Virtual 3D</span>
-            <span class="card-tag">Mortgage Calc</span>
-            <span class="card-tag">VIP Tour Booking</span>
+          <div class="card-features">
+            <span class="feature-chip">تور مجازی سه‌بعدی</span>
+            <span class="feature-chip">نقشه تعاملی منطقه</span>
+            <span class="feature-chip">رزرو بازدید حضوری</span>
           </div>
         </div>
 
-        <div class="card-footer">
-          <div class="launch-btn">
-            View Overview
+        <div class="card-action-bar">
+          <div class="action-link">
+            مشاهده جزییات دمو
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
             </svg>
           </div>
         </div>
@@ -637,8 +744,15 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <p>&copy; Scail Studio. High-performance, bespoke industry demo architectures.</p>
+  <!-- فوتر -->
+  <footer class="page-footer">
+    <div class="footer-content">
+      <div class="brand-wrap">
+        <div class="brand-title">SCAIL <span>STUDIO</span></div>
+      </div>
+      <p class="footer-desc">طراحی و توسعه راه‌حل‌های نرم‌افزاری و وب‌سایت‌های پیشرفته برای برندهای پیشرو.</p>
+      <p class="footer-copy">© ۱۴۰۳ تمامی حقوق برای استودیو اسکیل محفوظ است.</p>
+    </div>
   </footer>
 </body>
 </html>
