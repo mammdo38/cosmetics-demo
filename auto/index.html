@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automotive Dealership & Detailing Demo | Under Construction</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #070b14;
+      --card-bg: rgba(15, 23, 42, 0.7);
+      --border-color: rgba(245, 158, 11, 0.15);
+      --accent-amber: #f59e0b;
+      --accent-orange: #ea580c;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(at 15% 15%, rgba(245, 158, 11, 0.12) 0px, transparent 50%),
+        radial-gradient(at 85% 85%, rgba(234, 88, 12, 0.12) 0px, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.8) 0%, transparent 100%);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 600px;
+      width: 100%;
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      padding: 48px 36px;
+      text-align: center;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 40px rgba(245, 158, 11, 0.08);
+      position: relative;
+      z-index: 10;
+    }
+
+    .icon-wrapper {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 24px;
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(234, 88, 12, 0.25));
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 25px rgba(245, 158, 11, 0.2);
+    }
+
+    .icon-wrapper svg {
+      width: 40px;
+      height: 40px;
+      stroke: var(--accent-amber);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      background: rgba(245, 158, 11, 0.1);
+      color: var(--accent-amber);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      margin-bottom: 20px;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      background-color: var(--accent-amber);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--accent-amber);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 14px;
+      background: linear-gradient(to right, #ffffff, #fed7aa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+
+    .features-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 36px;
+    }
+
+    .feature-tag {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      color: #cbd5e1;
+    }
+
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #d97706, #ea580c);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 12px 28px;
+      border-radius: 12px;
+      transition: all 0.25s ease;
+      box-shadow: 0 10px 25px -5px rgba(217, 119, 6, 0.35);
+    }
+
+    .btn-back:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 30px -5px rgba(217, 119, 6, 0.5);
+      background: linear-gradient(135deg, #b45309, #c2410c);
+    }
+
+    .btn-back svg {
+      width: 18px;
+      height: 18px;
+      transition: transform 0.2s ease;
+    }
+
+    .btn-back:hover svg {
+      transform: translateX(-3px);
+    }
+
+    footer {
+      margin-top: 32px;
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="icon-wrapper">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.129-1.125V14.25M3.75 9.75h16.5m-16.5 0l2.25-4.5h12l2.25 4.5m-16.5 0v4.5m16.5-4.5v4.5" />
+      </svg>
+    </div>
+
+    <div class="badge">
+      <span class="badge-dot"></span>
+      In Development
+    </div>
+
+    <h1>Automotive & VIP Detailing Demo</h1>
+    <p>A high-performance digital showroom with 360° car configurator, service schedule manager, and inventory filtering engine.</p>
+
+    <div class="features-list">
+      <span class="feature-tag">✦ Dynamic Inventory Filter</span>
+      <span class="feature-tag">✦ Detailing & Ceramic Packages</span>
+      <span class="feature-tag">✦ Test-Drive Scheduling</span>
+      <span class="feature-tag">✦ WhatsApp Direct Quotation</span>
+    </div>
+
+    <a href="/" class="btn-back">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+      </svg>
+      Back to Portfolio Hub
+    </a>
+  </div>
+
+  <footer>
+    &copy; Scail Studio. Next-Generation Industry Web Solutions.
+  </footer>
+</body>
+</html>
