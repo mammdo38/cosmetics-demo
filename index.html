@@ -652,6 +652,7 @@
       align-items: center;
       justify-content: space-between;
       z-index: 2;
+      direction: ltr;
     }
 
     .browser-dots {
@@ -673,15 +674,16 @@
     .live-badge {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      background: rgba(16, 185, 129, 0.12);
+      gap: 5px;
+      background: rgba(255, 255, 255, 0.92);
       border: 1px solid rgba(16, 185, 129, 0.35);
       color: #047857;
-      font-size: 0.76rem;
+      font-size: 0.72rem;
       font-weight: 700;
-      padding: 4px 12px;
+      padding: 3px 8px;
       border-radius: 9999px;
       backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
     }
 
     .live-badge-cosmetics {
@@ -803,9 +805,12 @@
 
     .micro-result {
       margin-right: auto;
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       font-weight: 800;
       color: #111111;
+      background: rgba(0, 0, 0, 0.05);
+      padding: 3px 10px;
+      border-radius: 8px;
     }
 
     /* دکمه‌های اکشن زیر کارت */
@@ -1079,6 +1084,7 @@
       display: flex;
       align-items: center;
       gap: 6px;
+      direction: rtl;
     }
 
     .device-pill {
@@ -1368,23 +1374,22 @@
         text-align: center;
       }
       .filter-tabs {
-        overflow-x: auto;
-        white-space: nowrap;
-        flex-wrap: nowrap;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        padding: 4px 2px 10px;
-        margin: 0 0 22px 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 4px 0 16px;
+        margin: 0 0 20px 0;
         gap: 8px;
-        justify-content: flex-start;
-      }
-      .filter-tabs::-webkit-scrollbar {
-        display: none;
+        width: 100%;
       }
       .filter-btn {
-        flex-shrink: 0;
-        padding: 8px 16px;
+        flex: 1 1 calc(50% - 10px);
+        min-width: 130px;
+        text-align: center;
+        justify-content: center;
+        padding: 10px 12px;
         font-size: 0.84rem;
+        box-sizing: border-box;
       }
       .demos-grid {
         grid-template-columns: 1fr;
@@ -1407,8 +1412,8 @@
         padding: 20px 16px 16px;
       }
       .card-title {
-        font-size: 1.2rem;
-        line-height: 1.4;
+        font-size: 1.12rem;
+        line-height: 1.45;
       }
       .card-text {
         font-size: 0.88rem;
@@ -1516,7 +1521,7 @@
     <div class="nav-inner">
       <a href="/" class="brand-link">
         <div class="brand-logo-frame">
-          <img src="./assets/logo-mark-white.png" alt="Scale Studio Logo">
+          <img src="./assets/logo-mark-white.png?v=2" alt="Scale Studio Logo">
         </div>
         <div class="brand-details">
           <span class="brand-name">SCALE STUDIO</span>
@@ -1547,7 +1552,7 @@
 
       <h1 class="hero-title">
         طراحی فروشگاه‌های آنلاین نسل جدید،<br class="desktop-only">
-        با <span class="gradient-gold-text">جذابیت بصری، سرعت آنی و فروش بالا</span>.
+        با <span class="gradient-gold-text">جذابیت بصری، سرعت آنی و فروش بالا</span>
       </h1>
 
       <p class="hero-lead">
@@ -1621,7 +1626,7 @@
               </div>
             </div>
             <img 
-              src="./assets/demo-perfume.jpg" 
+              src="./assets/demo-perfume.jpg?v=2" 
               alt="فروشگاه آنلاین عطر و دکانت رویال پرفیوم" 
               class="card-preview-img"
               loading="eager"
@@ -1679,11 +1684,11 @@
               </div>
               <div class="browser-badges">
                 <span class="device-pill">موبایل + وب</span>
-                <span class="live-badge live-badge-cosmetics">● دموی زنده</span>
+                <span class="live-badge">● دموی زنده</span>
               </div>
             </div>
             <img 
-              src="./assets/demo-cosmetics.jpg" 
+              src="./assets/demo-cosmetics.jpg?v=2" 
               alt="فروشگاه آنلاین لوازم آرایشی و مراقبت پوستی" 
               class="card-preview-img"
               loading="eager"
@@ -1693,7 +1698,7 @@
 
           <div class="card-body">
             <div class="card-category-tag">Beauty & Skincare E-Commerce</div>
-            <h3 class="card-title">فروشگاه آنلاین لوازم آرایشی و مراقبت پوست</h3>
+            <h3 class="card-title">فروشگاه آنلاین محصولات آرایشی و زیبایی</h3>
             <p class="card-text">
               تجربه خرید لوکس مینیمال بر پایه تم سفید خالص (Pure White Luxury) با انتخابگر رنگ زنده برای رژ و کرم، استوری‌های اختصاصی اینستاگرامی در هدر، سبد خرید کشویی لحظه‌ای و سفارش آسان مستقیم در پیام‌رسان.
             </p>
@@ -1725,7 +1730,7 @@
               </svg>
               <span>پیش‌نمایش در موبایل</span>
             </button>
-            <a href="./cosmetics/" class="btn-card-live">
+            <a href="./cosmetics/" target="_blank" rel="noopener noreferrer" class="btn-card-live">
               <span>ورود به دمو</span>
               <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
@@ -1747,7 +1752,7 @@
               </div>
             </div>
             <img 
-              src="./assets/demo-bag.jpg" 
+              src="./assets/demo-bag.jpg?v=2" 
               alt="گالری کیف لورین | خرید جدیدترین مدل‌های کیف زنانه و چرم" 
               class="card-preview-img"
               loading="eager"
@@ -1757,7 +1762,7 @@
 
           <div class="card-body">
             <div class="card-category-tag">Leather Bags & Fashion Gallery</div>
-            <h3 class="card-title">گالری کیف لورین (Lauryn Bag Gallery)</h3>
+            <h3 class="card-title">گالری کیف و اکسسوری چرم لورین</h3>
             <p class="card-text">
               شوروم دیجیتال کیف‌های چرم زنانه، مجلسی، اداری، کوله‌پشتی و مینی‌بگ ترند روز با انتخابگر رنگ چرم (مشکی، عسلی، نسکافه‌ای)، تضمین متریال و دوخت، تخفیف‌های شگفت‌انگیز و ارسال مستقیم سفارشات.
             </p>
@@ -1827,7 +1832,7 @@
       <div class="footer-top-row">
         <div class="footer-brand-wrap">
           <div class="brand-logo-frame">
-            <img src="./assets/logo-mark-white.png" alt="Scale Studio">
+            <img src="./assets/logo-mark-white.png?v=2" alt="Scale Studio">
           </div>
           <div>
             <div class="brand-name">SCALE STUDIO</div>
