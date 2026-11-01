@@ -39,13 +39,21 @@
   }
   </script>
 
-  <!-- فونت گوگل وزیرمتن و Plus Jakarta Sans برای اعداد و لوگو -->
+  <!-- فونت‌های وب با پشتیبانی کامل از CDN پرسرعت و بدون تحریم jsDelivr و گوگل -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
-    /* فونت حرفه‌ای ایران‌یکان محلی */
+    /* فونت حرفه‌ای ایران‌یکان محلی با پوشش کامل تمام وزن‌ها */
+    @font-face {
+      font-family: 'IRANYekan';
+      src: url('./fonts/iranyekan/iranyekanweblight.woff') format('woff');
+      font-weight: 300;
+      font-style: normal;
+      font-display: swap;
+    }
     @font-face {
       font-family: 'IRANYekan';
       src: url('./fonts/iranyekan/iranyekanwebregular.woff') format('woff');
@@ -62,8 +70,22 @@
     }
     @font-face {
       font-family: 'IRANYekan';
+      src: url('./fonts/iranyekan/iranyekanwebmedium.woff') format('woff');
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'IRANYekan';
       src: url('./fonts/iranyekan/iranyekanwebbold.woff') format('woff');
       font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'IRANYekan';
+      src: url('./fonts/iranyekan/iranyekanwebblack.woff') format('woff');
+      font-weight: 800;
       font-style: normal;
       font-display: swap;
     }
@@ -101,9 +123,9 @@
       --text-sub: #9ca3af;
       --text-muted: #6b7280;
 
-      --font-body: 'IRANYekan', 'Vazirmatn', system-ui, -apple-system, sans-serif;
-      --font-display: 'IRANYekan', 'Vazirmatn', sans-serif;
-      --font-en: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --font-body: 'IRANYekan', 'IRANSansX', 'Dana', 'Peyda', 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-display: 'IRANYekan', 'IRANSansX', 'Dana', 'Peyda', 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-en: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
 
     * {
@@ -114,19 +136,22 @@
 
     html {
       scroll-behavior: smooth;
+      font-feature-settings: 'ss01' 1, 'cv01' 1;
     }
 
     body {
       background-color: var(--bg-base);
       color: var(--text-main);
       font-family: var(--font-body);
-      line-height: 1.8;
+      line-height: 1.85;
       direction: rtl;
       text-align: right;
       overflow-x: hidden;
       min-height: 100vh;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      font-feature-settings: 'ss01' 1;
     }
 
     /* نویز و پرتوهای نور پس‌زمینه گرم و انرژی‌بخش */
