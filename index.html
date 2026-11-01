@@ -464,16 +464,6 @@
       border-right: none;
     }
 
-    @media (max-width: 768px) {
-      .spec-block {
-        border-right: none;
-        border-bottom: 1px solid var(--border-subtle);
-      }
-      .spec-block:last-child {
-        border-bottom: none;
-      }
-    }
-
     .spec-value {
       font-family: var(--font-en);
       font-size: 1.85rem;
@@ -744,21 +734,112 @@
       color: #27272a;
     }
 
+    /* مایکرو اینترکشن‌های زنده روی کارت‌ها */
+    .card-micro-demo {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 10px 14px;
+      background: #faf9f6;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: 12px;
+      margin-bottom: 18px;
+    }
+
+    .micro-label {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: #71717a;
+    }
+
+    .micro-chip {
+      padding: 3px 9px;
+      border-radius: 6px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      color: #3f3f46;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: var(--font-body);
+    }
+
+    .micro-chip:hover,
+    .micro-chip.active {
+      background: #111111;
+      border-color: #111111;
+      color: #ffffff;
+    }
+
+    .color-swatch-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .color-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid #ffffff;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18);
+      transition: all 0.2s ease;
+    }
+
+    .color-dot:hover,
+    .color-dot.active {
+      transform: scale(1.2);
+      box-shadow: 0 0 0 2px #111111;
+    }
+
+    .micro-result {
+      margin-right: auto;
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: #111111;
+    }
+
     /* دکمه‌های اکشن زیر کارت */
     .card-actions-row {
-      padding: 16px 24px;
+      padding: 14px 20px;
       border-top: 1px solid var(--border-subtle);
       background: #faf9f6;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 10px;
+    }
+
+    .btn-device-preview {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 10px;
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      color: #111111;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: var(--font-body);
+    }
+
+    .btn-device-preview:hover {
+      background: #111111;
+      border-color: #111111;
+      color: #ffffff;
     }
 
     .btn-card-live {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      font-size: 0.94rem;
+      gap: 6px;
+      font-size: 0.88rem;
       font-weight: 800;
       color: #111111;
       text-decoration: none;
@@ -767,12 +848,12 @@
 
     .btn-card-live:hover {
       color: #000000;
-      gap: 12px;
+      gap: 9px;
     }
 
     .btn-card-live svg {
-      width: 18px;
-      height: 18px;
+      width: 17px;
+      height: 17px;
       transition: transform 0.2s ease;
     }
 
@@ -785,6 +866,207 @@
       color: var(--text-muted);
       font-family: var(--font-en);
       font-weight: 600;
+    }
+
+    .desktop-only {
+      display: inline;
+    }
+
+    .cta-desktop {
+      display: inline;
+    }
+
+    .cta-mobile {
+      display: none;
+    }
+
+    /* مودال شبیه‌ساز آیفون ۱۶ پرو */
+    .phone-modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 10, 10, 0.78);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      z-index: 10000;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .phone-modal-backdrop.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .phone-modal-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-height: 96vh;
+      animation: modalSlideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes modalSlideUp {
+      from { transform: translateY(30px) scale(0.96); opacity: 0; }
+      to { transform: translateY(0) scale(1); opacity: 1; }
+    }
+
+    .phone-modal-header {
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      color: #ffffff;
+      padding: 0 6px;
+    }
+
+    .phone-modal-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .live-dot-pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 10px #10b981;
+      display: inline-block;
+      animation: pulseDot 1.8s infinite;
+    }
+
+    @keyframes pulseDot {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.3); opacity: 1; }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+
+    .modal-badge-device {
+      font-size: 0.74rem;
+      color: #a1a1aa;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2px 8px;
+      border-radius: 9999px;
+    }
+
+    .phone-modal-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-modal-open {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-modal-open:hover {
+      background: #ffffff;
+      color: #111111;
+    }
+
+    .btn-modal-close {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-modal-close:hover {
+      background: #ef4444;
+      transform: scale(1.08);
+    }
+
+    /* فریم تیتانیوم آیفون ۱۶ پرو */
+    .iphone-chassis {
+      width: 380px;
+      height: 740px;
+      max-height: 82vh;
+      background: #18181b;
+      border: 4px solid #3f3f46;
+      border-radius: 52px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), inset 0 0 0 2px rgba(255, 255, 255, 0.1);
+      padding: 10px;
+      position: relative;
+    }
+
+    .iphone-screen {
+      width: 100%;
+      height: 100%;
+      background: #000000;
+      border-radius: 42px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .dynamic-island {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 105px;
+      height: 26px;
+      background: #000000;
+      border-radius: 20px;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 12px;
+      pointer-events: none;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .camera-lens {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #1e293b 0%, #0f172a 100%);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .iphone-screen iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: #ffffff;
+    }
+
+    @media (max-width: 480px) {
+      .iphone-chassis {
+        width: 94vw;
+        height: 80vh;
+        border-radius: 36px;
+        padding: 6px;
+      }
+      .iphone-screen {
+        border-radius: 30px;
+      }
     }
 
     .browser-badges {
@@ -964,6 +1246,15 @@
        📱 بهینه‌سازی‌های جامع ریسپانسیو برای موبایل و تبلت (Responsive Mobile-First)
        ========================================================================== */
     @media (max-width: 768px) {
+      .desktop-only {
+        display: none;
+      }
+      .cta-desktop {
+        display: none;
+      }
+      .cta-mobile {
+        display: inline;
+      }
       .agency-nav .nav-inner {
         padding: 12px 16px;
       }
@@ -971,11 +1262,30 @@
         display: none;
       }
       .brand-name {
-        font-size: 1.08rem;
+        font-size: 1.05rem;
       }
       .nav-cta {
-        padding: 8px 14px;
-        font-size: 0.8rem;
+        padding: 7px 12px;
+        font-size: 0.78rem;
+      }
+      .card-micro-demo {
+        padding: 8px 10px;
+        gap: 6px;
+      }
+      .micro-chip {
+        padding: 2px 7px;
+        font-size: 0.7rem;
+      }
+      .card-actions-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+      }
+      .btn-device-preview,
+      .btn-card-live {
+        width: 100%;
+        justify-content: center;
+        padding: 10px 14px;
       }
       .hero-section {
         padding: 44px 16px 32px;
@@ -1199,7 +1509,8 @@
       </nav>
 
       <a href="#contact" class="nav-cta">
-        درخواست جلسه کانسپت
+        <span class="cta-desktop">درخواست جلسه کانسپت</span>
+        <span class="cta-mobile">مشاوره سریع</span>
       </a>
     </div>
   </header>
@@ -1212,8 +1523,8 @@
         پلتفرم‌های فروشگاهی اختصاصی صنف مد، عطر و زیبایی
       </div>
 
-      <h1>
-        طراحی فروشگاه‌های آنلاین نسل جدید،<br>
+      <h1 class="hero-title">
+        طراحی فروشگاه‌های آنلاین نسل جدید،<br class="desktop-only">
         با <span class="gradient-gold-text">جذابیت بصری، سرعت آنی و فروش بالا</span>.
       </h1>
 
@@ -1288,7 +1599,7 @@
               </div>
             </div>
             <img 
-              src="https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&w=800&q=80" 
+              src="./assets/demo-perfume.jpg" 
               alt="فروشگاه آنلاین عطر و دکانت رویال پرفیوم" 
               class="card-preview-img"
               loading="eager"
@@ -1302,6 +1613,16 @@
             <p class="card-text">
               پلتفرم تخصصی عطر اورجینال با امکان تست و انتخاب دکانت ۵ و ۱۰ میل و شیشه ۱۰۰ میل با تغییر آنی قیمت، تفکیک طبع رایحه (خنک، تلخ، گرم، مجلسی)، استوری‌های تعاملی هایلایت اینستاگرام و تسویه‌حساب در واتساپ.
             </p>
+
+            <!-- تست تعاملی انتخاب دکانت و قیمت -->
+            <div class="card-micro-demo">
+              <span class="micro-label">تست دکانت:</span>
+              <button class="micro-chip active" onclick="selectDecant(this, '۵ میل', 'شروع از ۴۸۰,۰۰۰ تومان')">۵ میل</button>
+              <button class="micro-chip" onclick="selectDecant(this, '۱۰ میل', '۹۲۰,۰۰۰ تومان')">۱۰ میل</button>
+              <button class="micro-chip" onclick="selectDecant(this, '۱۰۰ میل', '۷,۸۵۰,۰۰۰ تومان')">۱۰۰ میل</button>
+              <span class="micro-result">شروع از ۴۸۰,۰۰۰ تومان</span>
+            </div>
+
             <div class="card-specs-list">
               <span class="spec-tag">انتخابگر دکانت</span>
               <span class="spec-tag">استوری تعاملی</span>
@@ -1311,13 +1632,19 @@
           </div>
 
           <div class="card-actions-row">
+            <button class="btn-device-preview" onclick="openPhonePreview('فروشگاه رویال پرفیوم (دموی عطر)', 'https://mammdo38.github.io/ATRE-demo/')">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="5" y="2" width="14" height="20" rx="3" ry="3"/>
+                <line x1="12" y1="18" x2="12.01" y2="18"/>
+              </svg>
+              <span>پیش‌نمایش در موبایل</span>
+            </button>
             <a href="https://mammdo38.github.io/ATRE-demo/" target="_blank" rel="noopener noreferrer" class="btn-card-live">
-              ورود و تست زنده دمو
+              <span>ورود به دمو</span>
               <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
               </svg>
             </a>
-            <span class="card-source-tag">ATRE-demo</span>
           </div>
         </div>
 
@@ -1334,7 +1661,7 @@
               </div>
             </div>
             <img 
-              src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80" 
+              src="./assets/demo-cosmetics.jpg" 
               alt="فروشگاه آنلاین لوازم آرایشی و مراقبت پوستی" 
               class="card-preview-img"
               loading="eager"
@@ -1348,6 +1675,18 @@
             <p class="card-text">
               تجربه خرید لوکس مینیمال بر پایه تم سفید خالص (Pure White Luxury) با انتخابگر رنگ زنده برای رژ و کرم، استوری‌های اختصاصی اینستاگرامی در هدر، سبد خرید کشویی لحظه‌ای و سفارش آسان مستقیم در پیام‌رسان.
             </p>
+
+            <!-- تست تعاملی انتخاب رنگ رژ -->
+            <div class="card-micro-demo">
+              <span class="micro-label">انتخاب تناژ:</span>
+              <div class="color-swatch-group">
+                <span class="color-dot active" style="background: #be123c;" onclick="selectSwatch(this, 'رز کوارتز مخملی')" title="رز کوارتز"></span>
+                <span class="color-dot" style="background: #e11d48;" onclick="selectSwatch(this, 'یاقوتی درخشان')" title="یاقوتی"></span>
+                <span class="color-dot" style="background: #9f1239;" onclick="selectSwatch(this, 'شرابی نایت‌مود')" title="شرابی"></span>
+              </div>
+              <span class="micro-result">رز کوارتز مخملی</span>
+            </div>
+
             <div class="card-specs-list">
               <span class="spec-tag">انتخابگر زنده رنگ</span>
               <span class="spec-tag">سبد خرید کشویی</span>
@@ -1357,13 +1696,19 @@
           </div>
 
           <div class="card-actions-row">
+            <button class="btn-device-preview" onclick="openPhonePreview('فروشگاه آرایشی و مراقبت پوست', './cosmetics/')">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="5" y="2" width="14" height="20" rx="3" ry="3"/>
+                <line x1="12" y1="18" x2="12.01" y2="18"/>
+              </svg>
+              <span>پیش‌نمایش در موبایل</span>
+            </button>
             <a href="./cosmetics/" class="btn-card-live">
-              ورود و تست زنده دمو
+              <span>ورود به دمو</span>
               <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
               </svg>
             </a>
-            <span class="card-source-tag">scailstudio.ir/cosmetics</span>
           </div>
         </div>
 
@@ -1380,7 +1725,7 @@
               </div>
             </div>
             <img 
-              src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80" 
+              src="./assets/demo-bag.jpg" 
               alt="گالری کیف لورین | خرید جدیدترین مدل‌های کیف زنانه و چرم" 
               class="card-preview-img"
               loading="eager"
@@ -1394,6 +1739,18 @@
             <p class="card-text">
               شوروم دیجیتال کیف‌های چرم زنانه، مجلسی، اداری، کوله‌پشتی و مینی‌بگ ترند روز با انتخابگر رنگ چرم (مشکی، عسلی، نسکافه‌ای)، تضمین متریال و دوخت، تخفیف‌های شگفت‌انگیز و ارسال مستقیم سفارشات.
             </p>
+
+            <!-- تست تعاملی رنگ چرم -->
+            <div class="card-micro-demo">
+              <span class="micro-label">تست چرم:</span>
+              <div class="color-swatch-group">
+                <span class="color-dot active" style="background: #18181b;" onclick="selectSwatch(this, 'چرم ناپا مشکی کلاسیک')" title="مشکی"></span>
+                <span class="color-dot" style="background: #b45309;" onclick="selectSwatch(this, 'چرم طبیعی عسلی')" title="عسلی"></span>
+                <span class="color-dot" style="background: #573926;" onclick="selectSwatch(this, 'چرم فلوتر موکا')" title="موکا"></span>
+              </div>
+              <span class="micro-result">چرم ناپا مشکی</span>
+            </div>
+
             <div class="card-specs-list">
               <span class="spec-tag">کالکشن فصلی چرم</span>
               <span class="spec-tag">انتخابگر رنگ چرم</span>
@@ -1403,13 +1760,19 @@
           </div>
 
           <div class="card-actions-row">
+            <button class="btn-device-preview" onclick="openPhonePreview('گالری کیف و چرم لورین', 'https://mammdo38.github.io/bag-demo/')">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="5" y="2" width="14" height="20" rx="3" ry="3"/>
+                <line x1="12" y1="18" x2="12.01" y2="18"/>
+              </svg>
+              <span>پیش‌نمایش در موبایل</span>
+            </button>
             <a href="https://mammdo38.github.io/bag-demo/" target="_blank" rel="noopener noreferrer" class="btn-card-live">
-              ورود و تست زنده دمو
+              <span>ورود به دمو</span>
               <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
               </svg>
             </a>
-            <span class="card-source-tag">bag-demo</span>
           </div>
         </div>
 
@@ -1481,7 +1844,39 @@
     </a>
   </div>
 
-  <!-- اسکریپت فیلتر پویا با پشتیبانی از بج تعداد -->
+  <!-- مودال شبیه‌ساز پیش‌نمایش در فریم آیفون ۱۶ پرومکس -->
+  <div class="phone-modal-backdrop" id="phoneModal" onclick="closePhoneModal(event)">
+    <div class="phone-modal-wrapper" onclick="event.stopPropagation()">
+      <div class="phone-modal-header">
+        <div class="phone-modal-title">
+          <span class="live-dot-pulse"></span>
+          <span id="modalDemoTitle">پیش‌نمایش دمو</span>
+          <span class="modal-badge-device">📱 iPhone 16 Mockup</span>
+        </div>
+        <div class="phone-modal-actions">
+          <a id="modalExternalLink" href="#" target="_blank" rel="noopener noreferrer" class="btn-modal-open">
+            <span>باز کردن تمام‌صفحه</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+            </svg>
+          </a>
+          <button class="btn-modal-close" onclick="closePhoneModal()" title="بستن">✕</button>
+        </div>
+      </div>
+
+      <!-- فریم شیک تیتانیوم آیفون با Dynamic Island -->
+      <div class="iphone-chassis">
+        <div class="iphone-screen">
+          <div class="dynamic-island">
+            <span class="camera-lens"></span>
+          </div>
+          <iframe id="phoneModalIframe" src="about:blank" title="Live Demo Preview"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- اسکریپت فیلتر پویا و اینترکشن‌های پیشرفته -->
   <script>
     function filterDemos(cat) {
       const buttons = document.querySelectorAll('.filter-btn');
@@ -1497,6 +1892,50 @@
           card.style.display = 'none';
         }
       });
+    }
+
+    // باز کردن پیش‌نمایش در فریم گوشی
+    function openPhonePreview(title, url) {
+      const modal = document.getElementById('phoneModal');
+      const iframe = document.getElementById('phoneModalIframe');
+      const titleElem = document.getElementById('modalDemoTitle');
+      const linkElem = document.getElementById('modalExternalLink');
+
+      titleElem.textContent = title;
+      linkElem.href = url;
+      iframe.src = url;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // بستن مودال فریم گوشی
+    function closePhoneModal() {
+      const modal = document.getElementById('phoneModal');
+      const iframe = document.getElementById('phoneModalIframe');
+      modal.classList.remove('active');
+      iframe.src = 'about:blank';
+      document.body.style.overflow = '';
+    }
+
+    // بستن با کلید Escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closePhoneModal();
+    });
+
+    // انتخاب حجم دکانت عطر و تغییر زنده قیمت
+    function selectDecant(btn, size, price) {
+      const parent = btn.closest('.card-micro-demo');
+      parent.querySelectorAll('.micro-chip').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      parent.querySelector('.micro-result').textContent = price;
+    }
+
+    // انتخاب تناژ رنگ و چرم
+    function selectSwatch(elem, name) {
+      const parent = elem.closest('.card-micro-demo');
+      parent.querySelectorAll('.color-dot').forEach(d => d.classList.remove('active'));
+      elem.classList.add('active');
+      parent.querySelector('.micro-result').textContent = name;
     }
   </script>
 </body>
