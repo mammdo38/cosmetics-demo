@@ -544,8 +544,13 @@
 
     /* ==========================================================================
        📱 کروسل سه‌بعدی و ورق‌خورنده آیفون ۱۶ پرو در هیرو (Apple 3D Cover Flow)
-       با وب‌سایت‌های زنده (Live iframes)، داینامیک آیلند واقعی و دوربین یاقوتی
+       با وب‌سایت‌های زنده (Live iframes)، اسکیلینگ دقیق ۳۹۰px و بدون نوار اسکرول
        ========================================================================== */
+    :root {
+      --iphone-scale: 0.6025;
+      --iphone-top-offset: 32px;
+    }
+
     .hero-container-grid {
       display: grid;
       grid-template-columns: 1.05fr 0.95fr;
@@ -667,7 +672,7 @@
       justify-content: space-between;
       z-index: 30;
       pointer-events: none;
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.15) 75%, transparent 100%);
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.25) 75%, transparent 100%);
       direction: ltr; /* استاتوس بار استاندارد جهانی اپل */
       color: #ffffff;
       box-sizing: border-box;
@@ -784,14 +789,56 @@
       border-radius: 1px;
     }
 
-    /* آی‌فریم وب‌سایت‌های زنده */
-    .iphone-live-iframe {
+    /* فریم اسکیل‌دهنده هوشمند ابعاد واقعی موبایل (Virtual Viewport 390px) */
+    .iphone-viewport {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
+      overflow: hidden !important;
+      border-radius: 38px;
+      background: #ffffff;
+      direction: ltr;
+      z-index: 1;
+    }
+
+    .iphone-scaler {
+      width: 390px;
+      height: 840px;
+      transform: translateX(-50%) scale(var(--iphone-scale));
+      transform-origin: top center;
+      position: absolute;
+      top: var(--iphone-top-offset);
+      left: 50%;
+      overflow: hidden !important;
+      scrollbar-width: none !important;
+      -ms-overflow-style: none !important;
+    }
+
+    .iphone-scaler::-webkit-scrollbar {
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
+    }
+
+    /* آی‌فریم وب‌سایت‌های زنده بدون نوار و دکمه اسکرول */
+    .iphone-live-iframe {
+      width: 390px;
+      height: 840px;
       border: none;
       background: #ffffff;
       display: block;
+      overflow: hidden !important;
+      scrollbar-width: none !important;
+      -ms-overflow-style: none !important;
       user-select: auto;
+    }
+
+    .iphone-live-iframe::-webkit-scrollbar {
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
     }
 
     /* لایه تعاملی کلیک روی گوشی‌های در عمق */
@@ -839,7 +886,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.02) 35%, transparent 60%);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 35%, transparent 60%);
       pointer-events: none;
       z-index: 28;
       border-radius: 38px;
@@ -1781,6 +1828,10 @@
        📱 بهینه‌سازی‌های جامع ریسپانسیو برای موبایل و تبلت (Responsive Mobile-First)
        ========================================================================== */
     @media (max-width: 1024px) {
+      :root {
+        --iphone-scale: 0.541;
+        --iphone-top-offset: 26px;
+      }
       .hero-container-grid {
         grid-template-columns: 1fr;
         gap: 36px;
@@ -1813,12 +1864,13 @@
       .iphone-mockup.pos-right {
         transform: translateX(120px) translateZ(-95px) rotateY(-18deg) scale(0.85);
       }
-      .floating-glass-pill {
-        display: none;
-      }
     }
 
     @media (max-width: 768px) {
+      :root {
+        --iphone-scale: 0.469;
+        --iphone-top-offset: 22px;
+      }
       .iphone-3d-stage {
         height: 420px;
         max-width: 310px;
@@ -2159,15 +2211,6 @@
 
         <!-- ستون چپ: کروسل سه‌بعدی و ورق‌خورنده آیفون‌های ۱۶ پرو -->
         <div class="hero-visual-col">
-          <!-- بج‌های شیشه‌ای شناور -->
-          <div class="floating-glass-pill pill-top-right">
-            <span class="live-dot-pulse"></span>
-            <span>سرعت ۰.۲۸ ثانیه • Fastly CDN</span>
-          </div>
-          <div class="floating-glass-pill pill-bottom-left">
-            <span>🛍️ خرید سریع در واتساپ</span>
-          </div>
-
           <!-- صحنه سه‌بعدی آیفون‌ها (Apple 3D Cover Flow) -->
           <div class="iphone-3d-stage" id="iphone3dStage" title="ورق زدن دموها با کلیک یا کشیدن">
             
@@ -2191,8 +2234,12 @@
                   </div>
                 </div>
 
-                <!-- وب‌سایت زنده و واقعی عطر رویال -->
-                <iframe src="https://mammdo38.github.io/ATRE-demo/" class="iphone-live-iframe" title="فروشگاه آنلاین عطر رویال" loading="eager"></iframe>
+                <!-- وب‌سایت زنده با ابعاد استاندارد ۳۹۰px بدون دکمه و نوار اسکرول -->
+                <div class="iphone-viewport">
+                  <div class="iphone-scaler">
+                    <iframe src="https://mammdo38.github.io/ATRE-demo/" class="iphone-live-iframe" scrolling="no" title="فروشگاه آنلاین عطر رویال" loading="eager"></iframe>
+                  </div>
+                </div>
                 
                 <div class="iphone-home-indicator"></div>
                 <div class="iphone-glare"></div>
@@ -2220,8 +2267,12 @@
                   </div>
                 </div>
 
-                <!-- وب‌سایت زنده و واقعی لوازم آرایشی اسکیل -->
-                <iframe src="./cosmetics/" class="iphone-live-iframe" title="فروشگاه آنلاین لوازم آرایشی اسکیل کازمتیک" loading="eager"></iframe>
+                <!-- وب‌سایت زنده با ابعاد استاندارد ۳۹۰px بدون دکمه و نوار اسکرول -->
+                <div class="iphone-viewport">
+                  <div class="iphone-scaler">
+                    <iframe src="./cosmetics/" class="iphone-live-iframe" scrolling="no" title="فروشگاه آنلاین لوازم آرایشی اسکیل کازمتیک" loading="eager"></iframe>
+                  </div>
+                </div>
                 
                 <div class="iphone-home-indicator"></div>
                 <div class="iphone-glare"></div>
@@ -2249,8 +2300,12 @@
                   </div>
                 </div>
 
-                <!-- وب‌سایت زنده و واقعی کیف و چرم لورین -->
-                <iframe src="https://mammdo38.github.io/bag-demo/" class="iphone-live-iframe" title="گالری کیف و چرم لورین" loading="eager"></iframe>
+                <!-- وب‌سایت زنده با ابعاد استاندارد ۳۹۰px بدون دکمه و نوار اسکرول -->
+                <div class="iphone-viewport">
+                  <div class="iphone-scaler">
+                    <iframe src="https://mammdo38.github.io/bag-demo/" class="iphone-live-iframe" scrolling="no" title="گالری کیف و چرم لورین" loading="eager"></iframe>
+                  </div>
+                </div>
                 
                 <div class="iphone-home-indicator"></div>
                 <div class="iphone-glare"></div>
@@ -2291,11 +2346,6 @@
               <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
             </svg>
           </a>
-          </div>
-
-          <div class="carousel-active-label" id="activeStoreLabel">
-            دموی ۱ از ۳ • رویال پرفیوم (عطر و ادکلن اورجینال)
-          </div>
         </div>
       </div>
     </section>
