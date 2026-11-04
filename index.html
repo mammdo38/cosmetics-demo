@@ -136,6 +136,45 @@
             }
           }
         ]
+      },
+      {
+        "@type": "Blog",
+        "@id": "https://scailstudio.ir/#blog",
+        "name": "مقالات و بینش‌های تخصصی استودیو اسکیل",
+        "description": "مجموعه مقالات تخصصی پیرامون مهندسی سرعت وب، روانشناسی تبدیل در موبایل و استراتژی‌های تجارت الکترونیک لوکس.",
+        "inLanguage": "fa-IR",
+        "blogPost": [
+          {
+            "@type": "BlogPosting",
+            "headline": "چرا سرعت بارگذاری زیر ۰٫۴ ثانیه نرخ تبدیل فروشگاه را بیش از دو برابر می‌کند؟",
+            "description": "تحلیل رفتار کاربران موبایل در ایران، افت شدید فروش ناشی از تاخیر هر ۱۰۰ میلی‌ثانیه، و چگونگی حذف سربار پلاگین‌ها برای دستیابی به بالاترین سرعت و فروش.",
+            "datePublished": "2024-11-04",
+            "author": {
+              "@type": "Organization",
+              "name": "Scale Studio"
+            }
+          },
+          {
+            "@type": "BlogPosting",
+            "headline": "روانشناسی خرید با موبایل؛ چرا ۹۰٪ ورودی‌های اینستاگرام خرید نمی‌کنند؟",
+            "description": "مهندسی منطقه شست (Thumb Zone)، تسویه‌حساب تک‌صفحه‌ای در ۳۰ ثانیه، و رازهای طراحی رابط کاربری برای تبدیل مخاطب به خریدار قطعی.",
+            "datePublished": "2024-10-19",
+            "author": {
+              "@type": "Organization",
+              "name": "Scale Studio"
+            }
+          },
+          {
+            "@type": "BlogPosting",
+            "headline": "تست تعاملی رنگ و دکانت آنلاین؛ استراتژی برندهای لوکس برای جهش فروش",
+            "description": "چرا غول‌های زیبایی و عطر دنیا به جای عکس‌های خشک کاتالوگی، از انتخاب‌گرهای تعاملی و مینی‌سایزها برای افزایش ارزش سبد خرید استفاده می‌کنند؟",
+            "datePublished": "2024-10-03",
+            "author": {
+              "@type": "Organization",
+              "name": "Scale Studio"
+            }
+          }
+        ]
       }
     ]
   }
@@ -1840,6 +1879,672 @@
       display: none;
     }
 
+    /* ==========================================================================
+       📚 بخش مقالات و بینش‌های تخصصی تجارت الکترونیک (Articles & Insights)
+       ========================================================================== */
+    .articles-section {
+      max-width: 1280px;
+      margin: 0 auto 100px;
+      padding: 0 28px;
+    }
+
+    .articles-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+
+    @media (min-width: 768px) {
+      .articles-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .articles-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .article-card {
+      background: #ffffff;
+      border: 1px solid var(--border-subtle);
+      border-radius: 24px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .article-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(0, 0, 0, 0.2);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+    }
+
+    /* بنرهای بصری شیک اختصاصی برای هر مقاله */
+    .article-visual-cover {
+      height: 200px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 18px 20px;
+      user-select: none;
+    }
+
+    .cover-speed {
+      background: linear-gradient(135deg, #0e131f 0%, #171d2c 50%, #1f273b 100%);
+      color: #ffffff;
+    }
+
+    .cover-mobile {
+      background: linear-gradient(135deg, #18181b 0%, #27272a 50%, #1c1917 100%);
+      color: #ffffff;
+    }
+
+    .cover-luxury {
+      background: linear-gradient(135deg, #1a1510 0%, #2a2016 50%, #36291a 100%);
+      color: #ffffff;
+    }
+
+    .cover-glow {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .cover-badge-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 2;
+    }
+
+    .article-category-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .article-read-time {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.85);
+      background: rgba(0, 0, 0, 0.28);
+      padding: 4px 10px;
+      border-radius: 9999px;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+
+    .cover-center-graphic {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+    }
+
+    .stat-num {
+      font-family: var(--font-en);
+      font-size: 1.95rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      direction: ltr;
+      display: inline-block;
+      unicode-bidi: isolate;
+    }
+
+    .cover-speed .stat-num {
+      background: linear-gradient(135deg, #60a5fa 0%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .cover-mobile .stat-num {
+      background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .cover-luxury .stat-num {
+      background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .stat-label {
+      font-size: 0.76rem;
+      font-family: var(--font-en);
+      color: rgba(255, 255, 255, 0.7);
+      letter-spacing: 0.02em;
+    }
+
+    .cover-accent-tag {
+      position: relative;
+      z-index: 2;
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.6);
+      align-self: flex-end;
+    }
+
+    .article-card-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .article-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .meta-separator {
+      color: rgba(0, 0, 0, 0.2);
+    }
+
+    .article-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      line-height: 1.55;
+      color: #111111;
+      margin-bottom: 12px;
+      transition: color 0.2s ease;
+    }
+
+    .article-card:hover .article-title {
+      color: #000000;
+    }
+
+    .article-excerpt {
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: var(--text-sub);
+      margin-bottom: 22px;
+      flex-grow: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .article-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+    }
+
+    .article-tags-wrap {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .article-mini-tag {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      background: var(--bg-surface-elevated);
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-weight: 500;
+      display: inline-block;
+      unicode-bidi: isolate;
+    }
+
+    .btn-read-article {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #111111;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-right: auto;
+      transition: transform 0.25s ease, color 0.2s;
+    }
+
+    .article-card:hover .btn-read-article {
+      transform: translateX(-4px);
+      color: #000000;
+    }
+
+    .btn-read-article svg {
+      transition: transform 0.25s ease;
+    }
+
+    .article-card:hover .btn-read-article svg {
+      transform: translateX(-3px);
+    }
+
+    /* ==========================================================================
+       📖 مودال خواندن مقالات (Article Reader Modal)
+       ========================================================================== */
+    .article-modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 10, 10, 0.75);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      z-index: 10001;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .article-modal-backdrop.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .article-modal-container {
+      width: 100%;
+      max-width: 860px;
+      max-height: 92vh;
+      background: #ffffff;
+      border-radius: 28px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
+      animation: articleModalSlideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes articleModalSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.98);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .article-modal-progress {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #9a6f1a, #c59b27);
+      width: 0%;
+      transition: width 0.1s;
+      z-index: 10;
+    }
+
+    .article-modal-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 28px;
+      border-bottom: 1px solid var(--border-subtle);
+      background: #faf9f6;
+      flex-shrink: 0;
+    }
+
+    .modal-left-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .article-modal-badge {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #111111;
+      background: #ffffff;
+      border: 1px solid var(--border-prominent);
+      padding: 4px 12px;
+      border-radius: 9999px;
+    }
+
+    .article-modal-readtime {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .modal-right-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-article-share {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: 10px;
+      background: #ffffff;
+      border: 1px solid var(--border-subtle);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-sub);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: var(--font-body);
+    }
+
+    .btn-article-share:hover {
+      background: #f4f3ef;
+      color: #111111;
+      border-color: var(--border-prominent);
+    }
+
+    .btn-article-close {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: 10px;
+      background: #111111;
+      border: none;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #ffffff;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: var(--font-body);
+    }
+
+    .btn-article-close:hover {
+      background: #27272a;
+      transform: translateY(-1px);
+    }
+
+    .article-modal-body {
+      padding: 36px 36px 48px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      line-height: 2.0;
+      color: #27272a;
+      font-size: 1.05rem;
+    }
+
+    .article-modal-body::-webkit-scrollbar {
+      width: 6px;
+    }
+    .article-modal-body::-webkit-scrollbar-thumb {
+      background: #d4d4d8;
+      border-radius: 4px;
+    }
+
+    .modal-article-header {
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .modal-article-title {
+      font-size: clamp(1.6rem, 2.8vw, 2.15rem);
+      font-weight: 900;
+      line-height: 1.4;
+      color: #111111;
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
+    }
+
+    .modal-article-lead {
+      font-size: 1.12rem;
+      font-weight: 500;
+      line-height: 1.95;
+      color: #52525b;
+      margin-bottom: 18px;
+    }
+
+    .modal-author-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .author-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #111111;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.75rem;
+    }
+
+    .article-prose h2,
+    .article-prose h3 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #111111;
+      margin: 36px 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .article-prose h2::before,
+    .article-prose h3::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 20px;
+      background: #c59b27;
+      border-radius: 2px;
+    }
+
+    .article-prose p {
+      margin-bottom: 20px;
+      line-height: 2.0;
+    }
+
+    .article-prose strong {
+      color: #111111;
+      font-weight: 700;
+    }
+
+    .article-prose blockquote {
+      margin: 28px 0;
+      padding: 20px 24px;
+      background: #faf9f6;
+      border-right: 4px solid #111111;
+      border-radius: 0 14px 14px 0;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #18181b;
+      line-height: 1.9;
+    }
+
+    .article-prose ul {
+      margin: 18px 0 28px 24px;
+      padding-right: 16px;
+      list-style-type: disc;
+    }
+
+    .article-prose li {
+      margin-bottom: 10px;
+      line-height: 1.85;
+    }
+
+    .article-takeaways-box {
+      margin: 36px 0;
+      padding: 24px 28px;
+      background: #faf8f5;
+      border: 1px solid rgba(197, 155, 39, 0.3);
+      border-radius: 18px;
+    }
+
+    .article-takeaways-box h4 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #9a6f1a;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .article-takeaways-box ul {
+      margin: 0;
+      padding-right: 18px;
+      list-style-type: circle;
+    }
+
+    .article-takeaways-box li {
+      color: #27272a;
+      margin-bottom: 8px;
+      font-size: 0.96rem;
+    }
+
+    .article-modal-cta {
+      margin-top: 44px;
+      padding: 28px 30px;
+      background: #111111;
+      color: #ffffff;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    @media (min-width: 640px) {
+      .article-modal-cta {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .modal-cta-text h4 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+
+    .modal-cta-text p {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .btn-modal-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 12px;
+      background: #ffffff;
+      color: #111111;
+      font-weight: 800;
+      font-size: 0.92rem;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .btn-modal-cta:hover {
+      background: #f4f3ef;
+      transform: translateY(-2px);
+    }
+
+    .article-bottom-nav {
+      margin-top: 36px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: center;
+    }
+
+    .btn-bottom-close {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 24px;
+      border-radius: 12px;
+      background: #ffffff;
+      border: 1px solid var(--border-prominent);
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #111111;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: var(--font-body);
+    }
+
+    .btn-bottom-close:hover {
+      background: #f4f3ef;
+    }
+
+    .article-toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(50px);
+      background: #111111;
+      color: #ffffff;
+      padding: 10px 22px;
+      border-radius: 9999px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 10005;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    }
+
+    .article-toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
     /* بخش پرسش‌های متداول (FAQ Section) */
     .faq-section {
       max-width: 980px;
@@ -2373,6 +3078,70 @@
         width: 16px;
         height: 16px;
       }
+      .articles-section {
+        padding: 0 16px;
+        margin-bottom: 46px;
+      }
+      .article-card {
+        border-radius: 20px;
+      }
+      .article-visual-cover {
+        height: 180px;
+        padding: 16px;
+      }
+      .article-card-body {
+        padding: 20px 16px;
+      }
+      .article-title {
+        font-size: 1.05rem;
+      }
+      .article-modal-backdrop {
+        padding: 10px;
+      }
+      .article-modal-container {
+        max-height: 94vh;
+        border-radius: 22px;
+      }
+      .article-modal-top-bar {
+        padding: 14px 16px;
+      }
+      .modal-left-meta {
+        gap: 8px;
+      }
+      .article-modal-badge {
+        font-size: 0.72rem;
+        padding: 3px 8px;
+      }
+      .article-modal-readtime {
+        display: none;
+      }
+      .btn-article-share span {
+        display: none;
+      }
+      .btn-article-share {
+        padding: 7px 10px;
+      }
+      .article-modal-body {
+        padding: 24px 18px 36px;
+        font-size: 0.98rem;
+        line-height: 1.9;
+      }
+      .modal-article-title {
+        font-size: 1.35rem;
+        line-height: 1.45;
+      }
+      .modal-article-lead {
+        font-size: 0.95rem;
+        line-height: 1.85;
+      }
+      .article-takeaways-box {
+        padding: 18px;
+        border-radius: 14px;
+      }
+      .article-modal-cta {
+        padding: 20px 18px;
+        border-radius: 16px;
+      }
       .cta-banner {
         padding: 0 16px;
         margin-bottom: 46px;
@@ -2446,6 +3215,7 @@
       <nav class="nav-links">
         <a href="#demos">ویترین دموها</a>
         <a href="#features">استانداردهای فنی</a>
+        <a href="#articles">مقالات تخصصی</a>
         <a href="#faq">پرسش‌های متداول</a>
         <a href="#contact">سفارش و مشاوره</a>
       </nav>
@@ -2814,6 +3584,144 @@
       </div>
     </section>
 
+    <!-- بخش مقالات و بینش‌های تخصصی تجارت الکترونیک (Articles & Insights Section) -->
+    <section class="articles-section" id="articles">
+      <div class="section-header-row">
+        <h2>مقالات و بینش‌های تخصصی تجارت الکترونیک</h2>
+        <p>راهنماهای عملی برای بهینه‌سازی سرعت، مهندسی نرخ تبدیل موبایل و استراتژی‌های فروش آنلاین برندهای پیشرو.</p>
+      </div>
+
+      <div class="articles-grid">
+
+        <!-- مقاله ۱: سرعت و سئو -->
+        <article class="article-card" onclick="openArticle('article-speed')" tabindex="0" role="button" aria-label="مطالعه مقاله: چرا سرعت بارگذاری زیر ۰٫۴ ثانیه نرخ تبدیل فروشگاه را متحول می‌کند؟">
+          <div class="article-visual-cover cover-speed">
+            <div class="cover-glow"></div>
+            <div class="cover-badge-row">
+              <span class="article-category-badge">⚡ مهندسی سرعت و سئو</span>
+              <span class="article-read-time">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>۴ دقیقه مطالعه</span>
+              </span>
+            </div>
+            <div class="cover-center-graphic">
+              <span class="stat-num" dir="ltr">&lt; 0.4s</span>
+              <span class="stat-label">Ultra-Fast TTI • Core Web Vitals 100/100</span>
+            </div>
+            <div class="cover-accent-tag">سئو تکنیکال و رتبه گوگل</div>
+          </div>
+
+          <div class="article-card-body">
+            <div class="article-meta-row">
+              <span class="article-date">۱۴ آبان ۱۴۰۳</span>
+              <span class="meta-separator">•</span>
+              <span class="article-author">تیم مهندسی اسکیل</span>
+            </div>
+            <h3 class="article-title">چرا سرعت بارگذاری زیر ۰٫۴ ثانیه نرخ تبدیل فروشگاه را بیش از دو برابر می‌کند؟</h3>
+            <p class="article-excerpt">تحلیل دقیق رفتار کاربران موبایل در ایران، بررسی زیان‌های مالی هر ۱۰۰ میلی‌ثانیه تاخیر و روش‌های حذف پلاگین‌های سنگین برای رسیدن به رتبه اول گوگل.</p>
+            
+            <div class="article-card-footer">
+              <div class="article-tags-wrap">
+                <span class="article-mini-tag" dir="ltr">#CoreWebVitals</span>
+                <span class="article-mini-tag">#سرعت_سایت</span>
+              </div>
+              <span class="btn-read-article">
+                <span>مطالعه مقاله</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                </svg>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <!-- مقاله ۲: روانشناسی خرید موبایل -->
+        <article class="article-card" onclick="openArticle('article-mobile-ux')" tabindex="0" role="button" aria-label="مطالعه مقاله: روانشناسی خرید با موبایل؛ چرا ۹۰٪ ورودی‌های اینستاگرام خرید نمی‌کنند؟">
+          <div class="article-visual-cover cover-mobile">
+            <div class="cover-glow"></div>
+            <div class="cover-badge-row">
+              <span class="article-category-badge">📱 روانشناسی خرید و UX</span>
+              <span class="article-read-time">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>۵ دقیقه مطالعه</span>
+              </span>
+            </div>
+            <div class="cover-center-graphic">
+              <span class="stat-num" dir="ltr">Thumb Zone</span>
+              <span class="stat-label">Mobile CRO • 1-Tap Checkout Flow</span>
+            </div>
+            <div class="cover-accent-tag">کاهش ریزش سبد خرید</div>
+          </div>
+
+          <div class="article-card-body">
+            <div class="article-meta-row">
+              <span class="article-date">۲۸ مهر ۱۴۰۳</span>
+              <span class="meta-separator">•</span>
+              <span class="article-author">تیم طراحی محصول اسکیل</span>
+            </div>
+            <h3 class="article-title">روانشناسی خرید با موبایل؛ چرا ۹۰٪ ورودی‌های اینستاگرام خرید نمی‌کنند؟</h3>
+            <p class="article-excerpt">مهندسی منطقه شست (Thumb Zone)، تسویه‌حساب تک‌صفحه‌ای در ۳۰ ثانیه، و رازهای طراحی رابط کاربری برای تبدیل مخاطب کنجکاو به خریدار قطعی.</p>
+            
+            <div class="article-card-footer">
+              <div class="article-tags-wrap">
+                <span class="article-mini-tag" dir="ltr">#MobileCRO</span>
+                <span class="article-mini-tag">#تجربه_کاربری</span>
+              </div>
+              <span class="btn-read-article">
+                <span>مطالعه مقاله</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                </svg>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <!-- مقاله ۳: استراتژی برندهای لوکس -->
+        <article class="article-card" onclick="openArticle('article-interactive-commerce')" tabindex="0" role="button" aria-label="مطالعه مقاله: تست تعاملی رنگ و دکانت آنلاین؛ استراتژی برندهای لوکس برای جهش فروش">
+          <div class="article-visual-cover cover-luxury">
+            <div class="cover-glow"></div>
+            <div class="cover-badge-row">
+              <span class="article-category-badge">💎 استراتژی برندهای لوکس</span>
+              <span class="article-read-time">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>۶ دقیقه مطالعه</span>
+              </span>
+            </div>
+            <div class="cover-center-graphic">
+              <span class="stat-num" dir="ltr">+40% AOV</span>
+              <span class="stat-label">Interactive Decant & Swatch Experience</span>
+            </div>
+            <div class="cover-accent-tag">افزایش میانگین سبد خرید</div>
+          </div>
+
+          <div class="article-card-body">
+            <div class="article-meta-row">
+              <span class="article-date">۱۲ مهر ۱۴۰۳</span>
+              <span class="meta-separator">•</span>
+              <span class="article-author">واحد خلاقیت اسکیل</span>
+            </div>
+            <h3 class="article-title">تست تعاملی رنگ و دکانت آنلاین؛ استراتژی برندهای لوکس برای جهش فروش</h3>
+            <p class="article-excerpt">چرا غول‌های زیبایی و عطر دنیا به جای عکس‌های خشک کاتالوگی، از انتخاب‌گرهای تعاملی و مینی‌سایزها برای افزایش ارزش سبد خرید استفاده می‌کنند؟</p>
+            
+            <div class="article-card-footer">
+              <div class="article-tags-wrap">
+                <span class="article-mini-tag" dir="ltr">#ECommerceStrategy</span>
+                <span class="article-mini-tag">#فروشگاه_لوکس</span>
+              </div>
+              <span class="btn-read-article">
+                <span>مطالعه مقاله</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                </svg>
+              </span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
     <!-- بخش پرسش‌های متداول (FAQ Section) -->
     <section class="faq-section" id="faq">
       <div class="section-header-row">
@@ -2921,6 +3829,7 @@
         <div class="footer-links">
           <a href="#demos">ویترین دموها</a>
           <a href="#features">استانداردهای فنی</a>
+          <a href="#articles">مقالات تخصصی</a>
           <a href="#faq">پرسش‌های متداول</a>
           <a href="#contact">سفارش و مشاوره</a>
           <a href="./sitemap.xml">نقشه سایت (Sitemap)</a>
@@ -2966,6 +3875,40 @@
     </div>
   </div>
 
+  <!-- مودال مطالعه مقالات تخصصی (Article Reader Modal) -->
+  <div class="article-modal-backdrop" id="articleReaderModal" onclick="closeArticleModal(event)">
+    <div class="article-modal-container" onclick="event.stopPropagation()">
+      <div class="article-modal-progress" id="articleProgressBar"></div>
+
+      <!-- هدر کنترل مودال -->
+      <div class="article-modal-top-bar">
+        <div class="modal-left-meta">
+          <span class="article-modal-badge" id="modalArticleBadge">دسته بندی</span>
+          <span class="article-modal-readtime" id="modalArticleReadTime">زمان مطالعه</span>
+        </div>
+        <div class="modal-right-actions">
+          <button class="btn-article-share" onclick="copyArticleShareLink()" title="کپی لینک مستقیم مقاله">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/>
+            </svg>
+            <span>اشتراک‌گذاری</span>
+          </button>
+          <button class="btn-article-close" onclick="closeArticleModal()" title="بستن پنجره">
+            <span>بستن</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- بدنه محتوایی مقاله -->
+      <div class="article-modal-body" id="articleModalBody">
+        <!-- محتوای کامل مقاله داینامیک بارگذاری می‌شود -->
+      </div>
+    </div>
+  </div>
+
   <!-- اسکریپت فیلتر پویا و اینترکشن‌های پیشرفته -->
   <script>
     function filterDemos(cat) {
@@ -3007,9 +3950,12 @@
       document.body.style.overflow = '';
     }
 
-    // بستن با کلید Escape
+    // بستن مودال‌ها با کلید Escape
     document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') closePhoneModal();
+      if (e.key === 'Escape') {
+        closePhoneModal();
+        closeArticleModal();
+      }
     });
 
     // باز و بسته کردن آکاردئون پرسش‌های متداول (FAQ)
@@ -3182,9 +4128,249 @@
       }
     });
 
-    // شروع با وضعیت اولیه رویال پرفیوم
+    // ==========================================
+    // 📚 سیستم مقالات تخصصی و پنجره مطالعه (بدون نیاز به بک‌اند)
+    // برای افزودن مقاله جدید، کافیست یک آبجکت جدید به این لیست اضافه فرمایید
+    // ==========================================
+    const articlesData = {
+      'article-speed': {
+        title: 'چرا سرعت بارگذاری زیر ۰٫۴ ثانیه نرخ تبدیل فروشگاه را بیش از دو برابر می‌کند؟',
+        category: '⚡ مهندسی سرعت و سئو',
+        readTime: '۴ دقیقه مطالعه',
+        date: '۱۴ آبان ۱۴۰۳',
+        lead: 'تحلیل دقیق داده‌های رفتار کاربران موبایل در ایران؛ بررسی زیان‌های مالی هر ۱۰۰ میلی‌ثانیه تاخیر و روش‌های حذف پلاگین‌های سنگین برای رسیدن به رتبه اول گوگل.',
+        content: `
+          <p>در دنیای پرشتاب تجارت الکترونیک، زمان بزرگ‌ترین دارایی شماست. طبق تحقیقات رسمی منتشرشده توسط گوگل و Deloitte Digital، هر <strong>۰٫۱ ثانیه (۱۰۰ میلی‌ثانیه)</strong> کاهش در زمان لود صفحه فروشگاهی، نرخ تبدیل و ثبت نهایی سفارش را تا <strong>۸٫۴ درصد</strong> ارتقا می‌دهد.</p>
+
+          <blockquote>
+            «اگر لود صفحه محصول در موبایل بیش از ۳ ثانیه طول بکشد، بیش از ۵۳ درصد کاربران ایرانی پیش از مشاهده حتی یک تصویر از سایت خارج می‌شوند.»
+          </blockquote>
+
+          <h3>چرا سایت‌های سنگین و قالب‌های آماده فروش را از بین می‌برند؟</h3>
+          <p>بسیاری از فروشگاه‌های اینترنتی بر پایه قالب‌های آماده و ده‌ها افزونه (پلاگین) سنگین بنا شده‌اند. این وب‌سایت‌ها با هر کلیک کاربر، ده‌ها درخواست سنگین به پایگاه داده ارسال می‌کنند و فایل‌های حجیم جاوااسکریپت را به مرورگر تحمیل می‌نمایند. در شرایط اینترنت همراه و نوسانات اتصال در ایران، این مسئله فاجعه‌بار است: صفحه سفید می‌ماند، المان‌ها دچار پرش می‌شوند و خریدار قبل از دیدن محصول، تب را می‌بندد.</p>
+
+          <h3>معماری بدون سربار (Zero-Bloat) در استودیو اسکیل</h3>
+          <p>در استودیو اسکیل، ما مهندسی فرانت‌اند را با کدهای دست‌ساز و فوق بهینه اجرا می‌کنیم:</p>
+          <ul>
+            <li><strong>زمان پاسخ اولیه سرور (TTFB) زیر ۵۰ میلی‌ثانیه:</strong> با بهره‌گیری از سرورهای ابری Edge CDN پرسرعت.</li>
+            <li><strong>فرمت‌های نسل جدید WebP و AVIF:</strong> کاهش حجم تصاویر تا ۷۰٪ با حفظ شفافیت و درخشش بصری کالاها.</li>
+            <li><strong>لود تاخیری هوشمند (Native Lazy-Loading):</strong> فقط بخش‌هایی که در دید کاربر قرار دارند پردازش می‌شوند.</li>
+            <li><strong>حذف ۱۰۰٪ کتابخانه‌های سنگین بدون استفاده:</strong> کدهای تمیز و استاندارد بدون فایل‌های چندمگابایتی زائد.</li>
+          </ul>
+
+          <div class="article-takeaways-box">
+            <h4>📌 نکات کلیدی و چک‌لیست برای مدیران برندها</h4>
+            <ul>
+              <li>صفحات محصولات خود را با ابزار Google PageSpeed تست کنید؛ نمره پرفورمنس زیر ۹۰ هشداری برای افت فروش است.</li>
+              <li>تصاویر اصلی را به فرمت WebP فشرده کنید و ابعاد رتینا را کنترل فرمایید.</li>
+              <li>از اجرای پلتفرم‌های بدون پلاگین‌های زائد (Clean-Code Architecture) به عنوان برگ برنده در برابر رقبا استفاده کنید.</li>
+            </ul>
+          </div>
+
+          <p>نتیجه این بهینه‌سازی‌ها، دستیابی به سرعت صاعقه‌ای زیر ۰٫۴ ثانیه، شاخص‌های سبز کامل در Core Web Vitals و صعود ارگانیک به صفحات اول نتایج گوگل بدون نیاز به هزینه‌های مداوم تبلیغاتی است.</p>
+        `
+      },
+      'article-mobile-ux': {
+        title: 'روانشناسی خرید با موبایل؛ چرا ۹۰٪ ورودی‌های اینستاگرام خرید نمی‌کنند؟',
+        category: '📱 روانشناسی خرید و UX',
+        readTime: '۵ دقیقه مطالعه',
+        date: '۲۸ مهر ۱۴۰۳',
+        lead: 'مهندسی منطقه شست (Thumb Zone)، تسویه‌حساب تک‌صفحه‌ای در ۳۰ ثانیه، و رازهای طراحی رابط کاربری برای تبدیل مخاطب کنجکاو به خریدار قطعی.',
+        content: `
+          <p>برندهای فعال در حوزه‌های زیبایی، عطر و مد روزانه هزینه‌های گزافی را صرف تبلیغات اینستاگرامی و همکاری با اینفلوئنسرها می‌کنند. ترافیک زیادی از طریق استوری‌ها وارد سایت می‌شود، اما وقتی به پنل آمار نگاه می‌کنید، بیش از ۹۰ درصد این کاربران بدون حتی اضافه کردن یک محصول به سبد، صفحه را ترک می‌کنند!</p>
+
+          <blockquote>
+            «مشکل در محصول یا قیمت شما نیست؛ مشکل در اصطکاک ادراکی و ناامنی ذهنی کاربر در نسخه موبایل سایت است.»
+          </blockquote>
+
+          <h3>قانون منطقه دسترسی شست (The Thumb Zone)</h3>
+          <p>بیش از ۸۸ درصد کاربران ایرانی خرید آنلاین خود را با یک دست و با شست گوشی انجام می‌دهند. اگر کلیدهای حیاتی مانند «انتخاب سایز/رنگ»، «افزودن به سبد» یا «ثبت سفارش» در گوشه‌های بالایی یا مناطق دور از دسترس شست قرار گیرند، کاربر به صورت ناخودآگاه احساس خستگی می‌کند.</p>
+          <p>در طراحی فروشگاه‌های نسل جدید اسکیل، تمامی کنترل‌های مهم در یک نوار شناور ارگونومیک (Sticky Dock) در پایین صفحه گوشی تثبیت شده‌اند و پنل‌ها به صورت Bottom Sheet از پایین بالا می‌آیند تا تجربه‌ای مشابه اپلیکیشن‌های بومی آیفون ایجاد شود.</p>
+
+          <h3>خداحافظی با فرم‌های طولانی: تسویه‌حساب در ۳۰ ثانیه</h3>
+          <p>کاربری که از فضای سریع و بصری اینستاگرام وارد سایت شده، حوصله ثبت‌نام چندمرحله‌ای، تایید ایمیل و انتخاب استان و شهر با لودهای خسته‌کننده را ندارد. راه‌حل طلایی:</p>
+          <ul>
+            <li><strong>ورود بدون پسورد با OTP پیامکی یا ثبت سفارش مهمان:</strong> ورود تنها در چند ثانیه با یک پیامک تایید.</li>
+            <li><strong>چک‌اوت تک‌صفحه‌ای هوشمند:</strong> تمامی فیلدهای آدرس و اطلاعات ضروری در یک صفحه جمع‌وجور بدون رفرش.</li>
+            <li><strong>هدایت مستقیم فاکتور به واتساپ/تلگرام:</strong> برای مشتریانی که مایل به مشاوره نهایی یا پرداخت کارت‌به‌کارت هستند.</li>
+          </ul>
+
+          <div class="article-takeaways-box">
+            <h4>📌 نکات کلیدی برای ارتقای UX موبایل</h4>
+            <ul>
+              <li>دکمه خرید همواره باید در پایین صفحه و در محدوده طبیعی شست ثابت بماند.</li>
+              <li>تعداد مراحل پرداخت را به یک مرحله کاهش دهید و ثبت‌نام اجباری پیش از خرید را حذف کنید.</li>
+              <li>از اعلان‌های زنده و ظریف خریدهای اخیر برای ایجاد اثبات اجتماعی (Social Proof) بهره ببرید.</li>
+            </ul>
+          </div>
+        `
+      },
+      'article-interactive-commerce': {
+        title: 'تست تعاملی رنگ و دکانت آنلاین؛ استراتژی برندهای لوکس برای جهش فروش',
+        category: '💎 استراتژی برندهای لوکس',
+        readTime: '۶ دقیقه مطالعه',
+        date: '۱۲ مهر ۱۴۰۳',
+        lead: 'چرا غول‌های زیبایی و عطر دنیا به جای عکس‌های خشک کاتالوگی، از انتخاب‌گرهای تعاملی و مینی‌سایزها برای افزایش ارزش سبد خرید استفاده می‌کنند؟',
+        content: `
+          <p>خرید آنلاین محصولاتی نظیر عطر اورجینال، لوازم آرایشی و اکسسوری‌های دست‌ساز همیشه با یک سد روانی مواجه بوده است: «آیا بوی این عطر مناسب من است؟ آیا رنگ این کرم‌پودر با تناژ پوست من همخوانی دارد؟»</p>
+
+          <blockquote>
+            «برندهای برتر جهانی مانند Byredo, Diptyque و Chanel این مانع را با تجربه تست تعاملی و فروش دکانت‌های مینی‌سایز به فرصتی برای جهش فروش تبدیل کرده‌اند.»
+          </blockquote>
+
+          <h3>سیستم دکانت و تستر هوشمند در فروشگاه‌های عطر</h3>
+          <p>با افزایش قیمت ادکلن‌های اورجینال، خریدار عادی به راحتی ریسک خرید یک شیشه ۱۰۰ میل چند میلیونی را نمی‌پذیرد. اما وقتی به او امکان انتخاب دکانت ۵ یا ۱۰ میلی‌لیتری با شیشه اختصاصی و تغییر آنی قیمت داده می‌شود:</p>
+          <ul>
+            <li>سد روانی ریسک خرید شکسته می‌شود و مشتری به راحتی سفارش خود را ثبت می‌کند.</li>
+            <li>مشتری پس از اطمینان از اصالت رایحه، برای خرید بطری کامل بازمی‌گردد (جهش نرخ خرید مجدد).</li>
+            <li>امکان تست چند رایحه متفاوت در یک سفارش، میانگین ارزش سبد خرید (AOV) را تا ۴۰٪ افزایش می‌دهد.</li>
+          </ul>
+
+          <h3>انتخاب‌گر زنده رنگ و تناژ پوست (Interactive Swatches)</h3>
+          <p>در فروشگاه‌های لوازم آرایشی، نمایش عکس‌های ثابت از محصولات کافی نیست. تعامل تعاملی یعنی کاربر با لمس گزینه‌های مختلف رنگ، فوراً نمونه تست‌شده روی پوست طبیعی، فینیش مات یا براق، و تطابق با کد رنگی را در همان ثانیه مشاهده کند.</p>
+
+          <div class="article-takeaways-box">
+            <h4>📌 راهکار عملی برای فروشگاه‌های مدرن</h4>
+            <ul>
+              <li>گزینه انتخاب حجم و سمپل را به صفحات محصولات حسی مانند عطر و محصولات مراقبتی اضافه کنید.</li>
+              <li>از جلوه‌های بصری پویا و انتخاب‌گرهای روان به جای منوهای کشویی بی‌روح استفاده نمایید.</li>
+              <li>با شبیه‌سازی دقیق ویژگی‌های فیزیکی کالا، نرخ مرجوعی کالا را به حداقل برسانید.</li>
+            </ul>
+          </div>
+        `
+      }
+    };
+
+    let currentOpenArticleId = null;
+
+    function openArticle(id) {
+      const data = articlesData[id];
+      if (!data) return;
+
+      currentOpenArticleId = id;
+      const modal = document.getElementById('articleReaderModal');
+      const badge = document.getElementById('modalArticleBadge');
+      const readTime = document.getElementById('modalArticleReadTime');
+      const body = document.getElementById('articleModalBody');
+      const progressBar = document.getElementById('articleProgressBar');
+
+      if (badge) badge.textContent = data.category;
+      if (readTime) readTime.textContent = data.readTime;
+
+      if (body) {
+        body.innerHTML = `
+          <div class="modal-article-header">
+            <h1 class="modal-article-title">${data.title}</h1>
+            <p class="modal-article-lead">${data.lead}</p>
+            <div class="modal-author-row">
+              <div class="author-avatar">SS</div>
+              <div>
+                <div style="font-weight:700; color:#111111;">استودیو اسکیل (Scale Studio)</div>
+                <div style="font-size:0.78rem; color:#71717a;">منتشر شده در ${data.date}</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="article-prose">
+            ${data.content}
+          </div>
+
+          <!-- باکس فراخوان اقدام داخل مقاله -->
+          <div class="article-modal-cta">
+            <div class="modal-cta-text">
+              <h4>می‌خواهید این استانداردها روی فروشگاه شما پیاده شود؟</h4>
+              <p>تیم مهندسی اسکیل آماده ارتقای سرعت، UX و فروش پلتفرم آنلاین برند شماست.</p>
+            </div>
+            <a href="#contact" class="btn-modal-cta" onclick="closeArticleModal()">درخواست مشاوره اختصاصی</a>
+          </div>
+
+          <div class="article-bottom-nav">
+            <button class="btn-bottom-close" onclick="closeArticleModal()">
+              <span>بازگشت به مقالات</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 12H5m7 7l-7-7 7-7"/>
+              </svg>
+            </button>
+          </div>
+        `;
+        body.scrollTop = 0;
+      }
+
+      if (progressBar) progressBar.style.width = '0%';
+      if (modal) modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+
+      history.replaceState(null, null, '#' + id);
+
+      if (body) {
+        body.onscroll = function() {
+          const total = body.scrollHeight - body.clientHeight;
+          if (total > 0 && progressBar) {
+            const pct = Math.min(100, Math.max(0, (body.scrollTop / total) * 100));
+            progressBar.style.width = pct + '%';
+          }
+        };
+      }
+    }
+
+    function closeArticleModal(e) {
+      if (e && e.target && e.target !== document.getElementById('articleReaderModal') && !e.target.closest('.btn-article-close') && !e.target.closest('.btn-bottom-close')) {
+        return;
+      }
+      const modal = document.getElementById('articleReaderModal');
+      if (modal) {
+        modal.classList.remove('active');
+      }
+      document.body.style.overflow = '';
+      currentOpenArticleId = null;
+
+      if (window.location.hash.startsWith('#article-')) {
+        history.replaceState(null, null, window.location.pathname + window.location.search);
+      }
+    }
+
+    function copyArticleShareLink() {
+      if (!currentOpenArticleId) return;
+      const shareUrl = window.location.origin + window.location.pathname + '#' + currentOpenArticleId;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(shareUrl).then(() => {
+          showArticleToast('لینک مستقیم مقاله با موفقیت کپی شد!');
+        }).catch(() => {
+          showArticleToast('لینک مقاله: ' + shareUrl);
+        });
+      } else {
+        showArticleToast('لینک مقاله: ' + shareUrl);
+      }
+    }
+
+    function showArticleToast(msg) {
+      let toast = document.getElementById('articleToast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'articleToast';
+        toast.className = 'article-toast';
+        document.body.appendChild(toast);
+      }
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    function checkArticleHash() {
+      const hash = window.location.hash.replace('#', '');
+      if (hash && articlesData[hash]) {
+        openArticle(hash);
+      }
+    }
+
+    window.addEventListener('hashchange', checkArticleHash);
+
+    // شروع با وضعیت اولیه رویال پرفیوم و بررسی لینک مقاله
     document.addEventListener('DOMContentLoaded', function() {
       updateIphoneCarousel();
+      checkArticleHash();
     });
   </script>
 </body>
