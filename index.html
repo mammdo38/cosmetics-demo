@@ -425,88 +425,42 @@
       z-index: 1;
     }
 
-    /* ==========================================================================
-       📱 بخش معرفی اصلی (Hero Section) و کروسل سه‌بعدی آیفون ۱۶ پرو
-       ========================================================================== */
-    :root {
-      --iphone-scale: 0.6487;
-      --iphone-top-offset: 28px;
-    }
-
-    /* کانتینر اصلی هیرو */
+    /* بخش Hero با کنتراست عمیق، فاصله استاندارد بدون فضای مرده */
     .hero-section {
       max-width: 1280px;
       margin: 0 auto;
-      padding: 44px 28px 36px;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-    }
-
-    .hero-container-grid {
-      display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      align-items: center;
-      gap: 40px;
-      width: 100%;
-    }
-
-    /* ستون متن و تیتر */
-    .hero-content-col {
+      padding: 40px 28px 30px;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      max-width: 660px;
+      position: relative;
     }
 
-    /* بج بالای تیتر برای توازن عمودی ستون راست */
-    .hero-eyebrow-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 14px;
-      border-radius: 9999px;
-      background: #ffffff;
-      border: 1px solid var(--border-prominent);
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: #27272a;
-      margin-bottom: 18px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-    }
-
-    .badge-live-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #10b981;
-      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
-    }
-
-    .hero-title {
+    .hero-section h1 {
       font-family: var(--font-display);
-      font-size: clamp(2.15rem, 3.7vw, 3.45rem);
+      font-size: clamp(2.2rem, 3.8vw, 3.6rem);
       font-weight: 900;
-      line-height: 1.28;
+      line-height: 1.25;
       color: #111111;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.03em;
       margin-bottom: 18px;
+      max-width: 100%;
     }
 
+    /* متن های‌لایت جوهری و شفاف */
     .gradient-gold-text {
-      background: linear-gradient(135deg, #9a6f1a 0%, #c59b27 48%, #785311 100%);
+      background: linear-gradient(135deg, #111111 0%, #3f3f46 60%, #111111 100%);
       -webkit-background-clip: text;
-      background-clip: text;
       -webkit-text-fill-color: transparent;
-      display: inline;
+      display: inline-block;
     }
 
     .hero-lead {
-      font-size: clamp(0.98rem, 1.3vw, 1.12rem);
+      font-size: clamp(1rem, 1.35vw, 1.15rem);
       color: #52525b;
-      max-width: 620px;
-      line-height: 1.9;
-      margin-bottom: 28px;
+      max-width: 640px;
+      line-height: 1.85;
+      margin-bottom: 26px;
     }
 
     .hero-action-row {
@@ -514,7 +468,6 @@
       flex-wrap: nowrap;
       gap: 14px;
       align-items: center;
-      margin-bottom: 28px;
     }
 
     .btn-hero-primary {
@@ -528,9 +481,9 @@
       font-weight: 800;
       font-size: 0.95rem;
       text-decoration: none;
+      transition: all 0.25s ease;
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.14);
       white-space: nowrap;
-      transition: all 0.25s ease;
     }
 
     .btn-hero-primary:hover {
@@ -551,9 +504,9 @@
       font-weight: 700;
       font-size: 0.95rem;
       text-decoration: none;
+      transition: all 0.25s ease;
       box-shadow: 0 3px 12px rgba(0, 0, 0, 0.03);
       white-space: nowrap;
-      transition: all 0.25s ease;
     }
 
     .btn-hero-secondary:hover {
@@ -562,41 +515,30 @@
       transform: translateY(-2px);
     }
 
-    /* نوار ویژگی‌های کلیدی زیر دکمه‌ها */
-    .hero-trust-metrics {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border-subtle);
-      width: 100%;
-      max-width: 560px;
+    /* ==========================================================================
+       📱 کروسل سه‌بعدی و ورق‌خورنده آیفون ۱۶ پرو در هیرو (Apple 3D Cover Flow)
+       با وب‌سایت‌های زنده (Live iframes)، اسکیلینگ دقیق ۳۹۰px و بدون نوار اسکرول
+       ========================================================================== */
+    :root {
+      --iphone-scale: 0.6487;
+      --iphone-top-offset: 30px;
     }
 
-    .trust-metric-item {
+    .hero-container-grid {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      align-items: center;
+      gap: 20px;
+      width: 100%;
+    }
+
+    .hero-content-col {
       display: flex;
       flex-direction: column;
-      gap: 2px;
+      align-items: flex-start;
+      max-width: 660px;
     }
 
-    .trust-metric-value {
-      font-size: 0.95rem;
-      font-weight: 800;
-      color: #111111;
-    }
-
-    .trust-metric-label {
-      font-size: 0.78rem;
-      color: #71717a;
-    }
-
-    .trust-divider {
-      width: 1px;
-      height: 28px;
-      background: var(--border-subtle);
-    }
-
-    /* ستون بصری آیفون‌ها (Cover Flow) */
     .hero-visual-col {
       display: flex;
       flex-direction: column;
@@ -607,10 +549,11 @@
       user-select: none;
     }
 
+    /* صحنه پرسپکتیو سه‌بعدی آیفون‌ها */
     .iphone-3d-stage {
       position: relative;
       width: 100%;
-      height: 540px;
+      height: 535px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -619,6 +562,8 @@
       transform-style: preserve-3d;
       cursor: grab;
       touch-action: pan-y pinch-zoom;
+      -webkit-user-select: none;
+      user-select: none;
       contain: layout;
     }
 
@@ -675,7 +620,7 @@
       z-index: 1;
     }
 
-    /* گوشی وسط (Active): روبه‌رو با دسترسی مستقیم اسکرول */
+    /* وضعیت آیفون وسط (Active): روبه‌رو با دسترسی مستقیم اسکرول */
     .iphone-mockup.pos-center {
       transform: translateX(0) translateZ(0) rotateY(0deg) scale(1);
       opacity: 1;
@@ -685,14 +630,13 @@
         0 25px 60px rgba(0, 0, 0, 0.28);
     }
 
-    /* گوشی چپ: فاصله بازتر + ضخامت تیتانیومی بیرونی در سمت چپ (بغل آیفون) */
+    /* وضعیت آیفون سمت چپ در عمق: فاصله بازتر + ضخامت تیتانیومی بغل گوشی */
     .iphone-mockup.pos-left {
       transform: translateX(-215px) translateZ(-85px) rotateY(26deg) scale(0.86);
       opacity: 0.82;
       z-index: 5;
       cursor: pointer;
       box-shadow:
-        /* ضخامت ۳بعدی لبه تیتانیومی بغل آیفون */
         -1px 0 0 #57534e,
         -2px 0 0 #44403c,
         -3px 0 0 #3f3f46,
@@ -701,20 +645,18 @@
         -6px 0 0 #1c1917,
         -7px 0 0 #18181b,
         -8px 0 1px #09090b,
-        /* خط بازتاب نور متالیک پخ لبه */
         inset 1.5px 0 1.5px rgba(255, 255, 255, 0.45),
         inset 0 0 0 1px rgba(255, 255, 255, 0.12),
         -26px 28px 55px rgba(0, 0, 0, 0.45);
     }
 
-    /* گوشی راست: فاصله بازتر + ضخامت تیتانیومی بیرونی در سمت راست (بغل آیفون) */
+    /* وضعیت آیفون سمت راست در عمق: فاصله بازتر + ضخامت تیتانیومی بغل گوشی */
     .iphone-mockup.pos-right {
       transform: translateX(215px) translateZ(-85px) rotateY(-26deg) scale(0.86);
       opacity: 0.82;
       z-index: 5;
       cursor: pointer;
       box-shadow:
-        /* ضخامت ۳بعدی لبه تیتانیومی بغل آیفون */
         1px 0 0 #57534e,
         2px 0 0 #44403c,
         3px 0 0 #3f3f46,
@@ -723,7 +665,6 @@
         6px 0 0 #1c1917,
         7px 0 0 #18181b,
         8px 0 1px #09090b,
-        /* خط بازتاب نور متالیک پخ لبه */
         inset -1.5px 0 1.5px rgba(255, 255, 255, 0.45),
         inset 0 0 0 1px rgba(255, 255, 255, 0.12),
         26px 28px 55px rgba(0, 0, 0, 0.45);
@@ -734,11 +675,6 @@
       opacity: 0.95;
     }
 
-    /* جلوگیری از قفل شدن اسکرول صفحه اصلی روی iframeها در گوشی‌های غیرفعال */
-    .iphone-live-iframe {
-      pointer-events: none;
-    }
-
     /* اسکرول و تعامل مستقیم و زنده با سایت داخل گوشی وسط */
     .iphone-mockup.pos-center .iphone-live-iframe {
       pointer-events: auto !important;
@@ -746,11 +682,13 @@
 
     .iphone-mockup.pos-center .mockup-click-overlay {
       display: none !important;
+      pointer-events: none !important;
     }
 
-    /* گوشی‌های جانبی با کلیک به جلو می‌آیند */
+    /* گوشی‌های جانبی فقط با کلیک برای آوردن به جلو تعامل دارند */
     .iphone-mockup.pos-left .iphone-live-iframe,
-    .iphone-mockup.pos-right .iphone-live-iframe {
+    .iphone-mockup.pos-right .iphone-live-iframe,
+    .iphone-3d-stage.is-flipping iframe {
       pointer-events: none !important;
     }
 
@@ -761,189 +699,202 @@
       cursor: pointer;
     }
 
+    /* نمایشگر داخلی آیفون */
     .iphone-screen-wrap {
       width: 100%;
       height: 100%;
       border-radius: 38px;
-      background: #09090b;
+      background: #000000;
       overflow: hidden;
       position: relative;
       display: flex;
       flex-direction: column;
     }
 
-    /* تطابق رنگ پس‌زمینه بالای صفحه با هدر هر دمو */
-    .iphone-mockup[data-theme="dark"] .iphone-viewport {
-      background: #0c0a09;
-    }
-
-    .iphone-mockup[data-theme="light"] .iphone-viewport {
-      background: #ffffff;
-    }
-
-    /* نوار وضعیت اپل (Dynamic Island) */
+    /* نوار وضعیت اپل در بالای نمایشگر */
     .iphone-top-bar {
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
-      height: 34px;
-      padding: 8px 18px 0;
+      height: 38px;
+      padding: 7px 16px 0;
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
       z-index: 30;
       pointer-events: none;
-      direction: ltr;
-      box-sizing: border-box;
-      transition: color 0.25s ease;
-    }
-
-    /* رنگ سفید برای سایت‌های تیره و مشکی برای سایت‌های روشن (بدون سایه کدر) */
-    .iphone-mockup[data-theme="dark"] .iphone-top-bar {
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.25) 75%, transparent 100%);
+      direction: ltr; /* استاتوس بار استاندارد جهانی اپل */
       color: #ffffff;
-    }
-
-    .iphone-mockup[data-theme="light"] .iphone-top-bar {
-      color: #111111;
+      box-sizing: border-box;
     }
 
     .status-time {
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      font-size: 0.72rem;
-      font-weight: 800;
-      color: currentColor;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: #ffffff;
       line-height: 1;
       padding-top: 2px;
     }
 
+    /* داینامیک آیلند واقعی و لنز دوربین با انعکاس یاقوتی */
     .dynamic-island-shell {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 6px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      position: absolute;
-      left: 50%;
-      top: 6px;
-      transform: translateX(-50%);
+      pointer-events: none;
+    }
+
+    .speaker-slit {
+      width: 36px;
+      height: 2px;
+      background: #27272a;
+      border-radius: 2px;
+      margin-bottom: 2px;
     }
 
     .dynamic-island-pill {
-      width: 72px;
-      height: 20px;
+      width: 78px;
+      height: 21px;
       background: #000000;
-      border-radius: 9999px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 7px;
-      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
-      position: relative;
-      z-index: 32;
+      padding: 0 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+      box-sizing: border-box;
     }
 
     .camera-lens {
-      width: 8px;
-      height: 8px;
-      background: radial-gradient(circle at 40% 40%, #1e1b4b 0%, #09090b 70%, #000000 100%);
+      width: 9px;
+      height: 9px;
       border-radius: 50%;
-      box-shadow: inset 0 0 1px 1px rgba(99, 102, 241, 0.35);
+      background: radial-gradient(circle at 35% 35%, #2a3d66 0%, #0a1122 65%, #000000 100%);
+      border: 1px solid rgba(255, 255, 255, 0.22);
       position: relative;
+      box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.8);
     }
 
     .lens-glint {
       position: absolute;
-      top: 1.5px;
-      left: 1.5px;
-      width: 2px;
-      height: 2px;
-      background: rgba(255, 255, 255, 0.85);
+      top: 2px;
+      left: 2px;
+      width: 2.5px;
+      height: 2.5px;
       border-radius: 50%;
+      background: rgba(255, 255, 255, 0.75);
     }
 
     .sensor-dot {
       width: 5px;
       height: 5px;
-      background: #0f172a;
       border-radius: 50%;
+      background: #0f172a;
+      box-shadow: inset 0 0 1px #000;
     }
 
     .status-icons {
       display: flex;
       align-items: center;
       gap: 5px;
-      color: currentColor;
-      padding-top: 1px;
-    }
-
-    .status-icon {
-      display: block;
+      color: #ffffff;
+      line-height: 1;
+      padding-top: 2px;
     }
 
     .status-battery {
       width: 17px;
       height: 9px;
-      border: 1.2px solid currentColor;
-      border-radius: 3px;
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 2.5px;
       padding: 1px;
       position: relative;
       display: flex;
       align-items: center;
-      opacity: 0.9;
+      box-sizing: border-box;
     }
 
     .status-battery::after {
       content: '';
       position: absolute;
-      right: -2.8px;
+      right: -3px;
       top: 2px;
       width: 1.5px;
       height: 3.5px;
-      background: currentColor;
+      background: rgba(255, 255, 255, 0.9);
       border-radius: 0 1px 1px 0;
     }
 
     .battery-level {
-      width: 78%;
+      width: 80%;
       height: 100%;
-      background: currentColor;
+      background: #10b981;
       border-radius: 1px;
     }
 
-    /* مقیاس‌بندی دقیق وب‌سایت‌های زنده */
+    /* فریم اسکیل‌دهنده هوشمند ابعاد واقعی موبایل (Virtual Viewport 390px) */
     .iphone-viewport {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      overflow: hidden;
+      overflow: hidden !important;
       border-radius: 38px;
+      background: #ffffff;
       direction: ltr;
       z-index: 1;
     }
 
     .iphone-scaler {
       width: 390px;
-      height: 768px;
+      height: 840px;
       transform: translateX(-50%) scale(var(--iphone-scale));
       transform-origin: top center;
       position: absolute;
       top: var(--iphone-top-offset);
       left: 50%;
-      overflow: hidden;
+      overflow: hidden !important;
+      scrollbar-width: none !important;
+      -ms-overflow-style: none !important;
     }
 
+    .iphone-scaler::-webkit-scrollbar {
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
+    }
+
+    /* آی‌فریم وب‌سایت‌های زنده با اسکرول روان داخلی */
     .iphone-live-iframe {
       width: 390px;
-      height: 768px;
+      height: 840px;
       border: none;
-      background: transparent;
+      background: #ffffff;
       display: block;
       overflow-y: auto !important;
       -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      user-select: auto;
     }
 
-    /* لایه محافظ جهت سهولت اسکرول صفحه و ورق زدن کروسل */
+    .iphone-live-iframe::-webkit-scrollbar {
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
+    }
+
+    /* لایه تعاملی کلیک روی گوشی‌های در عمق */
     .mockup-click-overlay {
       position: absolute;
       top: 0;
@@ -952,46 +903,127 @@
       bottom: 0;
       background: transparent;
       z-index: 35;
+      cursor: pointer;
+      display: none;
+    }
+
+    .iphone-mockup.pos-left .mockup-click-overlay,
+    .iphone-mockup.pos-right .mockup-click-overlay {
       display: block;
     }
 
+    .iphone-mockup.pos-center .mockup-click-overlay {
+      display: none;
+      pointer-events: none;
+    }
+
+    /* خط نشانگر صفحه اصلی اپل در پایین */
     .iphone-home-indicator {
       position: absolute;
-      bottom: 7px;
+      bottom: 8px;
       left: 50%;
       transform: translateX(-50%);
-      width: 88px;
+      width: 90px;
       height: 4px;
-      background: rgba(120, 120, 128, 0.65);
+      background: rgba(0, 0, 0, 0.85);
       border-radius: 9999px;
+      box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
       pointer-events: none;
       z-index: 30;
     }
 
+    /* بازتاب نور شیشه */
     .iphone-glare {
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.015) 35%, transparent 60%);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 35%, transparent 60%);
       pointer-events: none;
       z-index: 28;
       border-radius: 38px;
     }
 
-    /* نوار ناوبری و دکمه‌ها */
+    /* دکمه تمام‌صفحه دموی فعال */
+    .btn-live-fullscreen {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 15px;
+      border-radius: 9999px;
+      background: #ffffff;
+      border: 1px solid var(--border-prominent);
+      color: #111111;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-decoration: none;
+      margin-top: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      transition: all 0.2s ease;
+    }
+
+    .btn-live-fullscreen:hover {
+      background: #111111;
+      color: #ffffff;
+      border-color: #111111;
+      transform: translateY(-1px);
+    }
+
+    /* بج‌های شیشه‌ای شناور اطراف موکاپ */
+    .floating-glass-pill {
+      position: absolute;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #18181b;
+      z-index: 12;
+      pointer-events: none;
+    }
+
+    .pill-top-right {
+      top: 18px;
+      right: -10px;
+      animation: floatPillA 4s ease-in-out infinite;
+    }
+
+    .pill-bottom-left {
+      bottom: 22px;
+      left: -10px;
+      animation: floatPillB 4.5s ease-in-out infinite;
+    }
+
+    @keyframes floatPillA {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-7px); }
+    }
+
+    @keyframes floatPillB {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(7px); }
+    }
+
+    /* نوار کنترل و دات‌های ورق زدن */
     .carousel-nav-bar {
       display: flex;
       align-items: center;
-      gap: 14px;
-      margin-top: 14px;
+      gap: 16px;
+      margin-top: 20px;
       z-index: 15;
     }
 
     .carousel-arrow {
-      width: 36px;
-      height: 36px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
       background: #ffffff;
       border: 1px solid var(--border-subtle);
@@ -1032,71 +1064,60 @@
     }
 
     .carousel-active-label {
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 700;
-      color: #52525b;
-      margin-top: 8px;
+      color: #71717a;
+      margin-top: 6px;
       text-align: center;
     }
 
-    .carousel-sub-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 8px;
-      flex-wrap: wrap;
-      justify-content: center;
+    /* نوار آمار و استانداردهای فروشگاهی */
+    .specs-strip {
+      max-width: 1280px;
+      margin: 0 auto 60px;
+      padding: 0 28px;
     }
 
-    .live-scroll-status-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 6px 14px;
-      border-radius: 9999px;
-      background: #111111;
-      color: #ffffff;
-      font-size: 0.76rem;
-      font-weight: 700;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
-    }
-
-    .pulse-live-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #10b981;
-      box-shadow: 0 0 0 2.5px rgba(16, 185, 129, 0.25);
-      animation: pulse-ring 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
-    }
-
-    @keyframes pulse-ring {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.65; transform: scale(0.9); }
-    }
-
-    .btn-live-fullscreen {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 14px;
-      border-radius: 9999px;
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
       background: #ffffff;
       border: 1px solid var(--border-prominent);
-      color: #111111;
-      font-family: var(--font-body);
-      font-size: 0.76rem;
-      font-weight: 700;
-      text-decoration: none;
-      cursor: pointer;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-      transition: all 0.2s ease;
+      border-radius: 20px;
+      padding: 30px 24px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
     }
 
-    .btn-live-fullscreen:hover {
-      background: #111111;
-      color: #ffffff;
-      border-color: #111111;
+    .spec-block {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 12px 16px;
+      border-right: 1px solid var(--border-subtle);
+    }
+
+    .spec-block:last-child {
+      border-right: none;
+    }
+
+    .spec-value {
+      font-family: var(--font-en);
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: #111111;
+      letter-spacing: -0.02em;
+    }
+
+    .spec-title {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: #111111;
+    }
+
+    .spec-desc {
+      font-size: 0.84rem;
+      color: #6b7280;
     }
 
     /* ویترین دموهای اختصاصی مد، عطر و زیبایی */
@@ -1862,22 +1883,19 @@
     @media (max-width: 1024px) {
       :root {
         --iphone-scale: 0.5538;
-        --iphone-top-offset: 24px;
+        --iphone-top-offset: 26px;
       }
       .hero-container-grid {
         grid-template-columns: 1fr;
-        gap: 32px;
+        gap: 36px;
       }
       .hero-content-col {
         max-width: 100%;
         text-align: center;
         align-items: center;
       }
-      .hero-trust-metrics {
-        justify-content: center;
-      }
       .hero-visual-col {
-        margin-top: 4px;
+        margin-top: 10px;
         width: 100%;
         overflow: hidden;
       }
@@ -1892,9 +1910,7 @@
         border-radius: 40px;
         padding: 3px;
       }
-      .iphone-screen-wrap,
-      .iphone-viewport,
-      .iphone-glare {
+      .iphone-screen-wrap {
         border-radius: 36px;
       }
       .iphone-mockup.pos-left {
@@ -1911,40 +1927,16 @@
       }
     }
 
-    /* بهینه‌سازی اختصاصی ریسپانسیو موبایل */
+    /* بهینه‌سازی اختصاصی ۶۰ فریم موبایل با حاشیه ظریف و واقعی آیفون ۱۶ پرو */
     @media (max-width: 768px) {
       :root {
         --iphone-scale: 0.483;
-        --iphone-top-offset: 21px;
-      }
-      .desktop-only,
-      .cta-desktop {
-        display: none;
-      }
-      .cta-mobile {
-        display: inline;
-      }
-      .agency-nav .nav-inner {
-        padding: 12px 16px;
-      }
-      .brand-tag {
-        display: none;
-      }
-      .brand-name {
-        font-size: 1.05rem;
-      }
-      .nav-cta {
-        padding: 7px 12px;
-        font-size: 0.8rem;
-        white-space: nowrap;
-      }
-      .hero-section {
-        padding: 28px 18px 24px;
+        --iphone-top-offset: 22px;
       }
       .hero-visual-col {
         width: 100%;
         overflow: hidden;
-        padding: 4px 0 12px;
+        padding: 6px 0 16px;
       }
       .iphone-3d-stage {
         height: 425px;
@@ -1952,17 +1944,19 @@
         perspective: 900px !important;
         perspective-origin: center center;
         transform-style: preserve-3d !important;
+        touch-action: pan-y pinch-zoom;
+        contain: layout;
       }
       .iphone-mockup {
         width: 202px;
         height: 404px;
         border-radius: 35px;
-        border-width: 1.5px;
+        border: 1.5px solid #27272a;
         padding: 2.2px;
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+        transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease !important;
       }
-      .iphone-screen-wrap,
-      .iphone-viewport,
-      .iphone-glare {
+      .iphone-screen-wrap {
         border-radius: 32px;
       }
       .iphone-mockup.pos-center {
@@ -1997,9 +1991,6 @@
         height: 36px;
         box-shadow: 0 96px 0 #44403c;
       }
-      .btn-toggle-interact {
-        display: none;
-      }
       .dynamic-island-pill {
         width: 56px;
         height: 16px;
@@ -2014,27 +2005,15 @@
         height: 3.5px;
       }
       .status-time {
-        font-size: 0.62rem;
+        font-size: 0.64rem;
       }
-      .hero-action-row {
-        flex-direction: column;
-        width: 100%;
-        max-width: 340px;
-        margin: 0 auto 24px;
-      }
-      .btn-hero-primary,
-      .btn-hero-secondary {
-        width: 100%;
-        justify-content: center;
-      }
-      .hero-trust-metrics {
-        gap: 14px;
-        flex-wrap: wrap;
-        justify-content: center;
+      .carousel-active-label {
+        font-size: 0.8rem;
+        margin-top: 8px;
       }
     }
 
-    /* گوشی‌های کوچک (زیر ۴۲۰ پیکسل) */
+    /* گوشی‌های کوچکتر (زیر ۴۲۰ پیکسل مثل آیفون SE) */
     @media (max-width: 420px) {
       :root {
         --iphone-scale: 0.441;
@@ -2047,12 +2026,10 @@
         width: 182px;
         height: 364px;
         border-radius: 31px;
-        border-width: 1.2px;
+        border: 1.2px solid #27272a;
         padding: 1.8px;
       }
-      .iphone-screen-wrap,
-      .iphone-viewport,
-      .iphone-glare {
+      .iphone-screen-wrap {
         border-radius: 28px;
       }
       .iphone-mockup.pos-left {
@@ -2075,15 +2052,113 @@
         padding: 0 4px;
       }
       .status-time {
-        font-size: 0.58rem;
+        font-size: 0.6rem;
       }
-      .hero-title {
-        font-size: 1.65rem;
+      .hero-section h1 {
+        font-size: 1.55rem;
       }
       .hero-lead {
-        font-size: 0.9rem;
+        font-size: 0.88rem;
       }
     }
+      .desktop-only {
+        display: none;
+      }
+      .cta-desktop {
+        display: none;
+      }
+      .cta-mobile {
+        display: inline;
+      }
+      .agency-nav .nav-inner {
+        padding: 12px 16px;
+      }
+      .brand-tag {
+        display: none;
+      }
+      .brand-name {
+        font-size: 1.05rem;
+      }
+      .nav-cta {
+        padding: 7px 12px;
+        font-size: 0.8rem;
+        white-space: nowrap;
+      }
+      .hero-section {
+        padding: 38px 16px 32px;
+        align-items: center;
+        text-align: center;
+      }
+      .hero-badge {
+        padding: 6px 14px;
+        font-size: 0.78rem;
+        margin-bottom: 20px;
+        max-width: 100%;
+        text-align: center;
+        justify-content: center;
+      }
+      .hero-section h1 {
+        font-size: clamp(1.65rem, 6.2vw, 2.25rem);
+        line-height: 1.35;
+        margin-bottom: 16px;
+        text-align: center;
+        max-width: 100%;
+      }
+      .hero-lead {
+        font-size: 0.95rem;
+        line-height: 1.75;
+        margin-bottom: 26px;
+        text-align: center;
+        padding: 0 4px;
+        max-width: 100%;
+      }
+      .hero-action-row {
+        flex-direction: column;
+        width: 100%;
+        max-width: 320px;
+        gap: 12px;
+        margin: 0 auto;
+        align-items: center;
+      }
+      .btn-hero-primary,
+      .btn-hero-secondary {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 20px;
+        font-size: 0.95rem;
+        box-sizing: border-box;
+        text-align: center;
+      }
+      .specs-strip {
+        padding: 0 16px;
+        margin-bottom: 46px;
+      }
+      .specs-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        padding: 14px 10px;
+        border-radius: 16px;
+      }
+      .spec-block {
+        border: none !important;
+        padding: 12px 6px;
+        background: #faf9f6;
+        border-radius: 12px;
+        text-align: center;
+        align-items: center;
+        gap: 4px;
+      }
+      .spec-value {
+        font-size: 1.35rem;
+        line-height: 1.1;
+      }
+      .spec-title {
+        font-size: 0.82rem;
+        line-height: 1.2;
+      }
+      .spec-desc {
+        display: none;
+      }
       .showcase-section {
         padding: 0 16px;
         margin-bottom: 46px;
@@ -2258,190 +2333,195 @@
 
   <main>
     <!-- بخش معرفی اصلی (Hero Section) -->
-  <section class="hero-section">
-    <div class="hero-container-grid">
-      
-      <!-- ستون راست: متن و دکمه‌ها -->
-      <div class="hero-content-col">
-        <div class="hero-eyebrow-badge">
-          <span class="badge-live-dot"></span>
-          <span>طراحی اختصاصی مبتنی بر رفتار خرید کاربران موبایل</span>
-        </div>
+    <section class="hero-section">
+      <div class="hero-container-grid">
+        <!-- ستون راست: محتوای متنی، تیتر و دکمه‌ها -->
+        <div class="hero-content-col">
+          <h1 class="hero-title">
+            طراحی فروشگاه‌های آنلاین نسل جدید،<br class="desktop-only">
+            با <span class="gradient-gold-text">جذابیت بصری، سرعت آنی و فروش بالا</span>
+          </h1>
 
-        <h1 class="hero-title">
-          طراحی فروشگاه‌های آنلاین نسل جدید،<br>
-          با <span class="gradient-gold-text">جذابیت بصری، سرعت آنی و فروش بالا</span>
-        </h1>
+          <p class="hero-lead">
+            در استودیو اسکیل (Scale Studio)، وب‌سایت‌های فروشگاهی نه قالب‌های کپی‌شده‌اند و نه شلوغی‌های بی‌فایده؛ بلکه بر اساس روانشناسی خرید مشتریان ایرانی، تست‌های زنده انتخاب رنگ و دکانت، و اتصال سریع به شبکه‌های اجتماعی مهندسی می‌شوند.
+          </p>
 
-        <p class="hero-lead">
-          در استودیو اسکیل (Scale Studio)، وب‌سایت‌های فروشگاهی نه قالب‌های کپی‌شده‌اند و نه شلوغی‌های بی‌فایده؛ بلکه بر اساس روانشناسی خرید مشتریان ایرانی، تست‌های زنده انتخاب رنگ و دکانت، و اتصال سریع به شبکه‌های اجتماعی مهندسی می‌شوند.
-        </p>
-
-        <div class="hero-action-row">
-          <a href="#demos" class="btn-hero-primary">
-            بررسی دموهای فعال (عطر، کیف، آرایشی)
-          </a>
-          <a href="#contact" class="btn-hero-secondary">
-            مشاوره مستقیم برای صنف شما
-          </a>
-        </div>
-
-        <div class="hero-trust-metrics">
-          <div class="trust-metric-item">
-            <span class="trust-metric-value">زیر ۱.۵ ثانیه</span>
-            <span class="trust-metric-label">سرعت بارگذاری موبایل</span>
-          </div>
-          <div class="trust-divider"></div>
-          <div class="trust-metric-item">
-            <span class="trust-metric-value">۱۰۰٪ اختصاصی</span>
-            <span class="trust-metric-label">بدون قالب‌های آماده و سنگین</span>
-          </div>
-          <div class="trust-divider"></div>
-          <div class="trust-metric-item">
-            <span class="trust-metric-value">سئو محلی و تکنیکال</span>
-            <span class="trust-metric-label">ساختار استاندارد گوگل</span>
+          <div class="hero-action-row">
+            <a href="#demos" class="btn-hero-primary">
+              بررسی دموهای فعال (عطر، کیف، آرایشی)
+            </a>
+            <a href="#contact" class="btn-hero-secondary">
+              مشاوره مستقیم برای صنف شما
+            </a>
           </div>
         </div>
-      </div>
 
-      <!-- ستون چپ: کروسل سه‌بعدی و ورق‌خورنده آیفون‌ها -->
-      <div class="hero-visual-col">
-        <div class="iphone-3d-stage" id="iphone3dStage">
-          
-          <!-- آیفون ۱: رویال پرفیوم (تم تیره) -->
-          <div class="iphone-mockup pos-center" data-index="0" data-theme="dark">
-            <div class="iphone-screen-wrap">
-              <div class="iphone-top-bar">
-                <div class="status-time">9:41</div>
-                <div class="dynamic-island-shell">
-                  <div class="dynamic-island-pill">
-                    <div class="camera-lens"><span class="lens-glint"></span></div>
-                    <div class="sensor-dot"></div>
+        <!-- ستون چپ: کروسل سه‌بعدی و ورق‌خورنده آیفون‌های ۱۶ پرو -->
+        <div class="hero-visual-col">
+          <!-- صحنه سه‌بعدی آیفون‌ها (Apple 3D Cover Flow) -->
+          <div class="iphone-3d-stage" id="iphone3dStage">
+            
+            <!-- آیفون ۱: رویال پرفیوم (عطر و ادکلن) -->
+            <div class="iphone-mockup pos-center" data-index="0">
+              <div class="iphone-screen-wrap">
+                <!-- نوار وضعیت اپل و داینامیک آیلند با لنز یاقوتی -->
+                <div class="iphone-top-bar">
+                  <div class="status-time">9:41</div>
+                  <div class="dynamic-island-shell">
+                    <div class="speaker-slit"></div>
+                    <div class="dynamic-island-pill">
+                      <div class="camera-lens"><span class="lens-glint"></span></div>
+                      <div class="sensor-dot"></div>
+                    </div>
+                  </div>
+                  <div class="status-icons">
+                    <svg class="status-icon" width="13" height="9" viewBox="0 0 14 10" fill="currentColor"><rect x="0" y="7" width="2" height="3" rx="0.5"/><rect x="3.5" y="5" width="2" height="5" rx="0.5"/><rect x="7" y="2.5" width="2" height="7.5" rx="0.5"/><rect x="10.5" y="0" width="2" height="10" rx="0.5"/></svg>
+                    <svg class="status-icon" width="12" height="9" viewBox="0 0 16 12" fill="currentColor"><path d="M8 9.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-4.24-2.83a6 6 0 0 1 8.48 0l1.41-1.42a8 8 0 0 0-11.3 0l1.41 1.42zm-2.83-2.83a10 10 0 0 1 14.14 0l1.41-1.41a12 12 0 0 0-16.96 0l1.41 1.41z"/></svg>
+                    <div class="status-battery"><div class="battery-level"></div></div>
                   </div>
                 </div>
-                <div class="status-icons">
-                  <svg class="status-icon" width="13" height="9" viewBox="0 0 14 10" fill="currentColor"><rect x="0" y="7" width="2" height="3" rx="0.5"/><rect x="3.5" y="5" width="2" height="5" rx="0.5"/><rect x="7" y="2.5" width="2" height="7.5" rx="0.5"/><rect x="10.5" y="0" width="2" height="10" rx="0.5"/></svg>
-                  <svg class="status-icon" width="12" height="9" viewBox="0 0 16 12" fill="currentColor"><path d="M8 9.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-4.24-2.83a6 6 0 0 1 8.48 0l1.41-1.42a8 8 0 0 0-11.3 0l1.41 1.42zm-2.83-2.83a10 10 0 0 1 14.14 0l1.41-1.41a12 12 0 0 0-16.96 0l1.41 1.41z"/></svg>
-                  <div class="status-battery"><div class="battery-level"></div></div>
-                </div>
-              </div>
 
-              <div class="iphone-viewport">
-                <div class="iphone-scaler">
-                  <iframe src="https://mammdo38.github.io/ATRE-demo/" class="iphone-live-iframe" title="فروشگاه آنلاین عطر رویال" loading="eager"></iframe>
-                </div>
-              </div>
-              
-              <div class="iphone-home-indicator"></div>
-              <div class="iphone-glare"></div>
-              <div class="mockup-click-overlay" onclick="handleIphoneClick(0)"></div>
-            </div>
-          </div>
-
-          <!-- آیفون ۲: اسکیل کازمتیک (تم روشن) -->
-          <div class="iphone-mockup pos-left" data-index="1" data-theme="light">
-            <div class="iphone-screen-wrap">
-              <div class="iphone-top-bar">
-                <div class="status-time">9:41</div>
-                <div class="dynamic-island-shell">
-                  <div class="dynamic-island-pill">
-                    <div class="camera-lens"><span class="lens-glint"></span></div>
-                    <div class="sensor-dot"></div>
+                <!-- وب‌سایت زنده با ابعاد استاندارد ۳۹۰px بدون دکمه و نوار اسکرول -->
+                <div class="iphone-viewport">
+                  <div class="iphone-scaler">
+                    <iframe src="https://mammdo38.github.io/ATRE-demo/" class="iphone-live-iframe" title="فروشگاه آنلاین عطر رویال" loading="eager"></iframe>
                   </div>
                 </div>
-                <div class="status-icons">
-                  <svg class="status-icon" width="13" height="9" viewBox="0 0 14 10" fill="currentColor"><rect x="0" y="7" width="2" height="3" rx="0.5"/><rect x="3.5" y="5" width="2" height="5" rx="0.5"/><rect x="7" y="2.5" width="2" height="7.5" rx="0.5"/><rect x="10.5" y="0" width="2" height="10" rx="0.5"/></svg>
-                  <svg class="status-icon" width="12" height="9" viewBox="0 0 16 12" fill="currentColor"><path d="M8 9.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-4.24-2.83a6 6 0 0 1 8.48 0l1.41-1.42a8 8 0 0 0-11.3 0l1.41 1.42zm-2.83-2.83a10 10 0 0 1 14.14 0l1.41-1.41a12 12 0 0 0-16.96 0l1.41 1.41z"/></svg>
-                  <div class="status-battery"><div class="battery-level"></div></div>
-                </div>
+                
+                <div class="iphone-home-indicator"></div>
+                <div class="iphone-glare"></div>
+                <div class="mockup-click-overlay" onclick="handleIphoneClick(0)"></div>
               </div>
-
-              <div class="iphone-viewport">
-                <div class="iphone-scaler">
-                  <iframe src="./cosmetics/" class="iphone-live-iframe" title="فروشگاه آنلاین لوازم آرایشی" loading="lazy"></iframe>
-                </div>
-              </div>
-              
-              <div class="iphone-home-indicator"></div>
-              <div class="iphone-glare"></div>
-              <div class="mockup-click-overlay" onclick="handleIphoneClick(1)"></div>
             </div>
-          </div>
 
-          <!-- آیفون ۳: گالری کیف لورین (تم روشن) -->
-          <div class="iphone-mockup pos-right" data-index="2" data-theme="light">
-            <div class="iphone-screen-wrap">
-              <div class="iphone-top-bar">
-                <div class="status-time">9:41</div>
-                <div class="dynamic-island-shell">
-                  <div class="dynamic-island-pill">
-                    <div class="camera-lens"><span class="lens-glint"></span></div>
-                    <div class="sensor-dot"></div>
+            <!-- آیفون ۲: اسکیل کازمتیک (لوازم آرایشی و زیبایی) -->
+            <div class="iphone-mockup pos-left" data-index="1">
+              <div class="iphone-screen-wrap">
+                <!-- نوار وضعیت اپل و داینامیک آیلند با لنز یاقوتی -->
+                <div class="iphone-top-bar">
+                  <div class="status-time">9:41</div>
+                  <div class="dynamic-island-shell">
+                    <div class="speaker-slit"></div>
+                    <div class="dynamic-island-pill">
+                      <div class="camera-lens"><span class="lens-glint"></span></div>
+                      <div class="sensor-dot"></div>
+                    </div>
+                  </div>
+                  <div class="status-icons">
+                    <svg class="status-icon" width="13" height="9" viewBox="0 0 14 10" fill="currentColor"><rect x="0" y="7" width="2" height="3" rx="0.5"/><rect x="3.5" y="5" width="2" height="5" rx="0.5"/><rect x="7" y="2.5" width="2" height="7.5" rx="0.5"/><rect x="10.5" y="0" width="2" height="10" rx="0.5"/></svg>
+                    <svg class="status-icon" width="12" height="9" viewBox="0 0 16 12" fill="currentColor"><path d="M8 9.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-4.24-2.83a6 6 0 0 1 8.48 0l1.41-1.42a8 8 0 0 0-11.3 0l1.41 1.42zm-2.83-2.83a10 10 0 0 1 14.14 0l1.41-1.41a12 12 0 0 0-16.96 0l1.41 1.41z"/></svg>
+                    <div class="status-battery"><div class="battery-level"></div></div>
                   </div>
                 </div>
-                <div class="status-icons">
-                  <svg class="status-icon" width="13" height="9" viewBox="0 0 14 10" fill="currentColor"><rect x="0" y="7" width="2" height="3" rx="0.5"/><rect x="3.5" y="5" width="2" height="5" rx="0.5"/><rect x="7" y="2.5" width="2" height="7.5" rx="0.5"/><rect x="10.5" y="0" width="2" height="10" rx="0.5"/></svg>
-                  <svg class="status-icon" width="12" height="9" viewBox="0 0 16 12" fill="currentColor"><path d="M8 9.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-4.24-2.83a6 6 0 0 1 8.48 0l1.41-1.42a8 8 0 0 0-11.3 0l1.41 1.42zm-2.83-2.83a10 10 0 0 1 14.14 0l1.41-1.41a12 12 0 0 0-16.96 0l1.41 1.41z"/></svg>
-                  <div class="status-battery"><div class="battery-level"></div></div>
-                </div>
-              </div>
 
-              <div class="iphone-viewport">
-                <div class="iphone-scaler">
-                  <iframe src="https://mammdo38.github.io/bag-demo/" class="iphone-live-iframe" title="گالری کیف و چرم لورین" loading="lazy"></iframe>
+                <!-- وب‌سایت زنده با ابعاد استاندارد ۳۹۰px بدون دکمه و نوار اسکرول -->
+                <div class="iphone-viewport">
+                  <div class="iphone-scaler">
+                    <iframe src="./cosmetics/" class="iphone-live-iframe" title="فروشگاه آنلاین لوازم آرایشی اسکیل کازمتیک" loading="eager"></iframe>
+                  </div>
                 </div>
+                
+                <div class="iphone-home-indicator"></div>
+                <div class="iphone-glare"></div>
+                <div class="mockup-click-overlay" onclick="handleIphoneClick(1)"></div>
               </div>
-              
-              <div class="iphone-home-indicator"></div>
-              <div class="iphone-glare"></div>
-              <div class="mockup-click-overlay" onclick="handleIphoneClick(2)"></div>
             </div>
+
+            <!-- آیفون ۳: چرم لورین (کیف و اکسسوری چرم) -->
+            <div class="iphone-mockup pos-right" data-index="2">
+              <div class="iphone-screen-wrap">
+                <!-- نوار وضعیت اپل و داینامیک آیلند با لنز یاقوتی -->
+                <div class="iphone-top-bar">
+                  <div class="status-time">9:41</div>
+                  <div class="dynamic-island-shell">
+                    <div class="speaker-slit"></div>
+                    <div class="dynamic-island-pill">
+                      <div class="camera-lens"><span class="lens-glint"></span></div>
+                      <div class="sensor-dot"></div>
+                    </div>
+                  </div>
+                  <div class="status-icons">
+                    <svg class="status-icon" width="13" height="9" viewBox="0 0 14 10" fill="currentColor"><rect x="0" y="7" width="2" height="3" rx="0.5"/><rect x="3.5" y="5" width="2" height="5" rx="0.5"/><rect x="7" y="2.5" width="2" height="7.5" rx="0.5"/><rect x="10.5" y="0" width="2" height="10" rx="0.5"/></svg>
+                    <svg class="status-icon" width="12" height="9" viewBox="0 0 16 12" fill="currentColor"><path d="M8 9.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-4.24-2.83a6 6 0 0 1 8.48 0l1.41-1.42a8 8 0 0 0-11.3 0l1.41 1.42zm-2.83-2.83a10 10 0 0 1 14.14 0l1.41-1.41a12 12 0 0 0-16.96 0l1.41 1.41z"/></svg>
+                    <div class="status-battery"><div class="battery-level"></div></div>
+                  </div>
+                </div>
+
+                <!-- وب‌سایت زنده با ابعاد استاندارد ۳۹۰px بدون دکمه و نوار اسکرول -->
+                <div class="iphone-viewport">
+                  <div class="iphone-scaler">
+                    <iframe src="https://mammdo38.github.io/bag-demo/" class="iphone-live-iframe" title="گالری کیف و چرم لورین" loading="eager"></iframe>
+                  </div>
+                </div>
+                
+                <div class="iphone-home-indicator"></div>
+                <div class="iphone-glare"></div>
+                <div class="mockup-click-overlay" onclick="handleIphoneClick(2)"></div>
+              </div>
+            </div>
+
           </div>
 
-        </div>
+          <!-- نوار کنترل و دات‌های ورق زدن -->
+          <div class="carousel-nav-bar">
+            <button class="carousel-arrow" onclick="safeShiftIphoneCarousel(-1)" aria-label="دموی قبلی">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+              </svg>
+            </button>
+            
+            <div class="carousel-dots">
+              <span class="carousel-dot active" onclick="safeSetIphoneCarousel(0)"></span>
+              <span class="carousel-dot" onclick="safeSetIphoneCarousel(1)"></span>
+              <span class="carousel-dot" onclick="safeSetIphoneCarousel(2)"></span>
+            </div>
 
-        <!-- کنترل‌های ورق زدن (هماهنگ با جهت چیدمان راست‌به‌چپ) -->
-        <div class="carousel-nav-bar">
-          <button class="carousel-arrow" onclick="safeShiftIphoneCarousel(-1)" aria-label="دموی راست">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-            </svg>
-          </button>
-          
-          <div class="carousel-dots">
-            <span class="carousel-dot active" onclick="safeSetIphoneCarousel(0)"></span>
-            <span class="carousel-dot" onclick="safeSetIphoneCarousel(1)"></span>
-            <span class="carousel-dot" onclick="safeSetIphoneCarousel(2)"></span>
+            <button class="carousel-arrow" onclick="safeShiftIphoneCarousel(1)" aria-label="دموی بعدی">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+              </svg>
+            </button>
           </div>
 
-          <button class="carousel-arrow" onclick="safeShiftIphoneCarousel(1)" aria-label="دموی چپ">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
-            </svg>
-          </button>
-        </div>
-
-        <div class="carousel-active-label" id="activeStoreLabel">
-          دموی ۱ از ۳ • رویال پرفیوم (عطر و ادکلن اورجینال)
-        </div>
-
-        <div class="carousel-sub-actions">
-          <div class="live-scroll-status-badge">
-            <span class="pulse-live-dot"></span>
-            <span>اسکرول و تست زنده فعال است</span>
+          <div class="carousel-active-label" id="activeStoreLabel">
+            دموی ۱ از ۳ • رویال پرفیوم (عطر و ادکلن اورجینال)
           </div>
 
           <a id="activeDemoFullscreenBtn" href="https://mammdo38.github.io/ATRE-demo/" target="_blank" rel="noopener noreferrer" class="btn-live-fullscreen">
-            <span>مشاهده در اندازه تمام‌صفحه</span>
+            <span>تست وب‌سایت در اندازه تمام‌صفحه</span>
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
             </svg>
           </a>
         </div>
       </div>
+    </section>
 
-    </div>
-  </section>
+    <!-- نوار آمار و مشخصات فنی -->
+    <section class="specs-strip" id="features">
+      <div class="specs-grid">
+        <div class="spec-block">
+          <div class="spec-value">100% Live</div>
+          <div class="spec-title">دموهای فعال و واقعی</div>
+          <div class="spec-desc">هر ۳ دمو به‌صورت زنده قابل تست و خرید هستند</div>
+        </div>
+        <div class="spec-block">
+          <div class="spec-value">&lt; 0.3s</div>
+          <div class="spec-title">سرعت بارگذاری صاعقه‌ای</div>
+          <div class="spec-desc">اجرا روی CDN ابری Fastly بدون تاخیر لود</div>
+        </div>
+        <div class="spec-block">
+          <div class="spec-value">Smart UX</div>
+          <div class="spec-title">تعامل هوشمند کاربر</div>
+          <div class="spec-desc">مایکرو اینترکشن‌های زنده و تغییر آنی مشخصات محصول</div>
+        </div>
+        <div class="spec-block">
+          <div class="spec-value">Direct Sale</div>
+          <div class="spec-title">اتصال به کانال‌های فروش</div>
+          <div class="spec-desc">هماهنگی کامل با استوری‌ها و ثبت سفارش واتساپ</div>
+        </div>
+      </div>
+    </section>
 
     <!-- ویترین دموهای فعال فروشگاهی -->
     <section class="showcase-section" id="demos">
@@ -2817,14 +2897,11 @@
     // 📱 کنترلر تعاملی کروسل ۳بعدی آیفون‌ها (Apple 3D Cover Flow)
     // ==========================================
     let currentIphoneIdx = 0;
-    let isInteractiveMode = false;
-
     const storeLabels = [
       "دموی ۱ از ۳ • رویال پرفیوم (عطر و ادکلن اورجینال)",
       "دموی ۲ از ۳ • اسکیل کازمتیک (لوازم آرایشی و زیبایی)",
       "دموی ۳ از ۳ • چرم لورین (کیف و اکسسوری چرم)"
     ];
-
     const demoUrls = [
       "https://mammdo38.github.io/ATRE-demo/",
       "./cosmetics/",
@@ -2836,18 +2913,10 @@
       const dots = document.querySelectorAll('.carousel-dot');
       const label = document.getElementById('activeStoreLabel');
       const fullLink = document.getElementById('activeDemoFullscreenBtn');
-      const interactBtn = document.getElementById('toggleInteractBtn');
-
-      // غیرفعال کردن حالت تعامل داخلی هنگام تعویض گوشی
-      isInteractiveMode = false;
-      if (interactBtn) {
-        interactBtn.classList.remove('active');
-        interactBtn.querySelector('span').textContent = 'اسکرول و تست زنده داخل گوشی';
-      }
 
       mockups.forEach((mock) => {
         const idx = parseInt(mock.getAttribute('data-index'), 10);
-        mock.classList.remove('pos-center', 'pos-left', 'pos-right', 'is-interactive');
+        mock.classList.remove('pos-center', 'pos-left', 'pos-right');
 
         if (idx === currentIphoneIdx) {
           mock.classList.add('pos-center');
@@ -2871,19 +2940,6 @@
       }
     }
 
-    function toggleCenterIframeInteract() {
-      const centerMockup = document.querySelector('.iphone-mockup.pos-center');
-      const interactBtn = document.getElementById('toggleInteractBtn');
-      if (!centerMockup || !interactBtn) return;
-
-      isInteractiveMode = !isInteractiveMode;
-      centerMockup.classList.toggle('is-interactive', isInteractiveMode);
-      interactBtn.classList.toggle('active', isInteractiveMode);
-      interactBtn.querySelector('span').textContent = isInteractiveMode
-        ? 'قفل تعامل (بازگشت به ورق زدن)'
-        : 'اسکرول و تست زنده داخل گوشی';
-    }
-
     let isCarouselTransitioning = false;
 
     function safeShiftIphoneCarousel(dir) {
@@ -2899,11 +2955,11 @@
       setTimeout(() => {
         isCarouselTransitioning = false;
         if (stage) stage.classList.remove('is-flipping');
-      }, 380);
+      }, 360);
     }
 
     function safeSetIphoneCarousel(idx) {
-      if (isCarouselTransitioning || idx === currentIphoneIdx) return;
+      if (isCarouselTransitioning) return;
       isCarouselTransitioning = true;
 
       const stage = document.getElementById('iphone3dStage');
@@ -2915,57 +2971,69 @@
       setTimeout(() => {
         isCarouselTransitioning = false;
         if (stage) stage.classList.remove('is-flipping');
-      }, 380);
+      }, 360);
+    }
+
+    function shiftIphoneCarousel(dir) {
+      safeShiftIphoneCarousel(dir);
+    }
+
+    function setIphoneCarousel(idx) {
+      safeSetIphoneCarousel(idx);
     }
 
     function handleIphoneClick(idx) {
-      if (dragMoved) return;
       if (idx !== currentIphoneIdx) {
         safeSetIphoneCarousel(idx);
       }
     }
 
-    // پشتیبانی همزمان از سوایپ لمسی موبایل و Drag با ماوس در دسکتاپ
-    let startX = 0;
-    let startY = 0;
-    let startTime = 0;
-    let isPointerDown = false;
+    // کنترل هوشمند لمس در موبایل: تفکیک ۱۰۰٪ اسکرول عمودی از سوایپ افقی
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchStartTime = 0;
     let isHorizontalGesture = false;
-    let dragMoved = false;
 
     const stage = document.getElementById('iphone3dStage');
-
     if (stage) {
-      // ۱. رویدادهای لمسی موبایل
       stage.addEventListener('touchstart', function(e) {
-        if (e.touches.length !== 1 || isInteractiveMode) return;
-        startX = e.touches[0].clientX;
-        startY = e.touches[0].clientY;
-        startTime = Date.now();
+        if (e.touches.length !== 1) return;
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        touchStartTime = Date.now();
         isHorizontalGesture = false;
-        dragMoved = false;
       }, { passive: true });
 
       stage.addEventListener('touchmove', function(e) {
-        if (e.touches.length !== 1 || isInteractiveMode) return;
-        const diffX = e.touches[0].clientX - startX;
-        const diffY = e.touches[0].clientY - startY;
+        if (e.touches.length !== 1) return;
+        const currentX = e.touches[0].clientX;
+        const currentY = e.touches[0].clientY;
+        const diffX = currentX - touchStartX;
+        const diffY = currentY - touchStartY;
 
-        if (Math.abs(diffY) > Math.abs(diffX) && !isHorizontalGesture) return;
+        // اگر اسکرول عمودی است، هیچ دخالتی نکن تا اسکرول ۶۰ فریم و روان بماند
+        if (Math.abs(diffY) > Math.abs(diffX) && !isHorizontalGesture) {
+          return;
+        }
 
-        if (Math.abs(diffX) > 18 && Math.abs(diffX) > Math.abs(diffY) * 1.5) {
+        // تشخیص دقیق سوایپ افقی عمدی
+        if (Math.abs(diffX) > 20 && Math.abs(diffX) > Math.abs(diffY) * 1.6) {
           isHorizontalGesture = true;
-          dragMoved = true;
         }
       }, { passive: true });
 
       stage.addEventListener('touchend', function(e) {
-        if (!isHorizontalGesture || isInteractiveMode) return;
-        const diffX = e.changedTouches[0].clientX - startX;
-        const diffY = e.changedTouches[0].clientY - startY;
-        const elapsed = Date.now() - startTime;
+        // اگر کاربر در حال اسکرول معمولی یا سریع صفحه بوده، کروسل را حرکت نده
+        if (!isHorizontalGesture) return;
 
-        if (Math.abs(diffX) > 38 && Math.abs(diffX) > Math.abs(diffY) * 1.4 && elapsed < 650) {
+        const touchEndX = e.changedTouches[0].clientX;
+        const touchEndY = e.changedTouches[0].clientY;
+        const diffX = touchEndX - touchStartX;
+        const diffY = touchEndY - touchStartY;
+        const elapsed = Date.now() - touchStartTime;
+
+        // شرط شلیک انیمیشن سوایپ
+        if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY) * 1.5 && elapsed < 600) {
           if (diffX > 0) {
             safeShiftIphoneCarousel(1);
           } else {
@@ -2973,45 +3041,10 @@
           }
         }
         isHorizontalGesture = false;
-        setTimeout(() => { dragMoved = false; }, 50);
       }, { passive: true });
-
-      // ۲. رویدادهای Drag ماوس در دسکتاپ
-      stage.addEventListener('mousedown', function(e) {
-        if (isInteractiveMode) return;
-        isPointerDown = true;
-        startX = e.clientX;
-        startY = e.clientY;
-        startTime = Date.now();
-        dragMoved = false;
-      });
-
-      window.addEventListener('mousemove', function(e) {
-        if (!isPointerDown || isInteractiveMode) return;
-        const diffX = e.clientX - startX;
-        if (Math.abs(diffX) > 12) {
-          dragMoved = true;
-        }
-      });
-
-      window.addEventListener('mouseup', function(e) {
-        if (!isPointerDown || isInteractiveMode) return;
-        isPointerDown = false;
-        const diffX = e.clientX - startX;
-        const elapsed = Date.now() - startTime;
-
-        if (Math.abs(diffX) > 45 && elapsed < 700) {
-          if (diffX > 0) {
-            safeShiftIphoneCarousel(1);
-          } else {
-            safeShiftIphoneCarousel(-1);
-          }
-        }
-        setTimeout(() => { dragMoved = false; }, 50);
-      });
     }
 
-    // ناوبری با کلیدهای جهت‌نمای کیبورد
+    // ناوبری با کلیدهای چپ و راست کیبورد
     document.addEventListener('keydown', function(e) {
       if (e.key === 'ArrowLeft') {
         safeShiftIphoneCarousel(1);
@@ -3020,7 +3053,10 @@
       }
     });
 
-    document.addEventListener('DOMContentLoaded', updateIphoneCarousel);
+    // شروع با وضعیت اولیه رویال پرفیوم
+    document.addEventListener('DOMContentLoaded', function() {
+      updateIphoneCarousel();
+    });
   </script>
 </body>
 </html>
