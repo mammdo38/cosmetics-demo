@@ -626,62 +626,139 @@
       cursor: grabbing;
     }
 
-    /* کالبد تیتانیومی آیفون ۱۶ پرو */
+    /* کالبد تیتانیومی آیفون ۱۶ پرو با ضخامت واقعی ۳بعدی */
     .iphone-mockup {
       position: absolute;
       width: 264px;
       height: 536px;
-      border-radius: 42px;
+      border-radius: 44px;
       background: #18181b;
       border: 2px solid #3f3f46;
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16), 0 25px 60px rgba(0, 0, 0, 0.28);
-      padding: 3.5px;
       box-sizing: border-box;
       transform-style: preserve-3d;
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
-      transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
-                  opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-      will-change: transform, opacity;
+      transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+                  opacity 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+                  box-shadow 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: transform, opacity, box-shadow;
     }
 
+    /* دکمه‌های فیزیکی تیتانیومی بغل گوشی (Action, Volume, Power, Camera Control) */
+    .iphone-mockup::before {
+      content: '';
+      position: absolute;
+      left: -4px;
+      top: 102px;
+      width: 3px;
+      height: 18px; /* Action Button */
+      background: #57534e;
+      border-radius: 2px 0 0 2px;
+      box-shadow:
+        0 28px 0 #57534e, /* Volume Up */
+        0 66px 0 #57534e; /* Volume Down */
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .iphone-mockup::after {
+      content: '';
+      position: absolute;
+      right: -4px;
+      top: 124px;
+      width: 3px;
+      height: 48px; /* Power Button */
+      background: #57534e;
+      border-radius: 0 2px 2px 0;
+      box-shadow: 0 128px 0 #44403c; /* Camera Control */
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* گوشی وسط (Active): روبه‌رو با دسترسی مستقیم اسکرول */
     .iphone-mockup.pos-center {
       transform: translateX(0) translateZ(0) rotateY(0deg) scale(1);
       opacity: 1;
       z-index: 10;
+      box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.16),
+        0 25px 60px rgba(0, 0, 0, 0.28);
     }
 
+    /* گوشی چپ: فاصله بازتر + ضخامت تیتانیومی بیرونی در سمت چپ (بغل آیفون) */
     .iphone-mockup.pos-left {
-      transform: translateX(-152px) translateZ(-100px) rotateY(18deg) scale(0.88);
-      opacity: 0.6;
+      transform: translateX(-215px) translateZ(-85px) rotateY(26deg) scale(0.86);
+      opacity: 0.82;
       z-index: 5;
       cursor: pointer;
+      box-shadow:
+        /* ضخامت ۳بعدی لبه تیتانیومی بغل آیفون */
+        -1px 0 0 #57534e,
+        -2px 0 0 #44403c,
+        -3px 0 0 #3f3f46,
+        -4px 0 0 #292524,
+        -5px 0 0 #27272a,
+        -6px 0 0 #1c1917,
+        -7px 0 0 #18181b,
+        -8px 0 1px #09090b,
+        /* خط بازتاب نور متالیک پخ لبه */
+        inset 1.5px 0 1.5px rgba(255, 255, 255, 0.45),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+        -26px 28px 55px rgba(0, 0, 0, 0.45);
     }
 
+    /* گوشی راست: فاصله بازتر + ضخامت تیتانیومی بیرونی در سمت راست (بغل آیفون) */
     .iphone-mockup.pos-right {
-      transform: translateX(152px) translateZ(-100px) rotateY(-18deg) scale(0.88);
-      opacity: 0.6;
+      transform: translateX(215px) translateZ(-85px) rotateY(-26deg) scale(0.86);
+      opacity: 0.82;
       z-index: 5;
       cursor: pointer;
+      box-shadow:
+        /* ضخامت ۳بعدی لبه تیتانیومی بغل آیفون */
+        1px 0 0 #57534e,
+        2px 0 0 #44403c,
+        3px 0 0 #3f3f46,
+        4px 0 0 #292524,
+        5px 0 0 #27272a,
+        6px 0 0 #1c1917,
+        7px 0 0 #18181b,
+        8px 0 1px #09090b,
+        /* خط بازتاب نور متالیک پخ لبه */
+        inset -1.5px 0 1.5px rgba(255, 255, 255, 0.45),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+        26px 28px 55px rgba(0, 0, 0, 0.45);
     }
 
     .iphone-mockup.pos-left:hover,
     .iphone-mockup.pos-right:hover {
-      opacity: 0.85;
+      opacity: 0.95;
     }
 
-    /* جلوگیری از قفل شدن اسکرول صفحه اصلی روی iframeها به صورت پیش‌فرض */
+    /* جلوگیری از قفل شدن اسکرول صفحه اصلی روی iframeها در گوشی‌های غیرفعال */
     .iphone-live-iframe {
       pointer-events: none;
     }
 
-    /* فعال شدن تعامل مستقیم با سایت داخل گوشی در صورت کلیک روی دکمه تست زنده */
-    .iphone-mockup.pos-center.is-interactive .iphone-live-iframe {
-      pointer-events: auto;
+    /* اسکرول و تعامل مستقیم و زنده با سایت داخل گوشی وسط */
+    .iphone-mockup.pos-center .iphone-live-iframe {
+      pointer-events: auto !important;
     }
 
-    .iphone-mockup.pos-center.is-interactive .mockup-click-overlay {
+    .iphone-mockup.pos-center .mockup-click-overlay {
       display: none !important;
+    }
+
+    /* گوشی‌های جانبی با کلیک به جلو می‌آیند */
+    .iphone-mockup.pos-left .iphone-live-iframe,
+    .iphone-mockup.pos-right .iphone-live-iframe {
+      pointer-events: none !important;
+    }
+
+    .iphone-mockup.pos-left .mockup-click-overlay,
+    .iphone-mockup.pos-right .mockup-click-overlay {
+      display: block !important;
+      pointer-events: auto !important;
+      cursor: pointer;
     }
 
     .iphone-screen-wrap {
@@ -862,6 +939,8 @@
       border: none;
       background: transparent;
       display: block;
+      overflow-y: auto !important;
+      -webkit-overflow-scrolling: touch;
     }
 
     /* لایه محافظ جهت سهولت اسکرول صفحه و ورق زدن کروسل */
@@ -963,14 +1042,40 @@
     .carousel-sub-actions {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       margin-top: 8px;
       flex-wrap: wrap;
       justify-content: center;
     }
 
-    .btn-live-fullscreen,
-    .btn-toggle-interact {
+    .live-scroll-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      background: #111111;
+      color: #ffffff;
+      font-size: 0.76rem;
+      font-weight: 700;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+    }
+
+    .pulse-live-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 0 2.5px rgba(16, 185, 129, 0.25);
+      animation: pulse-ring 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+    }
+
+    @keyframes pulse-ring {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.65; transform: scale(0.9); }
+    }
+
+    .btn-live-fullscreen {
       display: inline-flex;
       align-items: center;
       gap: 6px;
@@ -988,9 +1093,7 @@
       transition: all 0.2s ease;
     }
 
-    .btn-live-fullscreen:hover,
-    .btn-toggle-interact:hover,
-    .btn-toggle-interact.active {
+    .btn-live-fullscreen:hover {
       background: #111111;
       color: #ffffff;
       border-color: #111111;
@@ -1779,25 +1882,32 @@
         overflow: hidden;
       }
       .iphone-3d-stage {
-        height: 465px;
-        max-width: 360px;
+        height: 485px;
+        max-width: 380px;
+        perspective: 1000px;
       }
       .iphone-mockup {
-        width: 226px;
-        height: 452px;
-        border-radius: 38px;
+        width: 236px;
+        height: 472px;
+        border-radius: 40px;
         padding: 3px;
       }
       .iphone-screen-wrap,
       .iphone-viewport,
       .iphone-glare {
-        border-radius: 35px;
+        border-radius: 36px;
       }
       .iphone-mockup.pos-left {
-        transform: translateX(-110px) translateZ(-80px) rotateY(16deg) scale(0.85);
+        transform: translateX(-168px) translateZ(-75px) rotateY(24deg) scale(0.85);
+        box-shadow:
+          -1px 0 0 #57534e, -2px 0 0 #44403c, -3px 0 0 #3f3f46, -4px 0 0 #27272a, -5px 0 0 #1c1917, -6px 0 1px #09090b,
+          inset 1.2px 0 1px rgba(255, 255, 255, 0.4), -18px 22px 45px rgba(0, 0, 0, 0.4);
       }
       .iphone-mockup.pos-right {
-        transform: translateX(110px) translateZ(-80px) rotateY(-16deg) scale(0.85);
+        transform: translateX(168px) translateZ(-75px) rotateY(-24deg) scale(0.85);
+        box-shadow:
+          1px 0 0 #57534e, 2px 0 0 #44403c, 3px 0 0 #3f3f46, 4px 0 0 #27272a, 5px 0 0 #1c1917, 6px 0 1px #09090b,
+          inset -1.2px 0 1px rgba(255, 255, 255, 0.4), 18px 22px 45px rgba(0, 0, 0, 0.4);
       }
     }
 
@@ -1837,38 +1947,55 @@
         padding: 4px 0 12px;
       }
       .iphone-3d-stage {
-        height: 405px;
+        height: 425px;
         max-width: 100%;
-        perspective: none !important;
-        transform-style: flat !important;
+        perspective: 900px !important;
+        perspective-origin: center center;
+        transform-style: preserve-3d !important;
       }
       .iphone-mockup {
-        width: 196px;
-        height: 392px;
-        border-radius: 34px;
+        width: 202px;
+        height: 404px;
+        border-radius: 35px;
         border-width: 1.5px;
         padding: 2.2px;
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
       }
       .iphone-screen-wrap,
       .iphone-viewport,
       .iphone-glare {
-        border-radius: 31px;
+        border-radius: 32px;
       }
       .iphone-mockup.pos-center {
-        transform: translate3d(0, 0, 0) scale(1) !important;
+        transform: translate3d(0, 0, 0) rotateY(0deg) scale(1) !important;
         opacity: 1;
         z-index: 10;
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14), 0 16px 36px rgba(0, 0, 0, 0.26) !important;
       }
       .iphone-mockup.pos-left {
-        transform: translate3d(-78px, 0, 0) scale(0.85) !important;
-        opacity: 0.55;
+        transform: translate3d(-108px, 0, -65px) rotateY(20deg) scale(0.85) !important;
+        opacity: 0.8;
         z-index: 5;
+        box-shadow:
+          -1px 0 0 #57534e, -2px 0 0 #44403c, -3px 0 0 #27272a, -4px 0 0 #1c1917, -5px 0 1px #09090b,
+          inset 1px 0 1px rgba(255, 255, 255, 0.35), -14px 16px 32px rgba(0, 0, 0, 0.35) !important;
       }
       .iphone-mockup.pos-right {
-        transform: translate3d(78px, 0, 0) scale(0.85) !important;
-        opacity: 0.55;
+        transform: translate3d(108px, 0, -65px) rotateY(-20deg) scale(0.85) !important;
+        opacity: 0.8;
         z-index: 5;
+        box-shadow:
+          1px 0 0 #57534e, 2px 0 0 #44403c, 3px 0 0 #27272a, 4px 0 0 #1c1917, 5px 0 1px #09090b,
+          inset -1px 0 1px rgba(255, 255, 255, 0.35), 14px 16px 32px rgba(0, 0, 0, 0.35) !important;
+      }
+      .iphone-mockup::before {
+        top: 78px;
+        height: 14px;
+        box-shadow: 0 22px 0 #57534e, 0 50px 0 #57534e;
+      }
+      .iphone-mockup::after {
+        top: 96px;
+        height: 36px;
+        box-shadow: 0 96px 0 #44403c;
       }
       .btn-toggle-interact {
         display: none;
@@ -1914,12 +2041,12 @@
         --iphone-top-offset: 19px;
       }
       .iphone-3d-stage {
-        height: 370px;
+        height: 385px;
       }
       .iphone-mockup {
-        width: 178px;
-        height: 356px;
-        border-radius: 30px;
+        width: 182px;
+        height: 364px;
+        border-radius: 31px;
         border-width: 1.2px;
         padding: 1.8px;
       }
@@ -1929,12 +2056,18 @@
         border-radius: 28px;
       }
       .iphone-mockup.pos-left {
-        transform: translate3d(-64px, 0, 0) scale(0.84) !important;
-        opacity: 0.48;
+        transform: translate3d(-94px, 0, -55px) rotateY(18deg) scale(0.84) !important;
+        opacity: 0.75;
+        box-shadow:
+          -1px 0 0 #44403c, -2px 0 0 #27272a, -3px 0 0 #1c1917, -4px 0 1px #09090b,
+          inset 1px 0 1px rgba(255, 255, 255, 0.3), -10px 14px 26px rgba(0, 0, 0, 0.3) !important;
       }
       .iphone-mockup.pos-right {
-        transform: translate3d(64px, 0, 0) scale(0.84) !important;
-        opacity: 0.48;
+        transform: translate3d(94px, 0, -55px) rotateY(-18deg) scale(0.84) !important;
+        opacity: 0.75;
+        box-shadow:
+          1px 0 0 #44403c, 2px 0 0 #27272a, 3px 0 0 #1c1917, 4px 0 1px #09090b,
+          inset -1px 0 1px rgba(255, 255, 255, 0.3), 10px 14px 26px rgba(0, 0, 0, 0.3) !important;
       }
       .dynamic-island-pill {
         width: 50px;
@@ -2195,7 +2328,7 @@
 
               <div class="iphone-viewport">
                 <div class="iphone-scaler">
-                  <iframe src="https://mammdo38.github.io/ATRE-demo/" class="iphone-live-iframe" scrolling="no" title="فروشگاه آنلاین عطر رویال" loading="eager"></iframe>
+                  <iframe src="https://mammdo38.github.io/ATRE-demo/" class="iphone-live-iframe" title="فروشگاه آنلاین عطر رویال" loading="eager"></iframe>
                 </div>
               </div>
               
@@ -2225,7 +2358,7 @@
 
               <div class="iphone-viewport">
                 <div class="iphone-scaler">
-                  <iframe src="./cosmetics/" class="iphone-live-iframe" scrolling="no" title="فروشگاه آنلاین لوازم آرایشی" loading="lazy"></iframe>
+                  <iframe src="./cosmetics/" class="iphone-live-iframe" title="فروشگاه آنلاین لوازم آرایشی" loading="lazy"></iframe>
                 </div>
               </div>
               
@@ -2255,7 +2388,7 @@
 
               <div class="iphone-viewport">
                 <div class="iphone-scaler">
-                  <iframe src="https://mammdo38.github.io/bag-demo/" class="iphone-live-iframe" scrolling="no" title="گالری کیف و چرم لورین" loading="lazy"></iframe>
+                  <iframe src="https://mammdo38.github.io/bag-demo/" class="iphone-live-iframe" title="گالری کیف و چرم لورین" loading="lazy"></iframe>
                 </div>
               </div>
               
@@ -2293,9 +2426,10 @@
         </div>
 
         <div class="carousel-sub-actions">
-          <button type="button" id="toggleInteractBtn" class="btn-toggle-interact" onclick="toggleCenterIframeInteract()">
-            <span>اسکرول و تست زنده داخل گوشی</span>
-          </button>
+          <div class="live-scroll-status-badge">
+            <span class="pulse-live-dot"></span>
+            <span>اسکرول و تست زنده فعال است</span>
+          </div>
 
           <a id="activeDemoFullscreenBtn" href="https://mammdo38.github.io/ATRE-demo/" target="_blank" rel="noopener noreferrer" class="btn-live-fullscreen">
             <span>مشاهده در اندازه تمام‌صفحه</span>
