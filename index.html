@@ -725,10 +725,15 @@
       height: 100%;
       border-radius: 40.5px;
       background: #000000;
-      overflow: hidden;
+      overflow: hidden !important;
       position: relative;
       display: flex;
       flex-direction: column;
+      isolation: isolate;
+      transform-style: flat !important;
+      -webkit-mask-image: -webkit-radial-gradient(white, black);
+      mask-image: radial-gradient(white, black);
+      contain: paint;
     }
 
     /* نوار وضعیت اپل در بالای نمایشگر */
@@ -867,15 +872,18 @@
       width: 100%;
       height: 100%;
       overflow: hidden !important;
-      border-radius: 40.5px;
-      background: #ffffff;
+      border-radius: inherit;
+      background: #09090b;
       direction: ltr;
       z-index: 1;
+      isolation: isolate;
+      -webkit-mask-image: -webkit-radial-gradient(white, black);
+      mask-image: radial-gradient(white, black);
     }
 
     .iphone-scaler {
       width: 390px;
-      height: 820px;
+      height: 844px;
       transform: translateX(-50%) scale(var(--iphone-scale));
       transform-origin: top center;
       position: absolute;
@@ -884,6 +892,7 @@
       overflow: hidden !important;
       scrollbar-width: none !important;
       -ms-overflow-style: none !important;
+      isolation: isolate;
     }
 
     .iphone-scaler::-webkit-scrollbar {
@@ -892,23 +901,35 @@
       height: 0 !important;
     }
 
+    /* تصویر پیش‌نمایش رتینا و فوق‌سریع فروشگاه (ضد سفیدی و بدون باگ لایه‌ها در موبایل) */
+    .iphone-store-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 390px;
+      height: 844px;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      z-index: 1;
+      pointer-events: none;
+    }
+
     /* آی‌فریم وب‌سایت‌های زنده بدون میله اسکرول با ابعاد کاملاً فیت */
     .iphone-live-iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 390px;
-      height: 100%;
+      height: 844px;
       border: none;
-      background: #ffffff;
+      background: transparent;
       display: block;
+      z-index: 2;
       overflow: hidden !important;
       scrollbar-width: none !important;
       -ms-overflow-style: none !important;
       user-select: auto;
-    }
-
-    .iphone-live-iframe::-webkit-scrollbar {
-      display: none !important;
-      width: 0 !important;
-      height: 0 !important;
     }
 
     .iphone-live-iframe::-webkit-scrollbar {
@@ -1987,12 +2008,23 @@
         height: 408px;
         border-radius: 35px;
         padding: 2.5px;
+        transform-style: flat !important;
         box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
         transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease !important;
       }
       .iphone-screen-wrap,
       .iphone-viewport {
         border-radius: 32.5px;
+        -webkit-mask-image: -webkit-radial-gradient(white, black);
+        mask-image: radial-gradient(white, black);
+      }
+      /* در موبایل جهت حذف ۱۰۰٪ باگ سفیدی، لود لحظه‌ای بدون لگ و اتصال بی‌نقص به فریم */
+      .iphone-live-iframe {
+        display: none !important;
+      }
+      .iphone-store-img {
+        display: block !important;
+        pointer-events: auto !important;
       }
       .iphone-ear-speaker {
         width: 32px;
@@ -2089,10 +2121,13 @@
         height: 368px;
         border-radius: 31px;
         padding: 2.2px;
+        transform-style: flat !important;
       }
       .iphone-screen-wrap,
       .iphone-viewport {
         border-radius: 28.8px;
+        -webkit-mask-image: -webkit-radial-gradient(white, black);
+        mask-image: radial-gradient(white, black);
       }
       .iphone-ear-speaker {
         width: 28px;
@@ -2475,6 +2510,7 @@
                 <!-- وب‌سایت زنده با ابعاد استاندارد ۳۹۰px بدون دکمه و نوار اسکرول -->
                 <div class="iphone-viewport">
                   <div class="iphone-scaler">
+                    <img src="./assets/store-perfume.png" class="iphone-store-img" alt="فروشگاه آنلاین عطر رویال" loading="eager">
                     <iframe src="https://mammdo38.github.io/ATRE-demo/" class="iphone-live-iframe" title="فروشگاه آنلاین عطر رویال" loading="eager" scrolling="no"></iframe>
                   </div>
                 </div>
@@ -2508,6 +2544,7 @@
                 <!-- وب‌سایت زنده با ابعاد استاندارد ۳۹۰px بدون دکمه و نوار اسکرول -->
                 <div class="iphone-viewport">
                   <div class="iphone-scaler">
+                    <img src="./assets/store-cosmetics.png" class="iphone-store-img" alt="فروشگاه آنلاین لوازم آرایشی اسکیل کازمتیک" loading="eager">
                     <iframe src="./cosmetics/" class="iphone-live-iframe" title="فروشگاه آنلاین لوازم آرایشی اسکیل کازمتیک" loading="eager" scrolling="no"></iframe>
                   </div>
                 </div>
@@ -2541,6 +2578,7 @@
                 <!-- وب‌سایت زنده با ابعاد استاندارد ۳۹۰px بدون دکمه و نوار اسکرول -->
                 <div class="iphone-viewport">
                   <div class="iphone-scaler">
+                    <img src="./assets/store-bag.png" class="iphone-store-img" alt="گالری کیف و چرم لورین" loading="eager">
                     <iframe src="https://mammdo38.github.io/bag-demo/" class="iphone-live-iframe" title="گالری کیف و چرم لورین" loading="eager" scrolling="no"></iframe>
                   </div>
                 </div>
