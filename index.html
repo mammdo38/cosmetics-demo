@@ -520,8 +520,8 @@
        با وب‌سایت‌های زنده (Live iframes)، اسکیلینگ دقیق ۳۹۰px و بدون نوار اسکرول
        ========================================================================== */
     :root {
-      --iphone-scale: 0.6667;
-      --iphone-top-offset: 38px;
+      --iphone-scale: 0.6487;
+      --iphone-top-offset: 0px;
     }
 
     .hero-container-grid {
@@ -571,37 +571,54 @@
       cursor: grabbing;
     }
 
-    /* کالبد تیتانیومی آیفون ۱۶ پرو با ضخامت واقعی ۳بعدی */
+    /* کالبد تیتانیومی آیفون ۱۶ پرو مطابق نمونه رسمی اپل با حاشیه ظریف و هم‌مرکز */
     .iphone-mockup {
       position: absolute;
-      width: 264px;
-      height: 536px;
+      width: 260px;
+      height: 532px;
       border-radius: 44px;
-      background: #18181b;
-      border: 2px solid #3f3f46;
+      background: #181411;
+      padding: 3.5px;
       box-sizing: border-box;
       transform-style: preserve-3d;
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
-      transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
-                  opacity 0.42s cubic-bezier(0.22, 1, 0.36, 1),
-                  box-shadow 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                  opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                  box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1);
       will-change: transform, opacity, box-shadow;
     }
 
-    /* دکمه‌های فیزیکی تیتانیومی بغل گوشی (Action, Volume, Power, Camera Control) */
+    /* اسپیکر مکالمه ظریف اپل در بالاترین لبه فریم فلزی */
+    .iphone-ear-speaker {
+      position: absolute;
+      top: 1.5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 44px;
+      height: 1.8px;
+      background: #15110e;
+      border-radius: 1px;
+      z-index: 50;
+      pointer-events: none;
+    }
+
+    /* دکمه‌های فیزیکی تیتانیومی بغل گوشی مطابق نمونه */
     .iphone-mockup::before {
       content: '';
       position: absolute;
-      left: -4px;
-      top: 102px;
+      left: -5px;
+      top: 104px;
       width: 3px;
       height: 18px; /* Action Button */
-      background: #57534e;
+      background: #6d533f;
       border-radius: 2px 0 0 2px;
       box-shadow:
-        0 28px 0 #57534e, /* Volume Up */
-        0 66px 0 #57534e; /* Volume Down */
+        0 0 0 0.5px #3a2b20,
+        0 28px 0 0 #6d533f, /* Volume Up */
+        0 28px 0 0.5px #3a2b20,
+        0 66px 0 0 #6d533f, /* Volume Down */
+        0 66px 0 0.5px #3a2b20;
       pointer-events: none;
       z-index: 1;
     }
@@ -609,13 +626,16 @@
     .iphone-mockup::after {
       content: '';
       position: absolute;
-      right: -4px;
-      top: 124px;
+      right: -5px;
+      top: 126px;
       width: 3px;
       height: 48px; /* Power Button */
-      background: #57534e;
+      background: #6d533f;
       border-radius: 0 2px 2px 0;
-      box-shadow: 0 128px 0 #44403c; /* Camera Control */
+      box-shadow:
+        0 0 0 0.5px #3a2b20,
+        0 132px 0 0 #4c392b, /* Camera Control */
+        0 132px 0 0.5px #2e2219;
       pointer-events: none;
       z-index: 1;
     }
@@ -626,48 +646,48 @@
       opacity: 1;
       z-index: 10;
       box-shadow:
-        inset 0 0 0 1px rgba(255, 255, 255, 0.16),
-        0 25px 60px rgba(0, 0, 0, 0.28);
+        0 0 0 1px #806048,
+        0 0 0 2.5px #3a2b20,
+        inset 0 0 0 1px rgba(255, 230, 200, 0.28),
+        0 30px 65px -12px rgba(0, 0, 0, 0.35);
     }
 
     /* وضعیت آیفون سمت چپ در عمق: فاصله بازتر + ضخامت تیتانیومی بغل گوشی */
     .iphone-mockup.pos-left {
       transform: translateX(-215px) translateZ(-85px) rotateY(26deg) scale(0.86);
-      opacity: 0.82;
+      opacity: 0.85;
       z-index: 5;
       cursor: pointer;
       box-shadow:
-        -1px 0 0 #57534e,
-        -2px 0 0 #44403c,
-        -3px 0 0 #3f3f46,
-        -4px 0 0 #292524,
-        -5px 0 0 #27272a,
-        -6px 0 0 #1c1917,
-        -7px 0 0 #18181b,
-        -8px 0 1px #09090b,
-        inset 1.5px 0 1.5px rgba(255, 255, 255, 0.45),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.12),
-        -26px 28px 55px rgba(0, 0, 0, 0.45);
+        -1px 0 0 #6d533f,
+        -2px 0 0 #574232,
+        -3px 0 0 #4c392b,
+        -4px 0 0 #3a2b20,
+        -5px 0 0 #2e2219,
+        -6px 0 0 #211812,
+        -7px 0 1px #09090b,
+        inset 1.5px 0 1.5px rgba(255, 230, 200, 0.4),
+        0 0 0 1px #806048,
+        -26px 28px 55px rgba(0, 0, 0, 0.42);
     }
 
     /* وضعیت آیفون سمت راست در عمق: فاصله بازتر + ضخامت تیتانیومی بغل گوشی */
     .iphone-mockup.pos-right {
       transform: translateX(215px) translateZ(-85px) rotateY(-26deg) scale(0.86);
-      opacity: 0.82;
+      opacity: 0.85;
       z-index: 5;
       cursor: pointer;
       box-shadow:
-        1px 0 0 #57534e,
-        2px 0 0 #44403c,
-        3px 0 0 #3f3f46,
-        4px 0 0 #292524,
-        5px 0 0 #27272a,
-        6px 0 0 #1c1917,
-        7px 0 0 #18181b,
-        8px 0 1px #09090b,
-        inset -1.5px 0 1.5px rgba(255, 255, 255, 0.45),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.12),
-        26px 28px 55px rgba(0, 0, 0, 0.45);
+        1px 0 0 #6d533f,
+        2px 0 0 #574232,
+        3px 0 0 #4c392b,
+        4px 0 0 #3a2b20,
+        5px 0 0 #2e2219,
+        6px 0 0 #211812,
+        7px 0 1px #09090b,
+        inset -1.5px 0 1.5px rgba(255, 230, 200, 0.4),
+        0 0 0 1px #806048,
+        26px 28px 55px rgba(0, 0, 0, 0.42);
     }
 
     .iphone-mockup.pos-left:hover,
@@ -699,11 +719,11 @@
       cursor: pointer;
     }
 
-    /* نمایشگر داخلی آیفون */
+    /* نمایشگر داخلی آیفون با حاشیه مشکی منسجم و هم‌مرکز */
     .iphone-screen-wrap {
       width: 100%;
       height: 100%;
-      border-radius: 38px;
+      border-radius: 40.5px;
       background: #000000;
       overflow: hidden;
       position: relative;
@@ -717,105 +737,103 @@
       top: 0;
       left: 0;
       right: 0;
-      height: 38px;
-      padding: 7px 16px 0;
+      height: 36px;
+      padding: 8px 18px 0;
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
       z-index: 30;
       pointer-events: none;
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.25) 75%, transparent 100%);
-      direction: ltr; /* استاتوس بار استاندارد جهانی اپل */
-      color: #ffffff;
+      background: transparent !important;
+      direction: ltr;
       box-sizing: border-box;
     }
 
     .status-time {
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
-      font-size: 0.74rem;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      color: #ffffff;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
       line-height: 1;
       padding-top: 2px;
+      color: #111111;
+      text-shadow: 0 0 2px rgba(255, 255, 255, 0.8);
     }
 
-    /* داینامیک آیلند واقعی و لنز دوربین با انعکاس یاقوتی */
+    /* داینامیک آیلند واقعی و لنز دوربین با انعکاس یاقوتی مطابق نمونه */
     .dynamic-island-shell {
       position: absolute;
+      top: 7px;
       left: 50%;
       transform: translateX(-50%);
-      top: 6px;
       display: flex;
-      flex-direction: column;
       align-items: center;
+      justify-content: center;
+      z-index: 35;
       pointer-events: none;
-    }
-
-    .speaker-slit {
-      width: 36px;
-      height: 2px;
-      background: #27272a;
-      border-radius: 2px;
-      margin-bottom: 2px;
     }
 
     .dynamic-island-pill {
       width: 78px;
-      height: 21px;
+      height: 22px;
       background: #000000;
-      border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 9999px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-end;
       padding: 0 8px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+      position: relative;
+      box-shadow: 0 0 1px rgba(0, 0, 0, 0.9);
       box-sizing: border-box;
     }
 
     .camera-lens {
-      width: 9px;
-      height: 9px;
+      width: 8.5px;
+      height: 8.5px;
       border-radius: 50%;
-      background: radial-gradient(circle at 35% 35%, #2a3d66 0%, #0a1122 65%, #000000 100%);
-      border: 1px solid rgba(255, 255, 255, 0.22);
+      background: radial-gradient(circle at 35% 35%, #2a3b5c 0%, #0d1527 65%, #050810 100%);
       position: relative;
-      box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .lens-glint {
-      position: absolute;
-      top: 2px;
-      left: 2px;
-      width: 2.5px;
-      height: 2.5px;
+      width: 2.2px;
+      height: 2.2px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.75);
+      background: rgba(140, 200, 255, 0.85);
+      position: absolute;
+      top: 1.5px;
+      left: 1.5px;
     }
 
     .sensor-dot {
-      width: 5px;
-      height: 5px;
+      width: 4px;
+      height: 4px;
       border-radius: 50%;
-      background: #0f172a;
-      box-shadow: inset 0 0 1px #000;
+      background: #09090b;
+      margin-right: 5px;
     }
 
     .status-icons {
       display: flex;
       align-items: center;
       gap: 5px;
-      color: #ffffff;
-      line-height: 1;
-      padding-top: 2px;
+      padding-top: 1px;
+      color: #111111;
+      filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.8));
+    }
+
+    .status-icon {
+      display: block;
     }
 
     .status-battery {
-      width: 17px;
-      height: 9px;
-      border: 1px solid rgba(255, 255, 255, 0.9);
-      border-radius: 2.5px;
+      width: 19px;
+      height: 10px;
+      border: 1.2px solid currentColor;
+      border-radius: 3px;
       padding: 1px;
       position: relative;
       display: flex;
@@ -830,18 +848,18 @@
       top: 2px;
       width: 1.5px;
       height: 3.5px;
-      background: rgba(255, 255, 255, 0.9);
+      background: currentColor;
       border-radius: 0 1px 1px 0;
     }
 
     .battery-level {
-      width: 80%;
+      width: 75%;
       height: 100%;
-      background: #10b981;
+      background: currentColor;
       border-radius: 1px;
     }
 
-    /* فریم اسکیل‌دهنده هوشمند ابعاد واقعی موبایل (Virtual Viewport 390px) */
+    /* ویوپورت و اسکیل محتوا */
     .iphone-viewport {
       position: absolute;
       top: 0;
@@ -849,7 +867,7 @@
       width: 100%;
       height: 100%;
       overflow: hidden !important;
-      border-radius: 38px;
+      border-radius: 40.5px;
       background: #ffffff;
       direction: ltr;
       z-index: 1;
@@ -857,7 +875,7 @@
 
     .iphone-scaler {
       width: 390px;
-      height: 746px;
+      height: 820px;
       transform: translateX(-50%) scale(var(--iphone-scale));
       transform-origin: top center;
       position: absolute;
@@ -925,14 +943,13 @@
     /* خط نشانگر صفحه اصلی اپل در پایین */
     .iphone-home-indicator {
       position: absolute;
-      bottom: 8px;
+      bottom: 7px;
       left: 50%;
       transform: translateX(-50%);
-      width: 90px;
+      width: 96px;
       height: 4px;
-      background: rgba(0, 0, 0, 0.85);
+      background: rgba(0, 0, 0, 0.3);
       border-radius: 9999px;
-      box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
       pointer-events: none;
       z-index: 30;
     }
@@ -947,7 +964,7 @@
       background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 35%, transparent 60%);
       pointer-events: none;
       z-index: 28;
-      border-radius: 38px;
+      border-radius: 40.5px;
     }
 
     /* دکمه تمام‌صفحه دموی فعال */
@@ -1888,7 +1905,7 @@
     @media (max-width: 1024px) {
       :root {
         --iphone-scale: 0.5949;
-        --iphone-top-offset: 34px;
+        --iphone-top-offset: 0px;
       }
       .hero-container-grid {
         grid-template-columns: 1fr;
@@ -1911,24 +1928,33 @@
       }
       .iphone-mockup {
         width: 236px;
-        height: 472px;
+        height: 476px;
         border-radius: 40px;
         padding: 3px;
       }
-      .iphone-screen-wrap {
-        border-radius: 36px;
+      .iphone-screen-wrap,
+      .iphone-viewport {
+        border-radius: 37px;
+      }
+      .iphone-ear-speaker {
+        width: 38px;
+        height: 1.6px;
+      }
+      .dynamic-island-pill {
+        width: 70px;
+        height: 20px;
       }
       .iphone-mockup.pos-left {
         transform: translateX(-168px) translateZ(-75px) rotateY(24deg) scale(0.85);
         box-shadow:
-          -1px 0 0 #57534e, -2px 0 0 #44403c, -3px 0 0 #3f3f46, -4px 0 0 #27272a, -5px 0 0 #1c1917, -6px 0 1px #09090b,
-          inset 1.2px 0 1px rgba(255, 255, 255, 0.4), -18px 22px 45px rgba(0, 0, 0, 0.4);
+          -1px 0 0 #6d533f, -2px 0 0 #574232, -3px 0 0 #4c392b, -4px 0 0 #3a2b20, -5px 0 0 #2e2219, -6px 0 1px #09090b,
+          inset 1.2px 0 1px rgba(255, 230, 200, 0.4), 0 0 0 1px #806048, -18px 22px 45px rgba(0, 0, 0, 0.4);
       }
       .iphone-mockup.pos-right {
         transform: translateX(168px) translateZ(-75px) rotateY(-24deg) scale(0.85);
         box-shadow:
-          1px 0 0 #57534e, 2px 0 0 #44403c, 3px 0 0 #3f3f46, 4px 0 0 #27272a, 5px 0 0 #1c1917, 6px 0 1px #09090b,
-          inset -1.2px 0 1px rgba(255, 255, 255, 0.4), 18px 22px 45px rgba(0, 0, 0, 0.4);
+          1px 0 0 #6d533f, 2px 0 0 #574232, 3px 0 0 #4c392b, 4px 0 0 #3a2b20, 5px 0 0 #2e2219, 6px 0 1px #09090b,
+          inset -1.2px 0 1px rgba(255, 230, 200, 0.4), 0 0 0 1px #806048, 18px 22px 45px rgba(0, 0, 0, 0.4);
       }
     }
 
@@ -1936,7 +1962,7 @@
     @media (max-width: 768px) {
       :root {
         --iphone-scale: 0.5066;
-        --iphone-top-offset: 28px;
+        --iphone-top-offset: 0px;
       }
       .nav-cta {
         padding: 7px 14px;
@@ -1958,60 +1984,74 @@
       }
       .iphone-mockup {
         width: 202px;
-        height: 404px;
+        height: 408px;
         border-radius: 35px;
-        border: 1.5px solid #27272a;
-        padding: 2.2px;
+        padding: 2.5px;
         box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
         transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease !important;
       }
-      .iphone-screen-wrap {
-        border-radius: 32px;
+      .iphone-screen-wrap,
+      .iphone-viewport {
+        border-radius: 32.5px;
+      }
+      .iphone-ear-speaker {
+        width: 32px;
+        height: 1.4px;
+        top: 1px;
       }
       .iphone-mockup.pos-center {
         transform: translate3d(0, 0, 0) rotateY(0deg) scale(1) !important;
         opacity: 1;
         z-index: 10;
-        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14), 0 16px 36px rgba(0, 0, 0, 0.26) !important;
+        box-shadow:
+          0 0 0 1px #806048,
+          0 0 0 2px #3a2b20,
+          inset 0 0 0 1px rgba(255, 230, 200, 0.25),
+          0 16px 36px rgba(0, 0, 0, 0.26) !important;
       }
       .iphone-mockup.pos-left {
         transform: translate3d(-108px, 0, -65px) rotateY(20deg) scale(0.85) !important;
-        opacity: 0.8;
+        opacity: 0.85;
         z-index: 5;
         box-shadow:
-          -1px 0 0 #57534e, -2px 0 0 #44403c, -3px 0 0 #27272a, -4px 0 0 #1c1917, -5px 0 1px #09090b,
-          inset 1px 0 1px rgba(255, 255, 255, 0.35), -14px 16px 32px rgba(0, 0, 0, 0.35) !important;
+          -1px 0 0 #6d533f, -2px 0 0 #4c392b, -3px 0 0 #3a2b20, -4px 0 0 #211812, -5px 0 1px #09090b,
+          inset 1px 0 1px rgba(255, 230, 200, 0.35), 0 0 0 1px #806048, -14px 16px 32px rgba(0, 0, 0, 0.35) !important;
       }
       .iphone-mockup.pos-right {
         transform: translate3d(108px, 0, -65px) rotateY(-20deg) scale(0.85) !important;
-        opacity: 0.8;
+        opacity: 0.85;
         z-index: 5;
         box-shadow:
-          1px 0 0 #57534e, 2px 0 0 #44403c, 3px 0 0 #27272a, 4px 0 0 #1c1917, 5px 0 1px #09090b,
-          inset -1px 0 1px rgba(255, 255, 255, 0.35), 14px 16px 32px rgba(0, 0, 0, 0.35) !important;
+          1px 0 0 #6d533f, 2px 0 0 #4c392b, 3px 0 0 #3a2b20, 4px 0 0 #211812, 5px 0 1px #09090b,
+          inset -1px 0 1px rgba(255, 230, 200, 0.35), 0 0 0 1px #806048, 14px 16px 32px rgba(0, 0, 0, 0.35) !important;
       }
       .iphone-mockup::before {
         top: 78px;
         height: 14px;
-        box-shadow: 0 22px 0 #57534e, 0 50px 0 #57534e;
+        box-shadow:
+          0 0 0 0.5px #3a2b20,
+          0 22px 0 0 #6d533f,
+          0 50px 0 0 #6d533f;
       }
       .iphone-mockup::after {
         top: 96px;
         height: 36px;
-        box-shadow: 0 96px 0 #44403c;
+        box-shadow:
+          0 0 0 0.5px #3a2b20,
+          0 96px 0 0 #4c392b;
       }
       .dynamic-island-pill {
-        width: 56px;
-        height: 16px;
-        padding: 0 5px;
+        width: 60px;
+        height: 17px;
+        padding: 0 6px;
       }
       .camera-lens {
         width: 6.5px;
         height: 6.5px;
       }
       .sensor-dot {
-        width: 3.5px;
-        height: 3.5px;
+        width: 3px;
+        height: 3px;
       }
       .status-time {
         font-size: 0.64rem;
@@ -2039,38 +2079,43 @@
     @media (max-width: 420px) {
       :root {
         --iphone-scale: 0.4574;
-        --iphone-top-offset: 24px;
+        --iphone-top-offset: 0px;
       }
       .iphone-3d-stage {
         height: 385px;
       }
       .iphone-mockup {
         width: 182px;
-        height: 364px;
+        height: 368px;
         border-radius: 31px;
-        border: 1.2px solid #27272a;
-        padding: 1.8px;
+        padding: 2.2px;
       }
-      .iphone-screen-wrap {
-        border-radius: 28px;
+      .iphone-screen-wrap,
+      .iphone-viewport {
+        border-radius: 28.8px;
+      }
+      .iphone-ear-speaker {
+        width: 28px;
+        height: 1.2px;
+        top: 1px;
       }
       .iphone-mockup.pos-left {
         transform: translate3d(-94px, 0, -55px) rotateY(18deg) scale(0.84) !important;
-        opacity: 0.75;
+        opacity: 0.8;
         box-shadow:
-          -1px 0 0 #44403c, -2px 0 0 #27272a, -3px 0 0 #1c1917, -4px 0 1px #09090b,
-          inset 1px 0 1px rgba(255, 255, 255, 0.3), -10px 14px 26px rgba(0, 0, 0, 0.3) !important;
+          -1px 0 0 #6d533f, -2px 0 0 #4c392b, -3px 0 0 #3a2b20, -4px 0 1px #09090b,
+          inset 1px 0 1px rgba(255, 230, 200, 0.3), 0 0 0 1px #806048, -10px 14px 26px rgba(0, 0, 0, 0.3) !important;
       }
       .iphone-mockup.pos-right {
         transform: translate3d(94px, 0, -55px) rotateY(-18deg) scale(0.84) !important;
-        opacity: 0.75;
+        opacity: 0.8;
         box-shadow:
-          1px 0 0 #44403c, 2px 0 0 #27272a, 3px 0 0 #1c1917, 4px 0 1px #09090b,
-          inset -1px 0 1px rgba(255, 255, 255, 0.3), 10px 14px 26px rgba(0, 0, 0, 0.3) !important;
+          1px 0 0 #6d533f, 2px 0 0 #4c392b, 3px 0 0 #3a2b20, 4px 0 1px #09090b,
+          inset -1px 0 1px rgba(255, 230, 200, 0.3), 0 0 0 1px #806048, 10px 14px 26px rgba(0, 0, 0, 0.3) !important;
       }
       .dynamic-island-pill {
-        width: 50px;
-        height: 14px;
+        width: 52px;
+        height: 15px;
         padding: 0 4px;
       }
       .status-time {
@@ -2409,15 +2454,15 @@
             
             <!-- آیفون ۱: رویال پرفیوم (عطر و ادکلن) -->
             <div class="iphone-mockup pos-center" data-index="0">
+              <div class="iphone-ear-speaker"></div>
               <div class="iphone-screen-wrap">
                 <!-- نوار وضعیت اپل و داینامیک آیلند با لنز یاقوتی -->
                 <div class="iphone-top-bar">
                   <div class="status-time">9:41</div>
                   <div class="dynamic-island-shell">
-                    <div class="speaker-slit"></div>
                     <div class="dynamic-island-pill">
-                      <div class="camera-lens"><span class="lens-glint"></span></div>
                       <div class="sensor-dot"></div>
+                      <div class="camera-lens"><span class="lens-glint"></span></div>
                     </div>
                   </div>
                   <div class="status-icons">
@@ -2442,15 +2487,15 @@
 
             <!-- آیفون ۲: اسکیل کازمتیک (لوازم آرایشی و زیبایی) -->
             <div class="iphone-mockup pos-left" data-index="1">
+              <div class="iphone-ear-speaker"></div>
               <div class="iphone-screen-wrap">
                 <!-- نوار وضعیت اپل و داینامیک آیلند با لنز یاقوتی -->
                 <div class="iphone-top-bar">
                   <div class="status-time">9:41</div>
                   <div class="dynamic-island-shell">
-                    <div class="speaker-slit"></div>
                     <div class="dynamic-island-pill">
-                      <div class="camera-lens"><span class="lens-glint"></span></div>
                       <div class="sensor-dot"></div>
+                      <div class="camera-lens"><span class="lens-glint"></span></div>
                     </div>
                   </div>
                   <div class="status-icons">
@@ -2475,15 +2520,15 @@
 
             <!-- آیفون ۳: چرم لورین (کیف و اکسسوری چرم) -->
             <div class="iphone-mockup pos-right" data-index="2">
+              <div class="iphone-ear-speaker"></div>
               <div class="iphone-screen-wrap">
                 <!-- نوار وضعیت اپل و داینامیک آیلند با لنز یاقوتی -->
                 <div class="iphone-top-bar">
                   <div class="status-time">9:41</div>
                   <div class="dynamic-island-shell">
-                    <div class="speaker-slit"></div>
                     <div class="dynamic-island-pill">
-                      <div class="camera-lens"><span class="lens-glint"></span></div>
                       <div class="sensor-dot"></div>
+                      <div class="camera-lens"><span class="lens-glint"></span></div>
                     </div>
                   </div>
                   <div class="status-icons">
