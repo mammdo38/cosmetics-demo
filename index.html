@@ -520,8 +520,8 @@
        با وب‌سایت‌های زنده (Live iframes)، اسکیلینگ دقیق ۳۹۰px و بدون نوار اسکرول
        ========================================================================== */
     :root {
-      --iphone-scale: 0.623;
-      --iphone-top-offset: 32px;
+      --iphone-scale: 0.6487;
+      --iphone-top-offset: 30px;
     }
 
     .hero-container-grid {
@@ -571,16 +571,16 @@
       cursor: grabbing;
     }
 
-    /* کالبد تیتانیومی آیفون ۱۶ پرو با بهینه‌سازی شتاب سخت‌افزاری GPU */
+    /* کالبد تیتانیومی آیفون ۱۶ پرو با لبه فوق‌باریک Ultra-Thin Bezel */
     .iphone-mockup {
       position: absolute;
       width: 264px;
       height: 528px;
-      border-radius: 46px;
+      border-radius: 42px;
       background: #09090b;
-      border: 3.5px solid #27272a;
-      box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.15), 0 25px 60px rgba(0, 0, 0, 0.3);
-      padding: 7px;
+      border: 2px solid #27272a;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15), 0 25px 60px rgba(0, 0, 0, 0.3);
+      padding: 3.5px;
       box-sizing: border-box;
       transform-style: preserve-3d;
       backface-visibility: hidden;
@@ -1809,7 +1809,7 @@
        ========================================================================== */
     @media (max-width: 1024px) {
       :root {
-        --iphone-scale: 0.541;
+        --iphone-scale: 0.5538;
         --iphone-top-offset: 26px;
       }
       .hero-container-grid {
@@ -1831,14 +1831,15 @@
         max-width: 340px;
       }
       .iphone-mockup {
-        width: 230px;
-        height: 460px;
-        border-radius: 40px;
-        padding: 6px;
+        width: 226px;
+        height: 452px;
+        border-radius: 38px;
+        border: 2px solid #27272a;
+        padding: 3px;
         transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease;
       }
       .iphone-screen-wrap {
-        border-radius: 34px;
+        border-radius: 35px;
       }
       .iphone-mockup.pos-left {
         transform: translateX(-110px) translateZ(-80px) rotateY(16deg) scale(0.85);
@@ -1848,10 +1849,10 @@
       }
     }
 
-    /* بهینه‌سازی اختصاصی ۶۰ فریم موبایل (حذف محاسبات سنگین سه‌بعدی و جلوگیری از باگ اسکرول) */
+    /* بهینه‌سازی اختصاصی ۶۰ فریم موبایل با حاشیه ظریف و واقعی آیفون ۱۶ پرو */
     @media (max-width: 768px) {
       :root {
-        --iphone-scale: 0.469;
+        --iphone-scale: 0.483;
         --iphone-top-offset: 22px;
       }
       .hero-visual-col {
@@ -1871,12 +1872,13 @@
         width: 196px;
         height: 392px;
         border-radius: 34px;
-        padding: 5px;
+        border: 1.5px solid #27272a;
+        padding: 2.2px;
         box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
         transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.32s ease !important;
       }
       .iphone-screen-wrap {
-        border-radius: 29px;
+        border-radius: 31px;
       }
       /* ترنسفرم دوبعدی سخت‌افزاری کامپوزیتور بدون هزینه رندر سه‌بعدی */
       .iphone-mockup.pos-center {
@@ -1899,20 +1901,20 @@
         pointer-events: none;
       }
       .dynamic-island-pill {
-        width: 64px;
-        height: 18px;
-        padding: 0 6px;
+        width: 56px;
+        height: 16px;
+        padding: 0 5px;
       }
       .camera-lens {
-        width: 7px;
-        height: 7px;
+        width: 6.5px;
+        height: 6.5px;
       }
       .sensor-dot {
-        width: 4px;
-        height: 4px;
+        width: 3.5px;
+        height: 3.5px;
       }
       .status-time {
-        font-size: 0.66rem;
+        font-size: 0.64rem;
       }
       .carousel-active-label {
         font-size: 0.8rem;
@@ -1923,7 +1925,7 @@
     /* گوشی‌های کوچکتر (زیر ۴۲۰ پیکسل مثل آیفون SE) */
     @media (max-width: 420px) {
       :root {
-        --iphone-scale: 0.428;
+        --iphone-scale: 0.441;
         --iphone-top-offset: 19px;
       }
       .iphone-3d-stage {
@@ -1933,10 +1935,11 @@
         width: 178px;
         height: 356px;
         border-radius: 30px;
-        padding: 4px;
+        border: 1.2px solid #27272a;
+        padding: 1.8px;
       }
       .iphone-screen-wrap {
-        border-radius: 25px;
+        border-radius: 28px;
       }
       .iphone-mockup.pos-left {
         transform: translate3d(-62px, 0, 0) scale(0.84) !important;
@@ -1947,12 +1950,12 @@
         opacity: 0.48;
       }
       .dynamic-island-pill {
-        width: 58px;
-        height: 16px;
-        padding: 0 5px;
+        width: 50px;
+        height: 14px;
+        padding: 0 4px;
       }
       .status-time {
-        font-size: 0.62rem;
+        font-size: 0.6rem;
       }
       .hero-section h1 {
         font-size: 1.55rem;
