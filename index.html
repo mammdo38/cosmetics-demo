@@ -193,6 +193,11 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap">
   </noscript>
 
+  <!-- پیش‌بارگذاری بهینه منابع کلیدی رندر (LCP Image & Core Local Fonts) -->
+  <link rel="preload" href="./assets/store-perfume.webp" as="image" type="image/webp" fetchpriority="high">
+  <link rel="preload" href="./fonts/iranyekan/iranyekanwebblack.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="./fonts/iranyekan/iranyekanwebregular.woff" as="font" type="font/woff" crossorigin>
+
   <style>
     /* فونت حرفه‌ای ایران‌یکان محلی با پوشش کامل تمام وزن‌ها */
     @font-face {
@@ -574,7 +579,7 @@
     .hero-container-grid {
       display: grid;
       grid-template-columns: 1.05fr 0.95fr;
-      align-items: center;
+      align-items: start;
       gap: 36px;
       width: 100%;
     }
@@ -584,15 +589,17 @@
       flex-direction: column;
       align-items: flex-start;
       max-width: 660px;
+      padding-top: 10px;
     }
 
     .hero-visual-col {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       position: relative;
       width: 100%;
+      min-height: 620px;
       user-select: none;
     }
 
@@ -2018,14 +2025,14 @@
     }
 
     .article-category-name {
-      color: #71717a;
+      color: #52525b;
       font-size: 0.8rem;
       font-weight: 600;
       letter-spacing: 0.02em;
     }
 
     .article-date-text {
-      color: #a1a1aa;
+      color: #52525b;
       font-size: 0.76rem;
       font-weight: 500;
     }
@@ -2644,6 +2651,7 @@
       }
       .hero-visual-col {
         width: 100%;
+        min-height: 490px;
         overflow: hidden;
         padding: 6px 0 16px;
       }
@@ -3538,7 +3546,7 @@
       <div class="articles-grid">
 
         <!-- مقاله ۱: مهندسی سرعت و پرفورمنس -->
-        <article class="article-card" onclick="openArticle('article-speed')" tabindex="0" role="button" aria-label="مطالعه مقاله: چرا سرعت بارگذاری زیر ۰٫۴ ثانیه نرخ تبدیل فروشگاه را بیش از دو برابر می‌کند؟">
+        <article class="article-card" onclick="openArticle('article-speed')" tabindex="0" aria-label="مطالعه مقاله: چرا سرعت بارگذاری زیر ۰٫۴ ثانیه نرخ تبدیل فروشگاه را بیش از دو برابر می‌کند؟">
           <div class="article-preview-wrap">
             <img 
               src="./assets/article-speed.webp?v=1" 
@@ -3574,7 +3582,7 @@
         </article>
 
         <!-- مقاله ۲: روانشناسی خرید موبایل -->
-        <article class="article-card" onclick="openArticle('article-mobile-ux')" tabindex="0" role="button" aria-label="مطالعه مقاله: روانشناسی خرید با موبایل در ایران؛ چرا ۹۰٪ ورودی‌های اینستاگرام بدون خرید خارج می‌شوند؟">
+        <article class="article-card" onclick="openArticle('article-mobile-ux')" tabindex="0" aria-label="مطالعه مقاله: روانشناسی خرید با موبایل در ایران؛ چرا ۹۰٪ ورودی‌های اینستاگرام بدون خرید خارج می‌شوند؟">
           <div class="article-preview-wrap">
             <img 
               src="./assets/article-mobile.webp?v=1" 
@@ -3610,7 +3618,7 @@
         </article>
 
         <!-- مقاله ۳: استراتژی برندینگ و فروش لوکس -->
-        <article class="article-card" onclick="openArticle('article-interactive-commerce')" tabindex="0" role="button" aria-label="مطالعه مقاله: هنر فروش گران‌تر؛ ۵ اصل طراحی وب‌سایت‌های لوکس برای جلب اعتماد آنی خریدار">
+        <article class="article-card" onclick="openArticle('article-interactive-commerce')" tabindex="0" aria-label="مطالعه مقاله: هنر فروش گران‌تر؛ ۵ اصل طراحی وب‌سایت‌های لوکس برای جلب اعتماد آنی خریدار">
           <div class="article-preview-wrap">
             <img 
               src="./assets/article-luxury.webp?v=1" 
