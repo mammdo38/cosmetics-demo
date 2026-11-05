@@ -564,6 +564,7 @@
     :root {
       --iphone-scale: 0.6487;
       --iphone-top-offset: 0px;
+      --status-bar-h: 34px;
     }
 
     .hero-container-grid {
@@ -778,41 +779,95 @@
       contain: paint;
     }
 
-    /* نوار وضعیت اپل در بالای نمایشگر */
+    /* نوار وضعیت اپل در بالای نمایشگر (پشتیبانی از تم مشکی یا سفید متناسب با وب‌سایت) */
     .iphone-top-bar {
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
-      height: 36px;
-      padding: 8px 18px 0;
+      height: var(--status-bar-h, 30px);
+      padding: 0 14px;
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       justify-content: space-between;
       z-index: 30;
       pointer-events: none;
-      background: transparent !important;
       direction: ltr;
       box-sizing: border-box;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    /* ۱. تم مشکی نوار وضعیت (Dark Status Bar): طراحی لوکس مشکی برای وب‌سایت‌های تیره یا کادربندی شارپ */
+    .iphone-top-bar.bar-dark {
+      background: #111113 !important;
+      color: #ffffff;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .iphone-top-bar.bar-dark .status-time {
+      color: #ffffff;
+      text-shadow: none;
+    }
+    .iphone-top-bar.bar-dark .status-icons {
+      color: #ffffff;
+      filter: none;
+    }
+    .iphone-top-bar.bar-dark .status-battery {
+      border-color: rgba(255, 255, 255, 0.9);
+    }
+    .iphone-top-bar.bar-dark .status-battery::after {
+      background: rgba(255, 255, 255, 0.9);
+    }
+    .iphone-top-bar.bar-dark .battery-level {
+      background: #ffffff;
+    }
+    .iphone-top-bar.bar-dark .dynamic-island-pill {
+      background: #000000;
+      box-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.15);
+    }
+
+    /* ۲. تم سفید نوار وضعیت (Light Status Bar): طراحی مینی‌مال سفید برای وب‌سایت‌های بر پایه تم روشن */
+    .iphone-top-bar.bar-light {
+      background: #ffffff !important;
+      color: #111111;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    }
+    .iphone-top-bar.bar-light .status-time {
+      color: #111111;
+      text-shadow: none;
+    }
+    .iphone-top-bar.bar-light .status-icons {
+      color: #111111;
+      filter: none;
+    }
+    .iphone-top-bar.bar-light .status-battery {
+      border-color: rgba(0, 0, 0, 0.85);
+    }
+    .iphone-top-bar.bar-light .status-battery::after {
+      background: rgba(0, 0, 0, 0.85);
+    }
+    .iphone-top-bar.bar-light .battery-level {
+      background: #111111;
+    }
+    .iphone-top-bar.bar-light .dynamic-island-pill {
+      background: #000000;
+      box-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.2);
     }
 
     .status-time {
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
       font-size: 0.72rem;
       font-weight: 600;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.01em;
       line-height: 1;
-      padding-top: 2px;
-      color: #111111;
-      text-shadow: 0 0 2px rgba(255, 255, 255, 0.8);
+      user-select: none;
     }
 
-    /* داینامیک آیلند واقعی و لنز دوربین با انعکاس یاقوتی مطابق نمونه */
+    /* داینامیک آیلند هم‌مرکز با خط تقارن نمایشگر */
     .dynamic-island-shell {
       position: absolute;
-      top: 7px;
+      top: 50%;
       left: 50%;
-      transform: translateX(-50%);
+      transform: translate(-50%, -50%);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -821,17 +876,24 @@
     }
 
     .dynamic-island-pill {
-      width: 78px;
-      height: 22px;
+      width: 76px;
+      height: 19px;
       background: #000000;
       border-radius: 9999px;
       display: flex;
       align-items: center;
-      justify-content: flex-end;
-      padding: 0 8px;
+      justify-content: space-between;
+      padding: 0 7px;
       position: relative;
-      box-shadow: 0 0 1px rgba(0, 0, 0, 0.9);
       box-sizing: border-box;
+    }
+
+    .sensor-dot {
+      width: 14px;
+      height: 9px;
+      border-radius: 9999px;
+      background: #060608;
+      box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.1);
     }
 
     .camera-lens {
@@ -843,33 +905,24 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.9);
     }
 
     .lens-glint {
       width: 2.2px;
       height: 2.2px;
       border-radius: 50%;
-      background: rgba(140, 200, 255, 0.85);
+      background: rgba(140, 200, 255, 0.9);
       position: absolute;
       top: 1.5px;
       left: 1.5px;
     }
 
-    .sensor-dot {
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: #09090b;
-      margin-right: 5px;
-    }
-
+    /* آیکون‌های وضعیت سمت چپ (Battery, WiFi, Cellular) */
     .status-icons {
       display: flex;
       align-items: center;
       gap: 5px;
-      padding-top: 1px;
-      color: #111111;
-      filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.8));
     }
 
     .status-icon {
@@ -878,7 +931,7 @@
 
     .status-battery {
       width: 19px;
-      height: 10px;
+      height: 9.5px;
       border: 1.2px solid currentColor;
       border-radius: 3px;
       padding: 1px;
@@ -909,10 +962,20 @@
     /* ویوپورت و اسکیل محتوا */
     .iphone-viewport {
       position: absolute;
-      top: 0;
+      top: var(--status-bar-h, 34px);
       left: 0;
-      width: 100%;
-      height: 100%;
+      right: 0;
+      bottom: 0;
+      height: calc(100% - var(--status-bar-h, 34px));
+      overflow: hidden !important;
+      border-radius: 0 0 38px 38px !important;
+      background: #09090b;
+      direction: ltr;
+      z-index: 1;
+      isolation: isolate;
+      -webkit-mask-image: -webkit-radial-gradient(white, black);
+      mask-image: radial-gradient(white, black);
+    }
       overflow: hidden !important;
       border-radius: inherit;
       background: #09090b;
@@ -2606,6 +2669,7 @@
       :root {
         --iphone-scale: 0.5949;
         --iphone-top-offset: 0px;
+        --status-bar-h: 30px;
       }
       .hero-container-grid {
         grid-template-columns: 1fr;
@@ -2632,9 +2696,11 @@
         border-radius: 40px;
         padding: 3px;
       }
-      .iphone-screen-wrap,
-      .iphone-viewport {
+      .iphone-screen-wrap {
         border-radius: 37px;
+      }
+      .iphone-viewport {
+        border-radius: 0 0 35px 35px !important;
       }
       .iphone-ear-speaker {
         width: 38px;
@@ -2663,6 +2729,7 @@
       :root {
         --iphone-scale: 0.5066;
         --iphone-top-offset: 0px;
+        --status-bar-h: 26px;
       }
       .nav-cta {
         padding: 7px 14px;
@@ -2691,11 +2758,13 @@
         box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
         transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease !important;
       }
-      .iphone-screen-wrap,
-      .iphone-viewport {
+      .iphone-screen-wrap {
         border-radius: 32.5px;
         -webkit-mask-image: -webkit-radial-gradient(white, black);
         mask-image: radial-gradient(white, black);
+      }
+      .iphone-viewport {
+        border-radius: 0 0 30px 30px !important;
       }
       /* در موبایل جهت حذف ۱۰۰٪ باگ سفیدی، لود لحظه‌ای بدون لگ و اتصال بی‌نقص به فریم */
       .iphone-live-iframe {
@@ -2791,6 +2860,7 @@
       :root {
         --iphone-scale: 0.4574;
         --iphone-top-offset: 0px;
+        --status-bar-h: 23px;
       }
       .iphone-3d-stage {
         height: 385px;
@@ -2802,11 +2872,13 @@
         padding: 2.2px;
         transform-style: flat !important;
       }
-      .iphone-screen-wrap,
-      .iphone-viewport {
+      .iphone-screen-wrap {
         border-radius: 28.8px;
         -webkit-mask-image: -webkit-radial-gradient(white, black);
         mask-image: radial-gradient(white, black);
+      }
+      .iphone-viewport {
+        border-radius: 0 0 26px 26px !important;
       }
       .iphone-ear-speaker {
         width: 28px;
@@ -3229,20 +3301,20 @@
             <div class="iphone-mockup pos-center" data-index="0">
               <div class="iphone-ear-speaker"></div>
               <div class="iphone-screen-wrap">
-                <!-- نوار وضعیت اپل و داینامیک آیلند با لنز یاقوتی -->
-                <div class="iphone-top-bar">
-                  <div class="status-time">9:41</div>
+                <!-- نوار وضعیت اپل (تم مشکی متناسب با هویت تیره و لوکس عطر رویال) -->
+                <div class="iphone-top-bar bar-dark">
+                  <div class="status-icons">
+                    <div class="status-battery"><div class="battery-level"></div></div>
+                    <svg class="status-icon wifi-icon" width="13" height="9" viewBox="0 0 16 12" fill="currentColor"><path d="M8 9.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-4.24-2.83a6 6 0 0 1 8.48 0l1.41-1.42a8 8 0 0 0-11.3 0l1.41 1.42zm-2.83-2.83a10 10 0 0 1 14.14 0l1.41-1.41a12 12 0 0 0-16.96 0l1.41 1.41z"/></svg>
+                    <svg class="status-icon signal-icon" width="12" height="9" viewBox="0 0 14 10" fill="currentColor"><rect x="0" y="7" width="2" height="3" rx="0.5"/><rect x="3.5" y="4.8" width="2" height="5.2" rx="0.5"/><rect x="7" y="2.4" width="2" height="7.6" rx="0.5"/><rect x="10.5" y="0" width="2" height="10" rx="0.5"/></svg>
+                  </div>
                   <div class="dynamic-island-shell">
                     <div class="dynamic-island-pill">
                       <div class="sensor-dot"></div>
                       <div class="camera-lens"><span class="lens-glint"></span></div>
                     </div>
                   </div>
-                  <div class="status-icons">
-                    <svg class="status-icon" width="13" height="9" viewBox="0 0 14 10" fill="currentColor"><rect x="0" y="7" width="2" height="3" rx="0.5"/><rect x="3.5" y="5" width="2" height="5" rx="0.5"/><rect x="7" y="2.5" width="2" height="7.5" rx="0.5"/><rect x="10.5" y="0" width="2" height="10" rx="0.5"/></svg>
-                    <svg class="status-icon" width="12" height="9" viewBox="0 0 16 12" fill="currentColor"><path d="M8 9.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-4.24-2.83a6 6 0 0 1 8.48 0l1.41-1.42a8 8 0 0 0-11.3 0l1.41 1.42zm-2.83-2.83a10 10 0 0 1 14.14 0l1.41-1.41a12 12 0 0 0-16.96 0l1.41 1.41z"/></svg>
-                    <div class="status-battery"><div class="battery-level"></div></div>
-                  </div>
+                  <div class="status-time">11:35</div>
                 </div>
 
                 <!-- وب‌سایت زنده با ابعاد استاندارد ۳۹۰px بدون دکمه و نوار اسکرول -->
@@ -3263,20 +3335,20 @@
             <div class="iphone-mockup pos-left" data-index="1">
               <div class="iphone-ear-speaker"></div>
               <div class="iphone-screen-wrap">
-                <!-- نوار وضعیت اپل و داینامیک آیلند با لنز یاقوتی -->
-                <div class="iphone-top-bar">
-                  <div class="status-time">9:41</div>
+                <!-- نوار وضعیت اپل (تم سفید متناسب با تم سفید خالص فروشگاه آرایشی) -->
+                <div class="iphone-top-bar bar-light">
+                  <div class="status-icons">
+                    <div class="status-battery"><div class="battery-level"></div></div>
+                    <svg class="status-icon wifi-icon" width="13" height="9" viewBox="0 0 16 12" fill="currentColor"><path d="M8 9.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-4.24-2.83a6 6 0 0 1 8.48 0l1.41-1.42a8 8 0 0 0-11.3 0l1.41 1.42zm-2.83-2.83a10 10 0 0 1 14.14 0l1.41-1.41a12 12 0 0 0-16.96 0l1.41 1.41z"/></svg>
+                    <svg class="status-icon signal-icon" width="12" height="9" viewBox="0 0 14 10" fill="currentColor"><rect x="0" y="7" width="2" height="3" rx="0.5"/><rect x="3.5" y="4.8" width="2" height="5.2" rx="0.5"/><rect x="7" y="2.4" width="2" height="7.6" rx="0.5"/><rect x="10.5" y="0" width="2" height="10" rx="0.5"/></svg>
+                  </div>
                   <div class="dynamic-island-shell">
                     <div class="dynamic-island-pill">
                       <div class="sensor-dot"></div>
                       <div class="camera-lens"><span class="lens-glint"></span></div>
                     </div>
                   </div>
-                  <div class="status-icons">
-                    <svg class="status-icon" width="13" height="9" viewBox="0 0 14 10" fill="currentColor"><rect x="0" y="7" width="2" height="3" rx="0.5"/><rect x="3.5" y="5" width="2" height="5" rx="0.5"/><rect x="7" y="2.5" width="2" height="7.5" rx="0.5"/><rect x="10.5" y="0" width="2" height="10" rx="0.5"/></svg>
-                    <svg class="status-icon" width="12" height="9" viewBox="0 0 16 12" fill="currentColor"><path d="M8 9.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-4.24-2.83a6 6 0 0 1 8.48 0l1.41-1.42a8 8 0 0 0-11.3 0l1.41 1.42zm-2.83-2.83a10 10 0 0 1 14.14 0l1.41-1.41a12 12 0 0 0-16.96 0l1.41 1.41z"/></svg>
-                    <div class="status-battery"><div class="battery-level"></div></div>
-                  </div>
+                  <div class="status-time">11:35</div>
                 </div>
 
                 <!-- وب‌سایت زنده با ابعاد استاندارد ۳۹۰px بدون دکمه و نوار اسکرول -->
@@ -3297,20 +3369,20 @@
             <div class="iphone-mockup pos-right" data-index="2">
               <div class="iphone-ear-speaker"></div>
               <div class="iphone-screen-wrap">
-                <!-- نوار وضعیت اپل و داینامیک آیلند با لنز یاقوتی -->
-                <div class="iphone-top-bar">
-                  <div class="status-time">9:41</div>
+                <!-- نوار وضعیت اپل (تم مشکی متناسب با اصالت چرم و لوکس بودن برند) -->
+                <div class="iphone-top-bar bar-dark">
+                  <div class="status-icons">
+                    <div class="status-battery"><div class="battery-level"></div></div>
+                    <svg class="status-icon wifi-icon" width="13" height="9" viewBox="0 0 16 12" fill="currentColor"><path d="M8 9.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-4.24-2.83a6 6 0 0 1 8.48 0l1.41-1.42a8 8 0 0 0-11.3 0l1.41 1.42zm-2.83-2.83a10 10 0 0 1 14.14 0l1.41-1.41a12 12 0 0 0-16.96 0l1.41 1.41z"/></svg>
+                    <svg class="status-icon signal-icon" width="12" height="9" viewBox="0 0 14 10" fill="currentColor"><rect x="0" y="7" width="2" height="3" rx="0.5"/><rect x="3.5" y="4.8" width="2" height="5.2" rx="0.5"/><rect x="7" y="2.4" width="2" height="7.6" rx="0.5"/><rect x="10.5" y="0" width="2" height="10" rx="0.5"/></svg>
+                  </div>
                   <div class="dynamic-island-shell">
                     <div class="dynamic-island-pill">
                       <div class="sensor-dot"></div>
                       <div class="camera-lens"><span class="lens-glint"></span></div>
                     </div>
                   </div>
-                  <div class="status-icons">
-                    <svg class="status-icon" width="13" height="9" viewBox="0 0 14 10" fill="currentColor"><rect x="0" y="7" width="2" height="3" rx="0.5"/><rect x="3.5" y="5" width="2" height="5" rx="0.5"/><rect x="7" y="2.5" width="2" height="7.5" rx="0.5"/><rect x="10.5" y="0" width="2" height="10" rx="0.5"/></svg>
-                    <svg class="status-icon" width="12" height="9" viewBox="0 0 16 12" fill="currentColor"><path d="M8 9.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-4.24-2.83a6 6 0 0 1 8.48 0l1.41-1.42a8 8 0 0 0-11.3 0l1.41 1.42zm-2.83-2.83a10 10 0 0 1 14.14 0l1.41-1.41a12 12 0 0 0-16.96 0l1.41 1.41z"/></svg>
-                    <div class="status-battery"><div class="battery-level"></div></div>
-                  </div>
+                  <div class="status-time">11:35</div>
                 </div>
 
                 <!-- وب‌سایت زنده با ابعاد استاندارد ۳۹۰px بدون دکمه و نوار اسکرول -->
@@ -3831,13 +3903,24 @@
         </div>
       </div>
 
-      <!-- فریم شیک تیتانیوم آیفون با Dynamic Island -->
+      <!-- فریم شیک تیتانیوم آیفون با Dynamic Island و نوار وضعیت -->
       <div class="iphone-chassis">
         <div class="iphone-screen">
-          <div class="dynamic-island">
-            <span class="camera-lens"></span>
+          <div id="modalTopBar" class="iphone-top-bar bar-dark" style="height: 44px; padding: 0 18px;">
+            <div class="status-icons">
+              <div class="status-battery"><div class="battery-level"></div></div>
+              <svg class="status-icon wifi-icon" width="14" height="10" viewBox="0 0 16 12" fill="currentColor"><path d="M8 9.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-4.24-2.83a6 6 0 0 1 8.48 0l1.41-1.42a8 8 0 0 0-11.3 0l1.41 1.42zm-2.83-2.83a10 10 0 0 1 14.14 0l1.41-1.41a12 12 0 0 0-16.96 0l1.41 1.41z"/></svg>
+              <svg class="status-icon signal-icon" width="13" height="10" viewBox="0 0 14 10" fill="currentColor"><rect x="0" y="7" width="2.2" height="3" rx="0.5"/><rect x="3.8" y="4.8" width="2.2" height="5.2" rx="0.5"/><rect x="7.6" y="2.4" width="2.2" height="7.6" rx="0.5"/><rect x="11.4" y="0" width="2.2" height="10" rx="0.5"/></svg>
+            </div>
+            <div class="dynamic-island-shell">
+              <div class="dynamic-island-pill" style="width: 95px; height: 26px; padding: 0 10px;">
+                <div class="sensor-dot" style="width: 16px; height: 10px;"></div>
+                <div class="camera-lens" style="width: 10px; height: 10px;"><span class="lens-glint"></span></div>
+              </div>
+            </div>
+            <div class="status-time" style="font-size: 0.82rem;">11:35</div>
           </div>
-          <iframe id="phoneModalIframe" src="about:blank" title="Live Demo Preview"></iframe>
+          <iframe id="phoneModalIframe" src="about:blank" title="Live Demo Preview" style="position: absolute; top: 44px; left: 0; width: 100%; height: calc(100% - 44px); border: none;"></iframe>
         </div>
       </div>
     </div>
@@ -3901,10 +3984,20 @@
       const iframe = document.getElementById('phoneModalIframe');
       const titleElem = document.getElementById('modalDemoTitle');
       const linkElem = document.getElementById('modalExternalLink');
+      const modalTopBar = document.getElementById('modalTopBar');
 
       titleElem.textContent = title;
       linkElem.href = url;
       iframe.src = url;
+
+      if (modalTopBar) {
+        if (url && (url.includes('cosmetics') || url.includes('beuty'))) {
+          modalTopBar.className = 'iphone-top-bar bar-light';
+        } else {
+          modalTopBar.className = 'iphone-top-bar bar-dark';
+        }
+      }
+
       modal.classList.add('active');
       document.body.style.overflow = 'hidden';
     }
