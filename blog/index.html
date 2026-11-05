@@ -312,154 +312,137 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.2s;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
       text-decoration: none;
       color: inherit;
+      position: relative;
     }
     .article-card:hover {
       transform: translateY(-6px);
-      border-color: rgba(0, 0, 0, 0.2);
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+      border-color: rgba(0, 0, 0, 0.18);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.07);
     }
 
-    .article-visual-cover {
+    .article-preview-wrap {
+      aspect-ratio: 16 / 10;
+      width: 100%;
       position: relative;
-      height: 200px;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
       overflow: hidden;
+      background: #f4f3ef;
+      border-bottom: 1px solid var(--border-subtle);
     }
-    .cover-speed {
-      background: radial-gradient(circle at 10% 20%, #1e1b4b 0%, #0f172a 100%);
+    .article-preview-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .cover-mobile {
-      background: radial-gradient(circle at 10% 20%, #1c1917 0%, #09090b 100%);
-    }
-    .cover-luxury {
-      background: radial-gradient(circle at 10% 20%, #2e2618 0%, #171410 100%);
+    .article-card:hover .article-preview-img {
+      transform: scale(1.04);
     }
 
-    .cover-badge-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      z-index: 2;
-    }
-    .article-card-badge {
+    .article-read-badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
       display: inline-flex;
       align-items: center;
-      padding: 4px 12px;
+      gap: 6px;
+      padding: 5px 12px;
       border-radius: 9999px;
-      background: rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(8px);
-      color: #ffffff;
-      font-size: 0.76rem;
-      font-weight: 700;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-    .article-card-time {
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(0, 0, 0, 0.08);
       font-size: 0.74rem;
-      color: rgba(255, 255, 255, 0.7);
-      font-weight: 600;
-    }
-    .cover-headline-stat {
+      font-weight: 700;
+      color: #111111;
       z-index: 2;
-      display: flex;
-      flex-direction: column;
-    }
-    .stat-number {
-      font-family: var(--font-en);
-      font-size: 1.85rem;
-      font-weight: 900;
-      color: #ffffff;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-    }
-    .stat-label {
-      font-size: 0.75rem;
-      color: rgba(255, 255, 255, 0.6);
-      font-weight: 600;
-    }
-    .cover-accent-tag {
-      font-size: 0.72rem;
-      color: rgba(255, 255, 255, 0.5);
-      z-index: 2;
-      align-self: flex-end;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     }
 
     .article-card-body {
-      padding: 24px;
+      padding: 24px 24px 22px;
       display: flex;
       flex-direction: column;
       flex-grow: 1;
     }
-    .article-meta-row {
+    .article-meta-line {
       display: flex;
       align-items: center;
-      gap: 8px;
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      margin-bottom: 12px;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .article-category-name {
+      color: #71717a;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .article-date-text {
+      color: #a1a1aa;
+      font-size: 0.76rem;
+      font-weight: 500;
     }
     .article-title {
-      font-size: 1.15rem;
+      font-size: 1.18rem;
       font-weight: 800;
       line-height: 1.5;
       color: #111111;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
       transition: color 0.2s ease;
     }
     .article-card:hover .article-title {
       color: #000000;
     }
     .article-excerpt {
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       color: var(--text-sub);
       line-height: 1.8;
-      margin-bottom: 20px;
+      margin-bottom: 0;
+      flex-grow: 1;
       display: -webkit-box;
-      -webkit-line-clamp: 3;
+      -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
-    .article-card-footer {
+    .article-actions-row {
+      padding: 16px 24px;
+      border-top: 1px solid var(--border-subtle);
+      background: #faf9f6;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding-top: 16px;
-      border-top: 1px solid rgba(0, 0, 0, 0.05);
-      margin-top: auto;
+      gap: 10px;
     }
-    .article-tags-wrap {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-    .article-mini-tag {
-      font-size: 0.72rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      background: #f4f3ef;
-      padding: 3px 8px;
-      border-radius: 6px;
-    }
-    .btn-read-article {
+    .btn-article-primary {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      font-size: 0.84rem;
-      font-weight: 700;
-      color: #111111;
-      flex-shrink: 0;
-      margin-right: auto;
-      transition: transform 0.2s;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 20px;
+      border-radius: 12px;
+      background: #111111;
+      color: #ffffff !important;
+      font-weight: 800;
+      font-size: 0.88rem;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      flex: 1;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
     }
-    .article-card:hover .btn-read-article {
-      transform: translateX(-4px);
+    .btn-article-primary:hover {
+      background: #27272a;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    }
+    .btn-article-primary svg {
+      transition: transform 0.2s ease;
+    }
+    .btn-article-primary:hover svg {
+      transform: translateX(-3px);
     }
 
     /* بنر مشاوره پایین صفحه */
@@ -620,109 +603,103 @@
 
       <!-- مقاله ۱ -->
       <a href="/blog/speed-and-conversion.html" class="article-card" data-category="speed">
-        <div class="article-visual-cover cover-speed">
-          <div class="cover-badge-row">
-            <span class="article-card-badge">⚡ مهندسی سرعت و سئو</span>
-            <span class="article-card-time">۸ دقیقه مطالعه</span>
+        <div class="article-preview-wrap">
+          <img 
+            src="../assets/article-speed.jpg?v=1" 
+            alt="مهندسی سرعت و سئو تکنیکال فروشگاه اینترنتی" 
+            width="800" height="500" 
+            class="article-preview-img"
+            loading="lazy"
+          >
+          <div class="article-read-badge">
+            <span>۸ دقیقه مطالعه</span>
           </div>
-          <div class="cover-headline-stat">
-            <span class="stat-number">0.38s</span>
-            <span class="stat-label">Ultra-Fast TTI • Core Web Vitals 100/100</span>
-          </div>
-          <div class="cover-accent-tag">سئو تکنیکال و رتبه اول گوگل</div>
         </div>
 
         <div class="article-card-body">
-          <div class="article-meta-row">
-            <span>۱۵ آبان ۱۴۰۳</span>
-            <span>•</span>
-            <span>تیم مهندسی اسکیل</span>
+          <div class="article-meta-line">
+            <span class="article-category-name">مهندسی سرعت و سئو</span>
+            <span class="article-date-text">۱۵ آبان ۱۴۰۳</span>
           </div>
           <h2 class="article-title">چرا سرعت بارگذاری زیر ۰٫۴ ثانیه نرخ تبدیل فروشگاه را بیش از ۲ برابر می‌کند؟</h2>
           <p class="article-excerpt">کالبدشکافی افت فروش ناشی از تاخیر میلی‌ثانیه‌ای در اینترنت ایران، خطرات تکیه بر هاست‌های اشتراکی و روش‌های حذف کامل سربار برای تصاحب رتبه اول گوگل.</p>
-          
-          <div class="article-card-footer">
-            <div class="article-tags-wrap">
-              <span class="article-mini-tag" dir="ltr">#CoreWebVitals</span>
-              <span class="article-mini-tag">#سرعت_سایت</span>
-            </div>
-            <span class="btn-read-article">
-              مطالعه کامل
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 12H5m7 7l-7-7 7-7"/></svg>
-            </span>
-          </div>
+        </div>
+
+        <div class="article-actions-row">
+          <span class="btn-article-primary">
+            <span>مطالعه کامل مقاله</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+            </svg>
+          </span>
         </div>
       </a>
 
       <!-- مقاله ۲ -->
       <a href="/blog/mobile-cro-instagram.html" class="article-card" data-category="mobile">
-        <div class="article-visual-cover cover-mobile">
-          <div class="cover-badge-row">
-            <span class="article-card-badge">📱 روانشناسی خرید موبایل</span>
-            <span class="article-card-time">۹ دقیقه مطالعه</span>
+        <div class="article-preview-wrap">
+          <img 
+            src="../assets/article-mobile.jpg?v=1" 
+            alt="روانشناسی خرید موبایل و کاهش ریزش سبد خرید" 
+            width="800" height="500" 
+            class="article-preview-img"
+            loading="lazy"
+          >
+          <div class="article-read-badge">
+            <span>۹ دقیقه مطالعه</span>
           </div>
-          <div class="cover-headline-stat">
-            <span class="stat-number">&lt; 30s</span>
-            <span class="stat-label">Mobile CRO • 1-Tap Checkout Flow</span>
-          </div>
-          <div class="cover-accent-tag">کاهش ریزش سبد خرید</div>
         </div>
 
         <div class="article-card-body">
-          <div class="article-meta-row">
-            <span>۱۰ آبان ۱۴۰۳</span>
-            <span>•</span>
-            <span>تیم تجربه کاربری اسکیل</span>
+          <div class="article-meta-line">
+            <span class="article-category-name">روانشناسی خرید و Mobile CRO</span>
+            <span class="article-date-text">۱۰ آبان ۱۴۰۳</span>
           </div>
           <h2 class="article-title">روانشناسی خرید با موبایل در ایران؛ چرا ۹۰٪ ورودی‌های اینستاگرام بدون خرید خارج می‌شوند؟</h2>
           <p class="article-excerpt">تحلیل رفتار خرید کاربران شبکه‌های اجتماعی، مهندسی منطقه شست (Thumb Zone)، حذف اصطکاک ورود و پرداخت، و رازهای تسویه‌حساب تک‌صفحه‌ای در ۳۰ ثانیه.</p>
-          
-          <div class="article-card-footer">
-            <div class="article-tags-wrap">
-              <span class="article-mini-tag" dir="ltr">#MobileCRO</span>
-              <span class="article-mini-tag">#کاهش_ریزش</span>
-            </div>
-            <span class="btn-read-article">
-              مطالعه کامل
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 12H5m7 7l-7-7 7-7"/></svg>
-            </span>
-          </div>
+        </div>
+
+        <div class="article-actions-row">
+          <span class="btn-article-primary">
+            <span>مطالعه کامل مقاله</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+            </svg>
+          </span>
         </div>
       </a>
 
       <!-- مقاله ۳ -->
       <a href="/blog/luxury-ecommerce-branding.html" class="article-card" data-category="luxury">
-        <div class="article-visual-cover cover-luxury">
-          <div class="cover-badge-row">
-            <span class="article-card-badge">💎 استراتژی برندینگ لوکس</span>
-            <span class="article-card-time">۱۰ دقیقه مطالعه</span>
+        <div class="article-preview-wrap">
+          <img 
+            src="../assets/article-luxury.jpg?v=1" 
+            alt="طراحی وب‌سایت‌های لوکس و افزایش ارزش سبد خرید" 
+            width="800" height="500" 
+            class="article-preview-img"
+            loading="lazy"
+          >
+          <div class="article-read-badge">
+            <span>۱۰ دقیقه مطالعه</span>
           </div>
-          <div class="cover-headline-stat">
-            <span class="stat-number">+40%</span>
-            <span class="stat-label">Luxury Aesthetics • Halo Effect • High Trust</span>
-          </div>
-          <div class="cover-accent-tag">افزایش میانگین ارزش سبد خرید</div>
         </div>
 
         <div class="article-card-body">
-          <div class="article-meta-row">
-            <span>۴ آبان ۱۴۰۳</span>
-            <span>•</span>
-            <span>واحد خلاقیت اسکیل</span>
+          <div class="article-meta-line">
+            <span class="article-category-name">برندینگ و فروش لوکس</span>
+            <span class="article-date-text">۴ آبان ۱۴۰۳</span>
           </div>
           <h2 class="article-title">هنر فروش گران‌تر؛ ۵ اصل طراحی وب‌سایت‌های لوکس برای جلب اعتماد آنی خریدار</h2>
           <p class="article-excerpt">چگونه طراحی بصری شاخص، فضای منفی و تعاملات هوشمند ارزش ادراک‌شده محصولات را بالا می‌برند و مخاطب را بدون چانه‌زنی به مشتری وفادار تبدیل می‌کنند؟</p>
-          
-          <div class="article-card-footer">
-            <div class="article-tags-wrap">
-              <span class="article-mini-tag" dir="ltr">#LuxuryBranding</span>
-              <span class="article-mini-tag">#طراحی_لوکس</span>
-            </div>
-            <span class="btn-read-article">
-              مطالعه کامل
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 12H5m7 7l-7-7 7-7"/></svg>
-            </span>
-          </div>
+        </div>
+
+        <div class="article-actions-row">
+          <span class="btn-article-primary">
+            <span>مطالعه کامل مقاله</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+            </svg>
+          </span>
         </div>
       </a>
 
