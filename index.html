@@ -3397,10 +3397,11 @@
 
       <!-- تب‌های فیلتر دسته‌بندی با بج تعداد -->
       <div class="filter-tabs">
-        <button class="filter-btn active" onclick="filterDemos('all')">همه دموها <span class="tab-badge">۳</span></button>
+        <button class="filter-btn active" onclick="filterDemos('all')">همه دموها <span class="tab-badge">۴</span></button>
         <button class="filter-btn" onclick="filterDemos('perfume')">عطر و ادکلن <span class="tab-badge">۱</span></button>
         <button class="filter-btn" onclick="filterDemos('cosmetics')">لوازم آرایشی <span class="tab-badge">۱</span></button>
         <button class="filter-btn" onclick="filterDemos('bag')">کیف و چرم <span class="tab-badge">۱</span></button>
+        <button class="filter-btn" onclick="filterDemos('realestate')">املاک و ویلا <span class="tab-badge">۱</span></button>
       </div>
 
       <!-- شبکه کارت‌های پروژه -->
@@ -3535,6 +3536,50 @@
               </svg>
               <span>پیش‌نمایش</span>
             </button>
+          </div>
+        </div>
+
+        <!-- ۴. املاک و ویلاهای لوکس (بادیز) -->
+        <div class="project-card" data-category="realestate">
+          <div class="card-preview-wrap">
+            <img 
+              src="./assets/demo-badiz.webp" 
+              alt="پلتفرم تخصصی املاک و ویلاهای بادیز" 
+              width="600" height="375" 
+              class="card-preview-img"
+              loading="lazy"
+              decoding="async"
+            >
+            <div class="card-status-pill">
+              <span class="live-dot-pulse"></span>
+              <span>دموی فعال</span>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="card-meta-line">
+              <span class="card-category-name">املاک و ویلاهای لوکس</span>
+            </div>
+            <h3 class="card-title">پلتفرم تخصصی املاک و ویلاهای بادیز</h3>
+            <p class="card-text">
+              سامانه هوشمند معرفی و جستجوی ویلاهای لوکس کردان و سهیلیه با نقشه تعاملی، فیلترهای پیشرفته سرمایه‌گذاری و استعلام فوری.
+            </p>
+          </div>
+
+          <div class="card-actions-row">
+            <a href="https://github.com/mammdo38/badiz-realestate" target="_blank" rel="noopener noreferrer" class="btn-demo-primary">
+              <span>مشاهده سورس و دمو</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+              </svg>
+            </a>
+            <a href="./realestate/" class="btn-demo-preview" title="اطلاعات تکمیلی پروژه">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="5" y="2" width="14" height="20" rx="3" ry="3"/>
+                <line x1="12" y1="18" x2="12.01" y2="18"/>
+              </svg>
+              <span>معرفی پروژه</span>
+            </a>
           </div>
         </div>
 
