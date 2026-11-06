@@ -3402,8 +3402,8 @@
 
       <!-- تب‌های فیلتر دسته‌بندی با بج تعداد -->
       <div class="filter-tabs">
-        <button class="filter-btn active" onclick="filterDemos('all')">همه دموها <span class="tab-badge">۴</span></button>
-        <button class="filter-btn" onclick="filterDemos('perfume')">عطر و ادکلن <span class="tab-badge">۱</span></button>
+        <button class="filter-btn active" onclick="filterDemos('all')">همه دموها <span class="tab-badge">۵</span></button>
+        <button class="filter-btn" onclick="filterDemos('perfume')">عطر و ادکلن <span class="tab-badge">۲</span></button>
         <button class="filter-btn" onclick="filterDemos('cosmetics')">لوازم آرایشی <span class="tab-badge">۱</span></button>
         <button class="filter-btn" onclick="filterDemos('bag')">کیف و چرم <span class="tab-badge">۱</span></button>
         <button class="filter-btn" onclick="filterDemos('realestate')">املاک و ویلا <span class="tab-badge">۱</span></button>
@@ -3412,7 +3412,51 @@
       <!-- شبکه کارت‌های پروژه -->
       <div class="demos-grid">
         
-        <!-- ۱. عطر و ادکلن (رویال پرفیوم) -->
+        <!-- ۱. فروشگاه زنده عطر و ادکلن (ولوریا اکسیر) -->
+        <div class="project-card" data-category="perfume">
+          <div class="card-preview-wrap">
+            <img 
+              src="./assets/demo-veloriaexir.webp" 
+              alt="فروشگاه آنلاین عطر و ادکلن ولوریا اکسیر" 
+              width="600" height="375" 
+              class="card-preview-img"
+              loading="lazy"
+              decoding="async"
+            >
+            <div class="card-status-pill">
+              <span class="live-dot-pulse"></span>
+              <span>پروژه زنده مشتری</span>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="card-meta-line">
+              <span class="card-category-name">فروشگاه آنلاین عطر و اسانس</span>
+            </div>
+            <h3 class="card-title">فروشگاه تخصصی عطر و ادکلن ولوریا اکسیر</h3>
+            <p class="card-text">
+              پلتفرم جامع فروشگاهی مجهز به خرید اقساطی ۴ مرحله‌ای اسنپ‌پی و دیجی‌پی، دسته‌بندی تخصصی ادکلن‌های شرکتی، مینیاتوری و اسانس‌های اورجینال.
+            </p>
+          </div>
+
+          <div class="card-actions-row">
+            <a href="https://veloriaexir.com/" target="_blank" rel="noopener noreferrer" class="btn-demo-primary">
+              <span>مشاهده سایت زنده</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+              </svg>
+            </a>
+            <button class="btn-demo-preview" onclick="openPhonePreview('فروشگاه عطر و ادکلن ولوریا اکسیر (پروژه زنده)', 'https://veloriaexir.com/')" title="پیش‌نمایش در شبیه‌ساز آیفون">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="5" y="2" width="14" height="20" rx="3" ry="3"/>
+                <line x1="12" y1="18" x2="12.01" y2="18"/>
+              </svg>
+              <span>پیش‌نمایش</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ۲. عطر و ادکلن (رویال پرفیوم) -->
         <div class="project-card" data-category="perfume">
           <div class="card-preview-wrap">
             <img 
