@@ -345,7 +345,8 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+      content-visibility: auto;
     }
     .article-card:hover .article-preview-img {
       transform: scale(1.04);
@@ -619,6 +620,7 @@
             width="800" height="500" 
             class="article-preview-img"
             loading="lazy"
+            decoding="async"
           >
           <div class="article-read-badge">
             <span>۱۲ دقیقه مطالعه</span>
@@ -653,6 +655,7 @@
             width="800" height="500" 
             class="article-preview-img"
             loading="lazy"
+            decoding="async"
           >
           <div class="article-read-badge">
             <span>۸ دقیقه مطالعه</span>
@@ -687,6 +690,7 @@
             width="800" height="500" 
             class="article-preview-img"
             loading="lazy"
+            decoding="async"
           >
           <div class="article-read-badge">
             <span>۹ دقیقه مطالعه</span>
@@ -721,6 +725,7 @@
             width="800" height="500" 
             class="article-preview-img"
             loading="lazy"
+            decoding="async"
           >
           <div class="article-read-badge">
             <span>۱۰ دقیقه مطالعه</span>
