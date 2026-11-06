@@ -1,213 +1,1105 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa" dir="rtl" class="notranslate" translate="no">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>پلتفرم املاک و ویلاهای لوکس بادیز | نمونه‌کار Scale Studio</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>پلتفرم تخصصی املاک و ویلاهای بادیز | دموی زنده استودیو اسکیل</title>
+  <meta name="description" content="مرجع تخصصی خرید، فروش و اجاره ویلاهای لوکس کردان، سهیلیه و تهراندشت. جستجوی آنلاین، استعلام سند و کارشناسی تخصصی ملک.">
   <link rel="icon" type="image/png" href="../assets/favicon.png">
+
+  <!-- فونت وزیرمتن و استایل‌های استاندارد -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
   <style>
-    @font-face {
-      font-family: 'IRANYekan';
-      src: url('../fonts/iranyekan/iranyekanwebregular.woff') format('woff');
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'IRANYekan';
-      src: url('../fonts/iranyekan/iranyekanwebbold.woff') format('woff');
-      font-weight: 700;
-      font-style: normal;
-      font-display: swap;
-    }
-
     :root {
-      --bg-base: #09090b;
-      --bg-surface: #121215;
-      --bg-surface-elevated: #18181c;
-      --border-subtle: rgba(255, 255, 255, 0.08);
-      --border-prominent: rgba(255, 255, 255, 0.16);
+      --bg-dark: #0b0c10;
+      --bg-card: #14161d;
+      --bg-card-hover: #1a1e27;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-active: rgba(249, 115, 22, 0.5);
+      --primary: #f97316;
+      --primary-hover: #ea580c;
+      --primary-glow: rgba(249, 115, 22, 0.25);
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --text-sub: #6b7280;
       --sand-warm: #f4f1ea;
-      --text-white: #ffffff;
-      --text-main: #f4f4f5;
-      --text-sub: #a1a1aa;
-      --text-muted: #71717a;
-      --accent-orange: #f97316;
+      --accent-green: #10b981;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
 
     body {
-      background-color: var(--bg-base);
+      background-color: var(--bg-dark);
       color: var(--text-main);
-      font-family: 'IRANYekan', 'Vazirmatn', system-ui, sans-serif;
+      font-family: 'Vazirmatn', system-ui, -apple-system, sans-serif;
       min-height: 100vh;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* هدر لوکس بالای سایت */
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: rgba(11, 12, 16, 0.85);
+      border-bottom: 1px solid var(--border-color);
+      padding: 14px 20px;
+    }
+
+    .header-container {
+      max-width: 1240px;
+      margin: 0 auto;
       display: flex;
-      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .brand-logo-badge {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #f97316 0%, #c2410c 100%);
+      display: flex;
       align-items: center;
       justify-content: center;
-      padding: 32px 20px;
-      direction: rtl;
-      text-align: center;
-      background-image: 
-        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-      background-size: 64px 64px;
+      color: #fff;
+      font-weight: 900;
+      font-size: 1.25rem;
+      box-shadow: 0 4px 14px var(--primary-glow);
     }
 
-    .container {
-      max-width: 720px;
-      width: 100%;
-      background: var(--bg-surface);
-      border: 1px solid var(--border-prominent);
-      border-radius: 24px;
-      padding: 44px 32px;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+    .brand-info h1 {
+      font-size: 1.12rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      line-height: 1.2;
     }
 
-    .preview-wrapper {
-      width: 100%;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid var(--border-subtle);
-      margin-bottom: 28px;
-      aspect-ratio: 16 / 9;
-      background: #000;
+    .brand-info span {
+      font-size: 0.76rem;
+      color: var(--text-muted);
     }
 
-    .preview-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    .status-pill {
+    .btn-github {
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      padding: 6px 16px;
-      border-radius: 9999px;
+      padding: 8px 14px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-github:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-contact {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: 10px;
+      background: var(--primary);
+      color: #fff;
       font-size: 0.82rem;
       font-weight: 700;
-      background: rgba(34, 197, 94, 0.1);
-      color: #4ade80;
-      border: 1px solid rgba(34, 197, 94, 0.25);
-      margin-bottom: 18px;
+      text-decoration: none;
+      transition: all 0.2s;
     }
 
-    .status-dot {
+    .btn-contact:hover {
+      background: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+
+    /* بخش هیرو و جستجوی پیشرفته */
+    .hero-section {
+      padding: 48px 20px 32px;
+      background: radial-gradient(circle at 50% 10%, rgba(249, 115, 22, 0.12) 0%, transparent 60%);
+      text-align: center;
+    }
+
+    .hero-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 14px;
+      border-radius: 9999px;
+      background: rgba(249, 115, 22, 0.1);
+      border: 1px solid rgba(249, 115, 22, 0.3);
+      color: #fb923c;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .pulse-dot {
       width: 7px;
       height: 7px;
-      background-color: #22c55e;
       border-radius: 50%;
-      box-shadow: 0 0 8px #22c55e;
+      background: #f97316;
+      box-shadow: 0 0 10px #f97316;
+      animation: pulse 1.8s infinite;
     }
 
-    h1 {
-      font-size: 1.75rem;
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    .hero-title {
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
       font-weight: 900;
-      line-height: 1.4;
-      margin-bottom: 12px;
-      color: var(--text-white);
+      line-height: 1.35;
+      color: #ffffff;
+      margin-bottom: 14px;
     }
 
-    p.lead-text {
-      color: var(--text-sub);
-      font-size: 0.96rem;
-      line-height: 1.85;
-      margin-bottom: 30px;
+    .hero-title span {
+      background: linear-gradient(135deg, #fed7aa 0%, #f97316 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .actions-group {
+    .hero-desc {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 650px;
+      margin: 0 auto 36px;
+      line-height: 1.8;
+    }
+
+    /* باکس فیلتر جستجو */
+    .search-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      margin-bottom: 24px;
+    }
+
+    .deal-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 18px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+
+    .deal-tab-btn {
+      padding: 9px 18px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+
+    .deal-tab-btn.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 4px 12px var(--primary-glow);
+    }
+
+    .filter-fields-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    @media (min-width: 640px) {
+      .filter-fields-row {
+        grid-template-columns: 1.5fr 1.2fr 1fr auto;
+      }
+    }
+
+    .input-control {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 12px 14px;
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.9rem;
+      width: 100%;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .input-control:focus {
+      border-color: var(--primary);
+    }
+
+    .input-control option {
+      background: #14161d;
+      color: #fff;
+    }
+
+    .btn-search {
+      background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+      color: #ffffff;
+      border: none;
+      border-radius: 12px;
+      padding: 12px 24px;
+      font-family: inherit;
+      font-size: 0.92rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s;
+      min-width: 110px;
+    }
+
+    .btn-search:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+    }
+
+    /* فیلترهای سریع (Quick Chips) */
+    .quick-chips-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
       justify-content: center;
-      align-items: center;
+      gap: 8px;
+      margin-top: 14px;
     }
 
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: #ffffff;
-      color: #09090b;
-      text-decoration: none;
-      font-weight: 800;
-      font-size: 0.95rem;
-      padding: 13px 28px;
-      border-radius: 12px;
-      transition: all 0.25s ease;
+    .chip-btn {
+      padding: 6px 14px;
+      border-radius: 9999px;
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-family: inherit;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.2s;
     }
 
-    .btn-primary:hover {
-      background: var(--sand-warm);
-      transform: translateY(-2px);
-    }
-
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--bg-surface-elevated);
+    .chip-btn.active, .chip-btn:hover {
+      border-color: var(--primary);
       color: var(--text-main);
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.92rem;
-      padding: 13px 24px;
-      border-radius: 12px;
-      border: 1px solid var(--border-prominent);
-      transition: all 0.25s ease;
+      background: rgba(249, 115, 22, 0.08);
     }
 
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.08);
-      transform: translateY(-2px);
+    /* بخش اصلی کاتالوگ ویلاها */
+    .catalog-section {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 20px 20px 60px;
     }
 
-    footer {
-      margin-top: 28px;
+    .catalog-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .catalog-header-row h2 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .results-count {
       font-size: 0.85rem;
       color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.04);
+      padding: 4px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+    }
+
+    /* شبکه کارت‌های ویلا */
+    .villa-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    @media (min-width: 640px) {
+      .villa-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .villa-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* کارت ویلا */
+    .villa-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+      cursor: pointer;
+    }
+
+    .villa-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(249, 115, 22, 0.35);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    .card-media-wrap {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      background: #1e222d;
+      overflow: hidden;
+    }
+
+    .card-media-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+      display: block;
+    }
+
+    .villa-card:hover .card-media-img {
+      transform: scale(1.05);
+    }
+
+    .deal-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      padding: 5px 12px;
+      border-radius: 8px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      backdrop-filter: blur(8px);
+      color: #fff;
+      z-index: 2;
+    }
+
+    .deal-badge.sell { background: rgba(249, 115, 22, 0.9); }
+    .deal-badge.rent { background: rgba(59, 130, 246, 0.9); }
+    .deal-badge.daily { background: rgba(16, 185, 129, 0.9); }
+
+    .tag-urgent {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(239, 68, 68, 0.9);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 6px;
+      z-index: 2;
+    }
+
+    .card-content {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .card-region-label {
+      font-size: 0.78rem;
+      color: #fb923c;
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.45;
+      margin-bottom: 12px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      min-height: 46px;
+    }
+
+    .card-specs-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      margin-bottom: 16px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .spec-item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .spec-item strong {
+      color: var(--text-main);
+    }
+
+    .card-bottom-row {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .price-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .price-label {
+      font-size: 0.7rem;
+      color: var(--text-sub);
+    }
+
+    .price-value {
+      font-size: 1.08rem;
+      font-weight: 900;
+      color: #fff;
+    }
+
+    .btn-view-villa {
+      padding: 8px 14px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      font-size: 0.82rem;
+      font-weight: 700;
+      transition: all 0.2s;
+    }
+
+    .villa-card:hover .btn-view-villa {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #ffffff;
+    }
+
+    /* مودال نمایش جزئیات ویلا */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .modal-backdrop.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 24px;
+      max-width: 680px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
+      animation: modalFadeIn 0.25s ease-out;
+    }
+
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.96); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .modal-gallery-wrap {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      background: #000;
+      border-radius: 24px 24px 0 0;
+      overflow: hidden;
+    }
+
+    .modal-gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.2rem;
+      z-index: 10;
+    }
+
+    .modal-body {
+      padding: 24px;
+    }
+
+    .modal-title {
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .modal-price-bar {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .modal-price-val {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--primary);
+    }
+
+    .specs-grid-box {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid var(--border-color);
+      margin-bottom: 20px;
+    }
+
+    @media (min-width: 480px) {
+      .specs-grid-box {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .spec-block {
+      text-align: center;
+    }
+
+    .spec-block span {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .spec-block strong {
+      font-size: 0.95rem;
+      color: #fff;
+    }
+
+    .features-chips-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+
+    .feature-chip {
+      background: rgba(249, 115, 22, 0.1);
+      border: 1px solid rgba(249, 115, 22, 0.2);
+      color: #fed7aa;
+      font-size: 0.78rem;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    .modal-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.85;
+      white-space: pre-line;
+      margin-bottom: 24px;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn-modal-action {
+      flex: 1;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 0.92rem;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-call {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+      color: #fff;
+    }
+
+    /* بخش فوتر و استودیو */
+    footer.site-footer {
+      border-top: 1px solid var(--border-color);
+      padding: 32px 20px;
+      background: #08090b;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .footer-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      max-width: 550px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .footer-link {
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 0.84rem;
+      font-weight: 600;
+    }
+
+    .footer-link:hover {
+      color: var(--primary);
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="preview-wrapper">
-      <img src="../assets/demo-badiz.webp" alt="پیش‌نمایش سامانه املاک بادیز" class="preview-img">
-    </div>
 
-    <div class="status-pill">
-      <span class="status-dot"></span>
-      پروژه آماده و سورس کد در دسترس
-    </div>
-
-    <h1>پلتفرم تخصصی املاک و ویلاهای بادیز</h1>
-    <p class="lead-text">
-      معماری مدرن فرانت‌اند بر پایه Next.js با ساختار کاملاً مستقل، مجهز به نقشه تعاملی لایف‌لت (Leaflet)، سیستم فیلترینگ چندمعیاره هوشمند، کاتالوگ ویلاهای لوکس کردان و سهیلیه، و مجله تخصصی ملکی.
-    </p>
-
-    <div class="actions-group">
-      <a href="https://github.com/mammdo38/badiz-realestate" target="_blank" rel="noopener noreferrer" class="btn-primary">
-        <span>مشاهده سورس در گیت‌هاب</span>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
-        </svg>
+  <!-- هدر سایت -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="./" class="brand-wrap">
+        <div class="brand-logo-badge">B</div>
+        <div class="brand-info">
+          <h1>املاک بادیز</h1>
+          <span>پلتفرم تخصصی ویلاهای کردان</span>
+        </div>
       </a>
 
-      <a href="/" class="btn-secondary">
-        <span>بازگشت به استودیو اسکیل</span>
-      </a>
+      <div class="header-actions">
+        <a href="https://github.com/mammdo38/badiz-realestate" target="_blank" rel="noopener noreferrer" class="btn-github">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+          </svg>
+          <span>سورس گیت‌هاب</span>
+        </a>
+
+        <a href="tel:09123943717" class="btn-contact">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          <span>مشاوره VIP</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- هیرو و جستجو -->
+  <section class="hero-section">
+    <div class="hero-container">
+      <div class="hero-tag">
+        <span class="pulse-dot"></span>
+        <span>دموی تعاملی و فعال پلتفرم املاک کردان</span>
+      </div>
+
+      <h2 class="hero-title">
+        جستجو و خرید ویلاهای <span>لوکس و مدرن</span> در کردان
+      </h2>
+      <p class="hero-desc">
+        آرشیو فایل‌های کارشناسی‌شده با سند معتبر و کد رهگیری در کردان مرکزی، شمالی، تهراندشت و سهیلیه.
+      </p>
+
+      <!-- پنل جستجو -->
+      <div class="search-panel">
+        <div class="deal-tabs">
+          <button class="deal-tab-btn active" data-deal="all" onclick="selectDealTab('all')">همه معاملات</button>
+          <button class="deal-tab-btn" data-deal="sell" onclick="selectDealTab('sell')">خرید و فروش</button>
+          <button class="deal-tab-btn" data-deal="rent" onclick="selectDealTab('rent')">رهن و اجاره</button>
+          <button class="deal-tab-btn" data-deal="daily_rent" onclick="selectDealTab('daily_rent')">اجاره روزانه ویلا</button>
+        </div>
+
+        <div class="filter-fields-row">
+          <input type="text" id="searchInput" class="input-control" placeholder="جستجوی نام یا کد ویلا (مثلاً استخر، نوساز...)" oninput="applyFilters()">
+          
+          <select id="regionSelect" class="input-control" onchange="applyFilters()">
+            <option value="all">همه مناطق کردان</option>
+            <option value="kordan-markazi">کردان مرکزی</option>
+            <option value="kordan-shomali">کردان شمالی</option>
+            <option value="kordan-jonoubi">کردان جنوبی / سهیلیه</option>
+          </select>
+
+          <select id="sortSelect" class="input-control" onchange="applyFilters()">
+            <option value="newest">جدیدترین فایل‌ها</option>
+            <option value="price_asc">ارزان‌ترین</option>
+            <option value="price_desc">گران‌ترین</option>
+          </select>
+
+          <button class="btn-search" onclick="applyFilters()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <span>فیلتر</span>
+          </button>
+        </div>
+
+        <!-- چیپ‌های فوری -->
+        <div class="quick-chips-row">
+          <button class="chip-btn" onclick="toggleQuickFilter('urgent', this)">🔥 فقط فایل‌های فوری و اکازیون</button>
+          <button class="chip-btn" onclick="toggleQuickFilter('investment', this)">📈 فرصت‌های سرمایه‌گذاری</button>
+          <button class="chip-btn" onclick="toggleQuickFilter('pool', this)">🏊 مجهز به استخر</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- کاتالوگ ویلاها -->
+  <main class="catalog-section">
+    <div class="catalog-header-row">
+      <h2>ویترین ویلاها و املاک منتخب</h2>
+      <div id="resultsCount" class="results-count">در حال بارگذاری...</div>
+    </div>
+
+    <div id="villaGrid" class="villa-grid">
+      <!-- کارت‌ها با JS به صورت پویا ساخته می‌شوند -->
+    </div>
+  </main>
+
+  <!-- مودال جزئیات ویلا -->
+  <div id="villaModal" class="modal-backdrop" onclick="closeModalOnBackdrop(event)">
+    <div class="modal-content">
+      <div class="modal-gallery-wrap">
+        <button class="modal-close-btn" onclick="closeModal()">&times;</button>
+        <img id="modalImg" src="" alt="" class="modal-gallery-img">
+      </div>
+      <div class="modal-body">
+        <h3 id="modalTitle" class="modal-title"></h3>
+        <div class="modal-price-bar">
+          <span class="modal-price-val" id="modalPrice"></span>
+          <span style="font-size: 0.85rem; color: var(--text-muted);" id="modalPriceUnit"></span>
+        </div>
+
+        <div class="specs-grid-box">
+          <div class="spec-block">
+            <span>متراژ زمین</span>
+            <strong id="modalLand">-</strong>
+          </div>
+          <div class="spec-block">
+            <span>متراژ بنا</span>
+            <strong id="modalBuilt">-</strong>
+          </div>
+          <div class="spec-block">
+            <span>اتاق خواب</span>
+            <strong id="modalBedrooms">-</strong>
+          </div>
+          <div class="spec-block">
+            <span>منطقه</span>
+            <strong id="modalRegion">-</strong>
+          </div>
+        </div>
+
+        <div id="modalFeatures" class="features-chips-wrap"></div>
+
+        <div id="modalDesc" class="modal-desc"></div>
+
+        <div class="modal-actions">
+          <a id="modalCallBtn" href="tel:09123943717" class="btn-modal-action btn-call">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            <span>تماس با کارشناس فایل</span>
+          </a>
+          <a id="modalWhatsappBtn" href="https://wa.me/989123943717" target="_blank" rel="noopener noreferrer" class="btn-modal-action btn-whatsapp">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 2C6.494 2 2 6.494 2 12.031c0 1.808.478 3.58 1.389 5.145L2.054 22l4.986-1.309a10.016 10.016 0 004.991 1.34h.004c5.536 0 10.03-4.494 10.03-10.031S17.567 2 12.031 2zm0 18.337h-.003a8.318 8.318 0 01-4.238-1.157l-.304-.18-3.151.826.841-3.072-.198-.315a8.297 8.297 0 01-1.272-4.408c0-4.594 3.737-8.332 8.33-8.332 4.592 0 8.33 3.738 8.33 8.332 0 4.594-3.738 8.332-8.333 8.332z"/></svg>
+            <span>استعلام در واتساپ</span>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 
-  <footer>
-    &copy; Scale Studio (استودیو اسکیل) | معماری مدرن وب‌سایت‌های صنفی
+  <!-- فوتر -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p class="footer-desc">
+        طراحی و پیاده‌سازی شده به عنوان نمونه‌کار پلتفرم تخصصی املاک توسط <strong>Scale Studio (استودیو اسکیل)</strong>
+      </p>
+      <div class="footer-links">
+        <a href="/" class="footer-link">بازگشت به استودیو اسکیل</a>
+        <a href="https://github.com/mammdo38/badiz-realestate" target="_blank" rel="noopener noreferrer" class="footer-link">مشاهده سورس در گیت‌هاب</a>
+      </div>
+    </div>
   </footer>
+
+  <!-- اسکریپت داده‌ها و اینترکشن -->
+  <script src="./data.js"></script>
+  <script>
+    let activeDeal = 'all';
+    let filterUrgent = false;
+    let filterInvestment = false;
+    let filterPool = false;
+
+    const regionNames = {
+      'kordan-markazi': 'کردان مرکزی',
+      'kordan-shomali': 'کردان شمالی',
+      'kordan-jonoubi': 'کردان جنوبی / سهیلیه'
+    };
+
+    function selectDealTab(deal) {
+      activeDeal = deal;
+      document.querySelectorAll('.deal-tab-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-deal') === deal);
+      });
+      applyFilters();
+    }
+
+    function toggleQuickFilter(type, btn) {
+      if (type === 'urgent') filterUrgent = !filterUrgent;
+      if (type === 'investment') filterInvestment = !filterInvestment;
+      if (type === 'pool') filterPool = !filterPool;
+      btn.classList.toggle('active');
+      applyFilters();
+    }
+
+    function applyFilters() {
+      if (!BADIZ_DATA || !BADIZ_DATA.listings) return;
+
+      const searchVal = document.getElementById('searchInput').value.trim().toLowerCase();
+      const regionVal = document.getElementById('regionSelect').value;
+      const sortVal = document.getElementById('sortSelect').value;
+
+      let filtered = BADIZ_DATA.listings.filter(item => {
+        // فیلتر معامله
+        if (activeDeal !== 'all' && item.dealType !== activeDeal) return false;
+        // فیلتر منطقه
+        if (regionVal !== 'all' && item.region !== regionVal) return false;
+        // فیلتر متن
+        if (searchVal) {
+          const matchTitle = (item.title || '').toLowerCase().includes(searchVal);
+          const matchDesc = (item.description || '').toLowerCase().includes(searchVal);
+          if (!matchTitle && !matchDesc) return false;
+        }
+        // فیلتر فوری
+        if (filterUrgent && !item.is_urgent) return false;
+        // فیلتر سرمایه‌گذاری
+        if (filterInvestment && !item.is_investment) return false;
+        // فیلتر استخر
+        if (filterPool && !(item.features || []).some(f => f.includes('استخر'))) return false;
+
+        return true;
+      });
+
+      // مرتب‌سازی
+      if (sortVal === 'price_asc') {
+        filtered.sort((a, b) => (a.priceRaw || 0) - (b.priceRaw || 0));
+      } else if (sortVal === 'price_desc') {
+        filtered.sort((a, b) => (b.priceRaw || 0) - (a.priceRaw || 0));
+      } else {
+        filtered.sort((a, b) => Number(b.id) - Number(a.id));
+      }
+
+      renderVillas(filtered);
+    }
+
+    function renderVillas(items) {
+      const grid = document.getElementById('villaGrid');
+      const countEl = document.getElementById('resultsCount');
+
+      countEl.textContent = `${items.length} فایل ملک فعال`;
+
+      if (items.length === 0) {
+        grid.innerHTML = `
+          <div style="grid-column: 1 / -1; padding: 48px 20px; text-align: center; color: var(--text-muted);">
+            <p style="font-size: 1.1rem; font-weight: 700; margin-bottom: 8px;">موردی با این مشخصات یافت نشد.</p>
+            <p style="font-size: 0.88rem;">لطفاً فیلترهای جستجو را تغییر دهید.</p>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = items.map(villa => {
+        const dealClass = villa.dealType === 'sell' ? 'sell' : (villa.dealType === 'daily_rent' ? 'daily' : 'rent');
+        const dealLabel = villa.dealType === 'sell' ? 'فروش' : (villa.dealType === 'daily_rent' ? 'اجاره روزانه' : 'رهن و اجاره');
+        const regionLabel = regionNames[villa.region] || 'کردان';
+        const imgPath = villa.primaryImage ? `./uploads/${villa.primaryImage}` : '../assets/demo-badiz.webp';
+
+        return `
+          <article class="villa-card" onclick="openVillaModal('${villa.id}')">
+            <div class="card-media-wrap">
+              <span class="deal-badge ${dealClass}">${dealLabel}</span>
+              ${villa.is_urgent ? '<span class="tag-urgent">فوری</span>' : ''}
+              <img src="${imgPath}" alt="${villa.title}" class="card-media-img" loading="lazy" onerror="this.src='../assets/demo-badiz.webp'">
+            </div>
+
+            <div class="card-content">
+              <div class="card-region-label">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                <span>${regionLabel}</span>
+              </div>
+
+              <h3 class="card-title">${villa.title}</h3>
+
+              <div class="card-specs-row">
+                <div class="spec-item">
+                  <span>زمین:</span>
+                  <strong>${villa.sizeLand || '-'} م</strong>
+                </div>
+                <div class="spec-item">
+                  <span>بنا:</span>
+                  <strong>${villa.sizeBuilt || '-'} م</strong>
+                </div>
+                <div class="spec-item">
+                  <span>خواب:</span>
+                  <strong>${villa.bedrooms || 1}</strong>
+                </div>
+              </div>
+
+              <div class="card-bottom-row">
+                <div class="price-wrap">
+                  <span class="price-label">قیمت:</span>
+                  <span class="price-value">${villa.price} ${villa.priceUnit || ''}</span>
+                </div>
+                <button class="btn-view-villa">مشاهده جزئیات</button>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function openVillaModal(id) {
+      const villa = BADIZ_DATA.listings.find(item => String(item.id) === String(id));
+      if (!villa) return;
+
+      document.getElementById('modalTitle').textContent = villa.title;
+      document.getElementById('modalPrice').textContent = villa.price;
+      document.getElementById('modalPriceUnit').textContent = villa.priceUnit || '';
+      document.getElementById('modalLand').textContent = villa.sizeLand ? `${villa.sizeLand} متر` : '-';
+      document.getElementById('modalBuilt').textContent = villa.sizeBuilt ? `${villa.sizeBuilt} متر` : '-';
+      document.getElementById('modalBedrooms').textContent = villa.bedrooms ? `${villa.bedrooms} خواب مستر` : '-';
+      document.getElementById('modalRegion').textContent = regionNames[villa.region] || 'کردان';
+      document.getElementById('modalDesc').textContent = villa.description || '';
+
+      const imgPath = villa.primaryImage ? `./uploads/${villa.primaryImage}` : '../assets/demo-badiz.webp';
+      const imgEl = document.getElementById('modalImg');
+      imgEl.src = imgPath;
+      imgEl.onerror = () => { imgEl.src = '../assets/demo-badiz.webp'; };
+
+      const featuresEl = document.getElementById('modalFeatures');
+      featuresEl.innerHTML = (villa.features || []).map(f => `<span class="feature-chip">✦ ${f}</span>`).join('');
+
+      const phone = villa.agentPhone || '09123943717';
+      document.getElementById('modalCallBtn').href = `tel:${phone}`;
+      document.getElementById('modalWhatsappBtn').href = `https://wa.me/98${phone.replace(/^0/, '')}?text=${encodeURIComponent('سلام، در مورد فایل ' + villa.title + ' استعلام داشتم.')}`;
+
+      document.getElementById('villaModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('villaModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function closeModalOnBackdrop(e) {
+      if (e.target.id === 'villaModal') {
+        closeModal();
+      }
+    }
+
+    // مقداردهی اولیه پس از بارگذاری صفحه
+    window.addEventListener('DOMContentLoaded', () => {
+      applyFilters();
+    });
+  </script>
 </body>
 </html>
