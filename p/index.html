@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ژنراتور ساخت لینک اختصاصی مشتریان | Scale Studio</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Vazirmatn:wght@400;500;600;700;800;900&display=swap">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #09090b;
+      color: #f4f4f5;
+      font-family: 'Vazirmatn', -apple-system, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      direction: rtl;
+    }
+    .generator-card {
+      max-width: 620px;
+      width: 100%;
+      background: #121216;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      padding: 36px 32px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+    }
+    .badge-tool {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #34d399;
+      font-size: 0.76rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10b981;
+    }
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+    p.subtitle {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      font-size: 0.84rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #e4e4e7;
+    }
+    input[type="text"], select {
+      width: 100%;
+      padding: 13px 16px;
+      background: #1c1c22;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 0.95rem;
+      outline: none;
+      transition: all 0.2s;
+    }
+    input[type="text"]:focus, select:focus {
+      border-color: #10b981;
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.18);
+    }
+    .radio-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    @media (max-width: 500px) {
+      .radio-grid { grid-template-columns: 1fr; }
+    }
+    .radio-card {
+      position: relative;
+      background: #1c1c22;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 12px 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s;
+    }
+    .radio-card input {
+      accent-color: #10b981;
+    }
+    .radio-card.active {
+      border-color: #10b981;
+      background: rgba(16, 185, 129, 0.08);
+    }
+    .radio-title {
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+    .radio-desc {
+      font-size: 0.72rem;
+      color: rgba(255, 255, 255, 0.5);
+    }
+    .output-section {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: none;
+    }
+    .output-box {
+      background: #18181f;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+    .output-label {
+      font-size: 0.76rem;
+      color: rgba(255, 255, 255, 0.5);
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .output-url {
+      font-family: monospace;
+      direction: ltr;
+      text-align: left;
+      font-size: 0.88rem;
+      color: #34d399;
+      word-break: break-all;
+      background: rgba(0,0,0,0.3);
+      padding: 10px 12px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .btn-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 9px 16px;
+      border-radius: 10px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: #10b981;
+      color: #ffffff;
+    }
+    .btn-primary:hover {
+      background: #059669;
+    }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: #e4e4e7;
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.14);
+    }
+    .btn-wa {
+      background: #25d366;
+      color: #ffffff;
+    }
+    .btn-wa:hover {
+      background: #1ebc57;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="generator-card">
+    <div class="badge-tool">
+      <span class="badge-dot"></span>
+      <span>Scale Studio Client Pitch Tool</span>
+    </div>
+    <h1>ساخت لینک پرزنتیشن اختصاصی مشتری</h1>
+    <p class="subtitle">نام مشتری یا برند هدف را وارد کنید تا لینک اختصاصی با بنر هوشمند و پیام آماده واتساپ تولید شود.</p>
+
+    <div class="form-group">
+      <label for="clientNameInput">نام کارفرما، دکتر یا برند تجاری:</label>
+      <input type="text" id="clientNameInput" placeholder="مثال: دکتر رضایی، چرم مارال، مهندس کریمی..." autocomplete="off">
+    </div>
+
+    <div class="form-group">
+      <label>انتخاب پروژه / نمونه‌کار متناسب:</label>
+      <div class="radio-grid">
+        <label class="radio-card active">
+          <input type="radio" name="demoType" value="perfume" checked>
+          <div>
+            <div class="radio-title">عطر و ادکلن (رویال پرفیوم)</div>
+            <div class="radio-desc">scailstudio.ir/perfume/</div>
+          </div>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="demoType" value="cosmetics">
+          <div>
+            <div class="radio-title">آرایشی و پوستی (اسکیل کازمتیک)</div>
+            <div class="radio-desc">scailstudio.ir/cosmetics/</div>
+          </div>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="demoType" value="bag">
+          <div>
+            <div class="radio-title">کیف و چرم (لورین بگ)</div>
+            <div class="radio-desc">scailstudio.ir/bag/</div>
+          </div>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="demoType" value="realestate">
+          <div>
+            <div class="radio-title">املاک و ویلا (بادیز ویلا)</div>
+            <div class="radio-desc">scailstudio.ir/realestate/</div>
+          </div>
+        </label>
+        <label class="radio-card" style="grid-column: 1 / -1;">
+          <input type="radio" name="demoType" value="main">
+          <div>
+            <div class="radio-title">صفحه اصلی استودیو اسکیل (معماری وب فروشگاهی)</div>
+            <div class="radio-desc">scailstudio.ir/</div>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <button type="button" class="btn btn-primary" style="width: 100%; padding: 13px;" onclick="generateLink()">
+      <span>✨ تولید لینک و پیام اختصاصی</span>
+    </button>
+
+    <div class="output-section" id="outputSection">
+      <div class="output-box">
+        <div class="output-label">
+          <span>لینک مستقیم با بنر خوش‌آمدگویی هوشمند:</span>
+          <span id="copyToast" style="color: #10b981; display: none;">کپی شد! ✓</span>
+        </div>
+        <div class="output-url" id="outputUrl"></div>
+        <div class="btn-row">
+          <button class="btn btn-secondary" onclick="copyLink()">📋 کپی لینک</button>
+          <a id="btnTestUrl" href="#" target="_blank" class="btn btn-secondary">👁 مشاهده پیش‌نمایش</a>
+        </div>
+      </div>
+
+      <div class="output-box">
+        <div class="output-label">
+          <span>متن پیشنهادی برای ارسال مستقیم در واتساپ:</span>
+        </div>
+        <div id="waTextPreview" style="font-size: 0.85rem; line-height: 1.8; color: #d4d4d8; background: rgba(0,0,0,0.25); padding: 12px; border-radius: 8px; margin-bottom: 12px;"></div>
+        <div class="btn-row">
+          <button class="btn btn-secondary" onclick="copyWaText()">📋 کپی متن پیام</button>
+          <a id="btnSendWa" href="#" target="_blank" class="btn btn-wa">💬 باز کردن در واتساپ</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const paths = {
+      perfume: '/perfume/',
+      cosmetics: '/cosmetics/',
+      bag: '/bag/',
+      realestate: '/realestate/',
+      main: '/'
+    };
+
+    const titles = {
+      perfume: 'فروشگاه آنلاین عطر و دکانت',
+      cosmetics: 'فروشگاه تخصصی محصولات آرایشی و زیبایی',
+      bag: 'گالری کیف و اکسسوری چرم',
+      realestate: 'سامانه تخصصی املاک و ویلاهای لوکس',
+      main: 'استودیو اسکیل'
+    };
+
+    document.querySelectorAll('.radio-card').forEach(card => {
+      card.addEventListener('click', () => {
+        document.querySelectorAll('.radio-card').forEach(c => c.classList.remove('active'));
+        card.classList.add('active');
+      });
+    });
+
+    function generateLink() {
+      const name = document.getElementById('clientNameInput').value.trim();
+      if (!name) {
+        alert('لطفاً نام مشتری یا برند را وارد کنید.');
+        document.getElementById('clientNameInput').focus();
+        return;
+      }
+
+      const selectedRadio = document.querySelector('input[name="demoType"]:checked');
+      const demoKey = selectedRadio ? selectedRadio.value : 'perfume';
+      const path = paths[demoKey];
+      const encodedName = encodeURIComponent(name);
+
+      const fullUrl = `https://scailstudio.ir${path}?for=${encodedName}`;
+      const waMsg = `سلام و احترام جناب/سرکار «${name}» گرامی،\n\nبرای بررسی هویت بصری و استانداردهای سرعت فروشگاه آنلاین متناسب با نیازهای برند شما، یک پیش‌پروژه و پروتوتایپ اختصاصی آماده کرده‌ایم که می‌توانید از طریق لینک زیر تجربه کنید:\n\n🔗 ${fullUrl}\n\nخوشحال می‌شویم پس از بررسی اولیه، نظرتان را برای توسعه نهایی به اشتراک بگذارید.\nاستودیو اسکیل | Scale Studio`;
+
+      document.getElementById('outputUrl').textContent = fullUrl;
+      document.getElementById('btnTestUrl').href = fullUrl;
+      document.getElementById('waTextPreview').innerText = waMsg;
+      document.getElementById('btnSendWa').href = `https://api.whatsapp.com/send?text=${encodeURIComponent(waMsg)}`;
+
+      document.getElementById('outputSection').style.display = 'block';
+      document.getElementById('outputSection').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function copyLink() {
+      const url = document.getElementById('outputUrl').textContent;
+      navigator.clipboard.writeText(url).then(() => {
+        const toast = document.getElementById('copyToast');
+        toast.style.display = 'inline';
+        setTimeout(() => toast.style.display = 'none', 2000);
+      });
+    }
+
+    function copyWaText() {
+      const text = document.getElementById('waTextPreview').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('متن پیام واتساپ کپی شد!');
+      });
+    }
+
+    // Auto-generate if query param ?name= is present
+    window.addEventListener('DOMContentLoaded', () => {
+      const p = new URLSearchParams(window.location.search);
+      const n = p.get('name') || p.get('for');
+      if (n) {
+        document.getElementById('clientNameInput').value = decodeURIComponent(n);
+        generateLink();
+      }
+    });
+  </script>
+</body>
+</html>
