@@ -190,32 +190,11 @@ svg {
 }
 
 /* ۱. نوار دمو و پیش‌نمایش اختصاصی (لوکس مشکی-سفید با کنتراست عالی) */
-.exclusive-demo-bar {
-  background: #111827;
-  color: #ffffff;
-  padding: 8px 16px;
-  font-size: 12.5px;
-  text-align: center;
-  position: relative;
-  z-index: 45;
-  border-bottom: 1px solid #1f2937;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-}
 
-.exclusive-demo-bar b {
-  color: #fbcfe8;
-  font-weight: 700;
-}
 
-.demo-chip {
-  background: rgba(255, 255, 255, 0.15);
-  padding: 2px 8px;
-  border-radius: var(--radius-full);
-  font-size: 11px;
-}
+
+
+
 
 /* ۲. تاپ بار صورتی/برند هماهنگ با پس‌زمینه سفید */
 .topbar {
@@ -2936,11 +2915,7 @@ footer {
     </defs>
   </svg>
 
-  <!-- ۱. بنر دمو (مخفی در حالت پیش‌فرض برای حذف شلوغی بصری) -->
-  <div class="exclusive-demo-bar" id="exclusiveDemoBar" style="display: none;">
-    <span class="demo-chip">پیش‌نمایش اختصاصی</span>
-    <span>این وب‌سایت به صورت زنده برای <b>«<span id="clientShopName">رویال پرفیوم</span>»</b> آماده‌سازی شده است.</span>
-  </div>
+  
 
   <!-- ۲. تاپ بار اعلان -->
   <div class="topbar" id="topbarText">
@@ -3733,7 +3708,8 @@ const DEFAULT_CONFIG = {
 function getActiveConfig() {
   const cfg = JSON.parse(JSON.stringify(DEFAULT_CONFIG));
   const params = new URLSearchParams(window.location.search);
-  if (params.get("name")) cfg.shop.name = decodeURIComponent(params.get("name"));
+  const rawName = params.get("for") || params.get("name") || params.get("brand") || params.get("client") || params.get("to");
+  if (rawName) cfg.shop.name = decodeURIComponent(rawName).trim().replace(/[_+]/g, ' ');
   if (params.get("enName")) cfg.shop.enName = decodeURIComponent(params.get("enName"));
   if (params.get("logo")) cfg.shop.logo = decodeURIComponent(params.get("logo"));
   if (params.get("color")) cfg.shop.accent = decodeURIComponent(params.get("color"));
