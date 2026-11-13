@@ -1322,7 +1322,7 @@
 
   <!-- بخش هیرو (Hero Section) -->
   <section class="hero-section" id="hero">
-    <img src="./hero-bg.jpg" alt="خرید ویلا در کردان" class="hero-bg-img" loading="eager" fetchpriority="high">
+    <img src="./hero-bg.webp" alt="خرید ویلا در کردان" class="hero-bg-img" loading="eager" fetchpriority="high">
     <div class="hero-glow-orange"></div>
     <div class="hero-glow-blue"></div>
     <div class="hero-overlay"></div>
@@ -1766,7 +1766,7 @@
     function createVillaCard(listing) {
       const region = BADIZ_REGIONS[listing.region];
       const regionName = region ? region.name : 'کردان';
-      const imgSrc = listing.primaryImage ? `./uploads/${listing.primaryImage}` : './hero-bg.jpg';
+      const imgSrc = listing.primaryImage ? `./uploads/${listing.primaryImage}` : './hero-bg.webp';
 
       return `
         <div class="villa-card" onclick="openVillaModal('${listing.id}')">
@@ -1964,7 +1964,7 @@
     function updateModalImage(images) {
       const mainImg = document.getElementById('modalMainImg');
       const filename = images[currentModalImgIndex];
-      mainImg.src = filename ? `./uploads/${filename}` : './hero-bg.jpg';
+      mainImg.src = filename ? `./uploads/${filename}` : './hero-bg.webp';
 
       const thumbsContainer = document.getElementById('modalThumbs');
       thumbsContainer.innerHTML = images.map((img, idx) => `
