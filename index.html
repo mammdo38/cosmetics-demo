@@ -194,20 +194,10 @@
   }
   </script>
 
-  <!-- فونت‌های وب با لود غیرمسدودکننده و بهینه‌سازی شده برای Core Web Vitals -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap">
-  </noscript>
-
   <!-- پیش‌بارگذاری بهینه منابع کلیدی رندر (Hero Stage Images & Core Local Fonts) -->
-  <link rel="preload" href="./assets/store-perfume.webp" as="image" type="image/webp" fetchpriority="high">
+  <link rel="preload" href="./assets/store-veloria.webp" as="image" type="image/webp" fetchpriority="high">
+  <link rel="preload" href="./assets/store-badiz.webp" as="image" type="image/webp">
   <link rel="preload" href="./assets/store-cosmetics.webp" as="image" type="image/webp">
-  <link rel="preload" href="./assets/store-bag.webp" as="image" type="image/webp">
   <link rel="preload" href="./fonts/iranyekan/iranyekanwebblack.woff" as="font" type="font/woff" crossorigin>
   <link rel="preload" href="./fonts/iranyekan/iranyekanwebregular.woff" as="font" type="font/woff" crossorigin>
 
@@ -1422,7 +1412,6 @@
       object-position: top center;
       display: block;
       transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
-      content-visibility: auto;
     }
 
     .project-card:hover .card-preview-img {
@@ -1997,7 +1986,6 @@
       object-fit: cover;
       display: block;
       transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
-      content-visibility: auto;
     }
 
     .article-card:hover .article-preview-img {
@@ -3393,7 +3381,6 @@
               alt="فروشگاه آنلاین عطر و ادکلن ولوریا اکسیر" 
               width="600" height="375" 
               class="card-preview-img"
-              loading="lazy"
               decoding="async"
             >
             <div class="card-status-pill">
@@ -3437,7 +3424,6 @@
               alt="پلتفرم تخصصی املاک و ویلاهای بادیز" 
               width="600" height="375" 
               class="card-preview-img"
-              loading="lazy"
               decoding="async"
             >
             <div class="card-status-pill">
@@ -3463,7 +3449,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
               </svg>
             </a>
-            <button class="btn-demo-preview" onclick="openPhonePreview('پلتفرم املاک و ویلاهای بادیز (پروژه زنده)', 'https://badizvilla.ir/')" title="پیش‌نمایش در شبیه‌ساز آیفون">
+            <button class="btn-demo-preview" onclick="openPhonePreview('پلتفرم املاک و ویلاهای بادیز (پروژه زنده)', './realestate/')" title="پیش‌نمایش در شبیه‌ساز آیفون">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <rect x="5" y="2" width="14" height="20" rx="3" ry="3"/>
                 <line x1="12" y1="18" x2="12.01" y2="18"/>
@@ -3481,7 +3467,6 @@
               alt="فروشگاه آنلاین عطر و دکانت رویال پرفیوم" 
               width="600" height="375" 
               class="card-preview-img"
-              loading="lazy"
               decoding="async"
             >
             <div class="card-status-pill">
@@ -3525,7 +3510,6 @@
               alt="فروشگاه آنلاین لوازم آرایشی و مراقبت پوستی" 
               width="600" height="375" 
               class="card-preview-img"
-              loading="lazy"
               decoding="async"
             >
             <div class="card-status-pill">
@@ -3569,7 +3553,6 @@
               alt="گالری کیف لورین | خرید جدیدترین مدل‌های کیف زنانه و چرم" 
               width="600" height="375" 
               class="card-preview-img"
-              loading="lazy"
               decoding="async"
             >
             <div class="card-status-pill">
