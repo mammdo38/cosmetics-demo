@@ -3151,6 +3151,276 @@
       }
     }
 
+    /* ==========================================================================
+       بخش تعرفه‌ها و پلن‌های طراحی سایت (#pricing)
+       ========================================================================== */
+    .pricing-section {
+      max-width: 1280px;
+      margin: 0 auto 100px;
+      padding: 0 28px;
+      scroll-margin-top: 90px;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .pricing-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 22px;
+      padding: 28px 24px 24px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-card-hover);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);
+    }
+
+    .pricing-card.featured {
+      background: #111111;
+      color: #ffffff;
+      border-color: #111111;
+      box-shadow: 0 22px 48px rgba(0, 0, 0, 0.14);
+    }
+
+    .pricing-card.featured:hover {
+      border-color: #27272a;
+      box-shadow: 0 26px 56px rgba(0, 0, 0, 0.18);
+    }
+
+    .pricing-card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 12px;
+      min-height: 26px;
+    }
+
+    .pricing-tier-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .pricing-card.featured .pricing-tier-label {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .pricing-featured-tag {
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.14);
+      color: #ffffff;
+    }
+
+    .pricing-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #111111;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .pricing-card.featured .pricing-title {
+      color: #ffffff;
+    }
+
+    .pricing-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .pricing-prefix {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .pricing-card.featured .pricing-prefix {
+      color: rgba(255, 255, 255, 0.68);
+    }
+
+    .pricing-amount {
+      font-size: 1.72rem;
+      font-weight: 900;
+      color: #111111;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .pricing-card.featured .pricing-amount {
+      color: #ffffff;
+    }
+
+    .pricing-currency {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--text-sub);
+    }
+
+    .pricing-card.featured .pricing-currency {
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .pricing-desc {
+      font-size: 0.88rem;
+      color: var(--text-sub);
+      line-height: 1.7;
+      margin-bottom: 22px;
+      min-height: 48px;
+    }
+
+    .pricing-card.featured .pricing-desc {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .pricing-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+      margin-bottom: 26px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border-subtle);
+      flex: 1;
+    }
+
+    .pricing-card.featured .pricing-features {
+      border-top-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .pricing-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      font-size: 0.86rem;
+      color: var(--text-main);
+      line-height: 1.55;
+    }
+
+    .pricing-card.featured .pricing-features li {
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    .pricing-features li.is-muted {
+      color: var(--text-muted);
+    }
+
+    .pricing-features svg {
+      flex-shrink: 0;
+      margin-top: 3px;
+      color: #111111;
+    }
+
+    .pricing-card.featured .pricing-features svg {
+      color: #ffffff;
+    }
+
+    .pricing-features li.is-muted svg {
+      color: var(--text-muted);
+    }
+
+    .btn-pricing {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration: none;
+      background: #f4f3ef;
+      color: #111111;
+      border: 1px solid var(--border-subtle);
+      transition: all 0.2s ease;
+    }
+
+    .btn-pricing:hover {
+      background: #111111;
+      color: #ffffff;
+      border-color: #111111;
+    }
+
+    .pricing-card.featured .btn-pricing {
+      background: #ffffff;
+      color: #111111;
+      border-color: #ffffff;
+    }
+
+    .pricing-card.featured .btn-pricing:hover {
+      background: #e4e4e7;
+      border-color: #e4e4e7;
+    }
+
+    .pricing-notes-strip {
+      margin-top: 24px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 24px 28px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .pricing-note-item h4 {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #111111;
+      margin-bottom: 6px;
+    }
+
+    .pricing-note-item p {
+      font-size: 0.86rem;
+      color: var(--text-sub);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 1120px) {
+      .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .pricing-section {
+        padding: 0 16px;
+        margin-bottom: 56px;
+        scroll-margin-top: 74px;
+      }
+      .pricing-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .pricing-card {
+        padding: 24px 20px 20px;
+        border-radius: 20px;
+      }
+      .pricing-desc {
+        min-height: auto;
+      }
+      .pricing-notes-strip {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding: 20px;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -3173,6 +3443,7 @@
 
       <nav class="nav-links">
         <a href="#demos">نمونه‌کارهای فعال</a>
+        <a href="#pricing">تعرفه‌ها و پلن‌ها</a>
         <a href="#articles">مقالات آموزشی</a>
         <a href="#faq">سوالات متداول</a>
         <a href="#contact">مشاوره و قیمت</a>
@@ -3591,6 +3862,208 @@
       </div>
     </section>
 
+    <!-- بخش تعرفه‌ها و پلن‌های طراحی سایت (#pricing) -->
+    <section class="pricing-section" id="pricing">
+      <div class="section-header-row">
+        <h2>تعرفه‌ها و پلن‌های طراحی فروشگاه</h2>
+        <p>چهار سطح شفاف برای هر بودجه و مرحله کسب‌وکار؛ از راه‌اندازی سریع با قالب آماده مجموعه تا طراحی کاملاً اختصاصی و آماده کمپین.</p>
+      </div>
+
+      <div class="pricing-grid">
+
+        <!-- پلن ۱: اقتصادی (قالب آماده مجموعه) -->
+        <article class="pricing-card">
+          <div class="pricing-card-head">
+            <span class="pricing-tier-label">شروع اقتصادی</span>
+          </div>
+          <h3 class="pricing-title">قالب آماده استودیو اسکیل</h3>
+          <div class="pricing-price-row">
+            <span class="pricing-amount">۹,۰۰۰,۰۰۰</span>
+            <span class="pricing-currency">تومان</span>
+          </div>
+          <p class="pricing-desc">
+            راه‌اندازی سریع روی یکی از قالب‌های آماده و تست‌شده مجموعه با میزبانی اقتصادی.
+          </p>
+
+          <ul class="pricing-features">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>راه‌اندازی با قالب آماده و سبک مجموعه</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>تنظیم لوگو، رنگ برند و محصولات اولیه</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>میزبانی روی هاست اقتصادی و اتصال دامنه</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>اتصال به درگاه پرداخت بانکی</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>تحویل سریع ۳ تا ۵ روز کاری</span>
+            </li>
+            <li class="is-muted">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14"/></svg>
+              <span>بدون تغییرات سفارشی در ساختار طراحی</span>
+            </li>
+          </ul>
+
+          <a href="https://wa.me/989197073922?text=%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D8%AF%D8%B1%D8%A8%D8%A7%D8%B1%D9%87%20%D9%BE%D9%84%D9%86%20%D8%A7%D9%82%D8%AA%D8%B5%D8%A7%D8%AF%DB%8C%20(%DB%B9%20%D9%85%DB%8C%D9%84%DB%8C%D9%88%D9%86%20%D8%AA%D9%88%D9%85%D8%A7%D9%86%DB%8C%20%D8%A8%D8%A7%20%D9%82%D8%A7%D9%84%D8%A8%20%D8%A2%D9%85%D8%A7%D8%AF%D9%87%20%D9%85%D8%AC%D9%85%D9%88%D8%B9%D9%87)%20%D8%A7%D8%B2%20%D8%B3%D8%A7%DB%8C%D8%AA%20%D8%A7%D8%B3%D8%AA%D9%88%D8%AF%DB%8C%D9%88%20%D8%A7%D8%B3%DA%A9%DB%8C%D9%84%20%D8%B3%D9%88%D8%A7%D9%84%20%D8%AF%D8%A7%D8%B1%D9%85." target="_blank" rel="noopener noreferrer" class="btn-pricing">
+            <span>سفارش پلن اقتصادی</span>
+          </a>
+        </article>
+
+        <!-- پلن ۲: پایه اختصاصی -->
+        <article class="pricing-card">
+          <div class="pricing-card-head">
+            <span class="pricing-tier-label">شروع حرفه‌ای</span>
+          </div>
+          <h3 class="pricing-title">پایه اختصاصی</h3>
+          <div class="pricing-price-row">
+            <span class="pricing-amount">۱۶,۵۰۰,۰۰۰</span>
+            <span class="pricing-currency">تومان</span>
+          </div>
+          <p class="pricing-desc">
+            کدنویسی اختصاصی و سبک برای برندهایی که سرعت موبایل و تجربه خرید تمیز برایشان اولویت دارد.
+          </p>
+
+          <ul class="pricing-features">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>کدنویسی اختصاصی و سبک (بدون افزونه سنگین)</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>بارگذاری زیر ۱ ثانیه و بهینه برای اینترنت ایران</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>سبد خرید سریع بدون فرم‌های تکراری ثبت‌نام</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>اتصال درگاه مستقیم شاپرک + پنل مدیریت فارسی</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>تحویل ۷ تا ۱۰ روز کاری</span>
+            </li>
+          </ul>
+
+          <a href="https://wa.me/989197073922?text=%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D8%A8%D8%B1%D8%A7%DB%8C%20%D8%B3%D9%81%D8%A7%D8%B1%D8%B4%20%C2%AB%D9%BE%D9%84%D9%86%20%D9%BE%D8%A7%DB%8C%D9%87%20%D8%A7%D8%AE%D8%AA%D8%B5%D8%A7%D8%B5%DB%8C%C2%BB%20(%DB%B1%DB%B6.%DB%B5%20%D9%85%DB%8C%D9%84%DB%8C%D9%88%D9%86%20%D8%AA%D9%88%D9%85%D8%A7%D9%86)%20%D8%A7%D8%B2%20%D8%B3%D8%A7%DB%8C%D8%AA%20%D8%A7%D8%B3%D8%AA%D9%88%D8%AF%DB%8C%D9%88%20%D8%A7%D8%B3%DA%A9%DB%8C%D9%84%20%D9%BE%DB%8C%D8%A7%D9%85%20%D9%85%DB%8C%E2%80%8C%D8%AF%D9%87%D9%85." target="_blank" rel="noopener noreferrer" class="btn-pricing">
+            <span>سفارش پلن پایه اختصاصی</span>
+          </a>
+        </article>
+
+        <!-- پلن ۳: رشد و فروش کامل (شاخص) -->
+        <article class="pricing-card featured">
+          <div class="pricing-card-head">
+            <span class="pricing-tier-label">محبوب‌ترین انتخاب</span>
+            <span class="pricing-featured-tag">پیشنهاد ویژه</span>
+          </div>
+          <h3 class="pricing-title">رشد و فروش کامل</h3>
+          <div class="pricing-price-row">
+            <span class="pricing-amount">۲۶,۵۰۰,۰۰۰</span>
+            <span class="pricing-currency">تومان</span>
+          </div>
+          <p class="pricing-desc">
+            پکیج کامل فروشگاهی با اسنپ‌پی، سئو فنی گوگل و ابزارهای افزایش نرخ تبدیل.
+          </p>
+
+          <ul class="pricing-features">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>تمامی امکانات پلن پایه اختصاصی</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>اتصال درگاه مستقیم و خرید اقساطی اسنپ‌پی</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>سئو فنی کامل (تگ‌های Schema قیمت در گوگل)</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>کد تخفیف، جشنواره تایمردار و ابزارهای صنفی</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>مشاوره دریافت اینماد و تحویل ۱۲ تا ۱۸ روز کاری</span>
+            </li>
+          </ul>
+
+          <a href="https://wa.me/989197073922?text=%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D8%A8%D8%B1%D8%A7%DB%8C%20%D8%B3%D9%81%D8%A7%D8%B1%D8%B4%20%C2%AB%D9%BE%D9%84%D9%86%20%D8%B1%D8%B4%D8%AF%20%D9%88%20%D9%81%D8%B1%D9%88%D8%B4%20%DA%A9%D8%A7%D9%85%D9%84%C2%BB%20(%DB%B2%DB%B6.%DB%B5%20%D9%85%DB%8C%D9%84%DB%8C%D9%88%D9%86%20%D8%AA%D9%88%D9%85%D8%A7%D9%86)%20%D8%A7%D8%B2%20%D8%B3%D8%A7%DB%8C%D8%AA%20%D8%A7%D8%B3%D8%AA%D9%88%D8%AF%DB%8C%D9%88%20%D8%A7%D8%B3%DA%A9%DB%8C%D9%84%20%D9%BE%DB%8C%D8%A7%D9%85%20%D9%85%DB%8C%E2%80%8C%D8%AF%D9%87%D9%85." target="_blank" rel="noopener noreferrer" class="btn-pricing">
+            <span>سفارش پلن رشد و فروش کامل</span>
+          </a>
+        </article>
+
+        <!-- پلن ۴: اختصاصی برندها (VIP) -->
+        <article class="pricing-card">
+          <div class="pricing-card-head">
+            <span class="pricing-tier-label">سازمانی و سفارشی</span>
+          </div>
+          <h3 class="pricing-title">اختصاصی برندها (VIP)</h3>
+          <div class="pricing-price-row">
+            <span class="pricing-prefix">از</span>
+            <span class="pricing-amount">۴۲,۰۰۰,۰۰۰</span>
+            <span class="pricing-currency">تومان</span>
+          </div>
+          <p class="pricing-desc">
+            معماری اختصاصی برای برندهای بزرگ، پرترافیک و فروشگاه‌هایی با نیازهای فنی ویژه.
+          </p>
+
+          <ul class="pricing-features">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>طراحی رابط کاربری کاملاً سفارشی برند</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>اتصال به حسابداری، انبارداری و وب‌سرویس پیامک</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>آماده تحمل ترافیک کمپین‌های اینفلوئنسری</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>بلاگ تخصصی، مگامنو و فیلترهای پیشرفته</span>
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>۳ ماه پشتیبانی فنی مستقیم و اولویت‌دار</span>
+            </li>
+          </ul>
+
+          <a href="https://wa.me/989197073922?text=%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D8%A8%D8%B1%D8%A7%DB%8C%20%D9%85%D8%B4%D8%A7%D9%88%D8%B1%D9%87%20%D9%88%20%D8%B3%D9%81%D8%A7%D8%B1%D8%B4%20%C2%AB%D9%BE%D9%84%D9%86%20%D8%A7%D8%AE%D8%AA%D8%B5%D8%A7%D8%B5%DB%8C%20%D8%A8%D8%B1%D9%86%D8%AF%D9%87%D8%A7%20(VIP)%C2%BB%20%D8%A7%D8%B2%20%D8%B3%D8%A7%DB%8C%D8%AA%20%D8%A7%D8%B3%D8%AA%D9%88%D8%AF%DB%8C%D9%88%20%D8%A7%D8%B3%DA%A9%DB%8C%D9%84%20%D9%BE%DB%8C%D8%A7%D9%85%20%D9%85%DB%8C%E2%80%8C%D8%AF%D9%87%D9%85." target="_blank" rel="noopener noreferrer" class="btn-pricing">
+            <span>مشاوره پلن اختصاصی</span>
+          </a>
+        </article>
+
+      </div>
+
+      <!-- نوار شفاف‌سازی ارزش و شرایط پرداخت -->
+      <div class="pricing-notes-strip">
+        <div class="pricing-note-item">
+          <h4>تفاوت پلن اقتصادی و اختصاصی</h4>
+          <p>در پلن ۹ میلیونی، سایت روی قالب آماده مجموعه با هاست اقتصادی راه‌اندازی می‌شود؛ اما در پلن‌های اختصاصی، طراحی متناسب با برند، اسنپ‌پی، سئو فنی و زیرساخت پرسرعت اختصاصی دریافت می‌کنید.</p>
+        </div>
+        <div class="pricing-note-item">
+          <h4>مالکیت کامل بدون هزینه تمدید</h4>
+          <p>برخلاف سایت‌سازهای اجاره‌ای یا قالب‌های پولی، مالکیت کدها و سایت به‌طور کامل متعلق به شماست و هزینه تمدید اجباری ماهانه یا افزونه ندارید.</p>
+        </div>
+        <div class="pricing-note-item">
+          <h4>شرایط پرداخت شفاف</h4>
+          <p>۵۰٪ مبلغ هنگام شروع قرارداد و ۵۰٪ باقی‌مانده پس از تکمیل، تست روی موبایل و تایید نهایی شما پیش از تحویل نهایی دامنه دریافت می‌شود.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- بخش مقالات آموزشی (Articles Section) -->
     <section class="articles-section" id="articles">
       <div class="section-header-row" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px;">
@@ -3863,6 +4336,7 @@
 
         <div class="footer-links">
           <a href="#demos">نمونه‌کارهای فعال</a>
+          <a href="#pricing">تعرفه‌ها و پلن‌ها</a>
           <a href="/blog/">مقالات آموزشی (/blog)</a>
           <a href="#faq">سوالات متداول</a>
           <a href="#contact">مشاوره و قیمت</a>
